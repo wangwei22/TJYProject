@@ -13,16 +13,53 @@
 @end
 
 @implementation TJY_BaseViewController
-
+@synthesize titleView;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.view.frame = CGRectMake(0, 0, SCREEN_W, SCREEN_H);
+    
+    self.view.backgroundColor = [UIColor colorWithHex:0xf6f6f6];
+    titleView = [[NavTitleView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_W, MyNavHeight+STATUSBAR_H)];
+      [titleView.backBtn addTarget:self action:@selector(back:) forControlEvents:UIControlEventTouchUpInside];
+    [titleView addObserver:self forKeyPath:@"title" options:0 context:NULL];
+    if ( self.navigationController.viewControllers.count>1) {
+        titleView.backBtn.hidden = false;
+    }else{
+        titleView.backBtn.hidden = YES;
+    }
+    GMLog("%ld---lk",self.navigationController.viewControllers.count);
+    [self.view insertSubview:titleView atIndex:0];
+}
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
+    titleView.titleLabel.text = self.title;
 }
 
+- (void)back:(id)sender {
+    if (_backClicked != nil) {
+        _backClicked();
+    } else {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+}
+-(void)viewWillAppear:(BOOL)animated{
+    [super  viewWillAppear:animated];
+    self.navigationController.navigationBar.hidden = YES;
+}
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super  viewDidDisappear:animated];
+    self.navigationController.interactivePopGestureRecognizer.enabled = YES;
+}
+
+-(void)dealloc{
+    [titleView removeObserver:self forKeyPath:@"title"];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 /*
 #pragma mark - Navigation

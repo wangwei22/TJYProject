@@ -49,6 +49,9 @@
 		BDF309A7207DE49000678B28 /* MBProgressHUD+XY.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF309A6207DE49000678B28 /* MBProgressHUD+XY.m */; };
 		BDF309AD207DEB9B00678B28 /* ButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF309A9207DEB9A00678B28 /* ButtonView.m */; };
 		BDF309AE207DEB9B00678B28 /* LadderView.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF309AB207DEB9B00678B28 /* LadderView.m */; };
+		BDF309B1207E0A5100678B28 /* TJY_NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF309B0207E0A5100678B28 /* TJY_NavigationController.m */; };
+		BDF309B4207E0CCD00678B28 /* NavTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF309B2207E0CCD00678B28 /* NavTitleView.m */; };
+		BDF309B7207E106100678B28 /* MainMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF309B6207E106100678B28 /* MainMenuView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -152,6 +155,12 @@
 		BDF309AA207DEB9B00678B28 /* LadderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LadderView.h; sourceTree = "<group>"; };
 		BDF309AB207DEB9B00678B28 /* LadderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LadderView.m; sourceTree = "<group>"; };
 		BDF309AC207DEB9B00678B28 /* ButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonView.h; sourceTree = "<group>"; };
+		BDF309AF207E0A5100678B28 /* TJY_NavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJY_NavigationController.h; sourceTree = "<group>"; };
+		BDF309B0207E0A5100678B28 /* TJY_NavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJY_NavigationController.m; sourceTree = "<group>"; };
+		BDF309B2207E0CCD00678B28 /* NavTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavTitleView.m; sourceTree = "<group>"; };
+		BDF309B3207E0CCD00678B28 /* NavTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavTitleView.h; sourceTree = "<group>"; };
+		BDF309B5207E106100678B28 /* MainMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuView.h; sourceTree = "<group>"; };
+		BDF309B6207E106100678B28 /* MainMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -326,6 +335,8 @@
 		BDF3092D207D9EE000678B28 /* NaviViewController */ = {
 			isa = PBXGroup;
 			children = (
+				BDF309AF207E0A5100678B28 /* TJY_NavigationController.h */,
+				BDF309B0207E0A5100678B28 /* TJY_NavigationController.m */,
 			);
 			path = NaviViewController;
 			sourceTree = "<group>";
@@ -382,6 +393,10 @@
 			isa = PBXGroup;
 			children = (
 				BDF309A8207DEB9A00678B28 /* ADView */,
+				BDF309B5207E106100678B28 /* MainMenuView.h */,
+				BDF309B6207E106100678B28 /* MainMenuView.m */,
+				BDF309B3207E0CCD00678B28 /* NavTitleView.h */,
+				BDF309B2207E0CCD00678B28 /* NavTitleView.m */,
 				BDF30960207DB7DF00678B28 /* TryAgainView.h */,
 				BDF3095F207DB7DF00678B28 /* TryAgainView.m */,
 				BDF3095D207DB7DF00678B28 /* TryAgainView.xib */,
@@ -469,8 +484,8 @@
 			isa = PBXGroup;
 			children = (
 				BDF309A4207DE49000678B28 /* MBProgressHUD */,
-				BDF309A1207DE33900678B28 /* UIViewController+SLHUD.m */,
 				BDF309A2207DE33900678B28 /* UIViewController+SLHUD.h */,
+				BDF309A1207DE33900678B28 /* UIViewController+SLHUD.m */,
 			);
 			path = HUD;
 			sourceTree = "<group>";
@@ -808,10 +823,12 @@
 				BDF30995207DE06C00678B28 /* OpenAPIServices.m in Sources */,
 				BDF30952207DB01700678B28 /* ImageServices.m in Sources */,
 				BDF30947207D9EE000678B28 /* AppDelegate+AppService.m in Sources */,
+				BDF309B4207E0CCD00678B28 /* NavTitleView.m in Sources */,
 				BDF30901207D9E7500678B28 /* main.m in Sources */,
 				BDF309A7207DE49000678B28 /* MBProgressHUD+XY.m in Sources */,
 				BDF30944207D9EE000678B28 /* TJY_HomeViewController.m in Sources */,
 				BDF30963207DB7DF00678B28 /* TryAgainView.m in Sources */,
+				BDF309B1207E0A5100678B28 /* TJY_NavigationController.m in Sources */,
 				BDF30992207DD82C00678B28 /* TJY_RequestServiceManager.m in Sources */,
 				BDF30989207DBCD800678B28 /* NSString+Emojize.m in Sources */,
 				BDF309A3207DE33900678B28 /* UIViewController+SLHUD.m in Sources */,
@@ -824,6 +841,7 @@
 				BDF3098F207DBCD800678B28 /* UIImage+ImageEffects.m in Sources */,
 				BDF30986207DBCD800678B28 /* UILabel+Addition.m in Sources */,
 				BDF30942207D9EE000678B28 /* TJY_MainTabBarViewController.m in Sources */,
+				BDF309B7207E106100678B28 /* MainMenuView.m in Sources */,
 				BDF3098D207DBCD800678B28 /* UIImageView+LBBlurredImage.m in Sources */,
 				BDF3098E207DBCD800678B28 /* UIColor+Addition.m in Sources */,
 				BDF30946207D9EE000678B28 /* AppDelegate.m in Sources */,

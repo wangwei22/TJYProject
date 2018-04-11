@@ -18,7 +18,25 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1XY-Nm-R9a">
+                    <rect key="frame" x="15" y="308.5" width="345" height="50"/>
+                    <color key="backgroundColor" red="0.98823529409999999" green="0.050980392159999999" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="R5P-gD-mRG"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <connections>
+                        <action selector="btnClick:" destination="-1" eventType="touchUpInside" id="azy-Gd-pJK"/>
+                    </connections>
+                </button>
+            </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="1XY-Nm-R9a" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="WjL-ip-fNl"/>
+                <constraint firstItem="1XY-Nm-R9a" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="g6Q-bQ-Wrl"/>
+                <constraint firstItem="1XY-Nm-R9a" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="kX9-wM-h6I"/>
+            </constraints>
         </view>
     </objects>
 </document>

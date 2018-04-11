@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "NavTitleView.h"
 @interface TJY_BaseViewController : UIViewController
-
+{
+    NavTitleView *titleView;
+}
+@property(nonatomic,strong)NavTitleView *titleView;
+@property (copy, nonatomic) void (^backClicked)();
 @end

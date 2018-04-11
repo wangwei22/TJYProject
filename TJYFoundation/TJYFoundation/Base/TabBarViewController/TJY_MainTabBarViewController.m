@@ -9,7 +9,7 @@
 #import "TJY_MainTabBarViewController.h"
 #import <UIKit/UIKit.h>
 #import <GKNavigationController.h>
-
+#import "TJY_NavigationController.h"
 #import "TJY_HomeViewController.h"
 static  CGFloat  const CYLTabBarControllerHeight = 40.f;
 
@@ -46,7 +46,7 @@ static  CGFloat  const CYLTabBarControllerHeight = 40.f;
     NSArray  * array = @[[TJY_HomeViewController  new],[TJY_HomeViewController  new],[TJY_HomeViewController  new],[TJY_HomeViewController  new]];
     __block  NSMutableArray  * viewControllers =[NSMutableArray  arrayWithCapacity:5];
     [array  enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        UIViewController  * vc = [[GKNavigationController  alloc] initWithRootViewController:array[idx]];
+        UIViewController  * vc = [[TJY_NavigationController  alloc] initWithRootViewController:array[idx]];
         [viewControllers addObject:vc];
     }];
     
