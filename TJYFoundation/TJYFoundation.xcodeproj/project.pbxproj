@@ -21,6 +21,31 @@
 		BDF30945207D9EE000678B28 /* TJY_HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDF30934207D9EE000678B28 /* TJY_HomeViewController.xib */; };
 		BDF30946207D9EE000678B28 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF3093B207D9EE000678B28 /* AppDelegate.m */; };
 		BDF30947207D9EE000678B28 /* AppDelegate+AppService.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF3093C207D9EE000678B28 /* AppDelegate+AppService.m */; };
+		BDF3094C207DA82400678B28 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDF3094B207DA82400678B28 /* Login.storyboard */; };
+		BDF3094F207DAFD500678B28 /* TJY_ADLaunchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF3094E207DAFD500678B28 /* TJY_ADLaunchVC.m */; };
+		BDF30952207DB01700678B28 /* ImageServices.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF30950207DB01700678B28 /* ImageServices.m */; };
+		BDF30955207DB0C100678B28 /* DataService.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF30954207DB0C100678B28 /* DataService.m */; };
+		BDF30958207DB10000678B28 /* code2city.js in Resources */ = {isa = PBXBuildFile; fileRef = BDF30956207DB10000678B28 /* code2city.js */; };
+		BDF30959207DB10000678B28 /* city2code.js in Resources */ = {isa = PBXBuildFile; fileRef = BDF30957207DB10000678B28 /* city2code.js */; };
+		BDF3095C207DB1FF00678B28 /* Picture.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF3095B207DB1FF00678B28 /* Picture.m */; };
+		BDF30961207DB7DF00678B28 /* TryAgainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDF3095D207DB7DF00678B28 /* TryAgainView.xib */; };
+		BDF30962207DB7DF00678B28 /* TryAgainView640.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDF3095E207DB7DF00678B28 /* TryAgainView640.xib */; };
+		BDF30963207DB7DF00678B28 /* TryAgainView.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF3095F207DB7DF00678B28 /* TryAgainView.m */; };
+		BDF30968207DB81D00678B28 /* ButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF30964207DB81D00678B28 /* ButtonView.m */; };
+		BDF30969207DB81D00678B28 /* LadderView.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF30967207DB81D00678B28 /* LadderView.m */; };
+		BDF3096C207DB84E00678B28 /* loading.html in Resources */ = {isa = PBXBuildFile; fileRef = BDF3096A207DB84E00678B28 /* loading.html */; };
+		BDF3096D207DB84E00678B28 /* icon_loading.png in Resources */ = {isa = PBXBuildFile; fileRef = BDF3096B207DB84E00678B28 /* icon_loading.png */; };
+		BDF3096F207DB86600678B28 /* failed--load_web.png in Resources */ = {isa = PBXBuildFile; fileRef = BDF3096E207DB86600678B28 /* failed--load_web.png */; };
+		BDF30986207DBCD800678B28 /* UILabel+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF30972207DBCD800678B28 /* UILabel+Addition.m */; };
+		BDF30987207DBCD800678B28 /* NSString+MD5Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF30974207DBCD800678B28 /* NSString+MD5Addition.m */; };
+		BDF30988207DBCD800678B28 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF30977207DBCD800678B28 /* UIView+Frame.m */; };
+		BDF30989207DBCD800678B28 /* NSString+Emojize.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF30979207DBCD800678B28 /* NSString+Emojize.m */; };
+		BDF3098A207DBCD800678B28 /* NSString+Emoji.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF3097A207DBCD800678B28 /* NSString+Emoji.m */; };
+		BDF3098B207DBCD800678B28 /* UIResponder+RemoteEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF3097B207DBCD800678B28 /* UIResponder+RemoteEvent.m */; };
+		BDF3098D207DBCD800678B28 /* UIImageView+LBBlurredImage.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF3097F207DBCD800678B28 /* UIImageView+LBBlurredImage.m */; };
+		BDF3098E207DBCD800678B28 /* UIColor+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF30980207DBCD800678B28 /* UIColor+Addition.m */; };
+		BDF3098F207DBCD800678B28 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF30982207DBCD800678B28 /* UIImage+ImageEffects.m */; };
+		BDF30992207DD82C00678B28 /* TJY_RequestServiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF30991207DD82C00678B28 /* TJY_RequestServiceManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +100,49 @@
 		BDF3093E207D9EE000678B28 /* AppMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppMacros.h; sourceTree = "<group>"; };
 		BDF3093F207D9EE000678B28 /* AppConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppConfig.h; sourceTree = "<group>"; };
 		BDF30940207D9EE000678B28 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		BDF3094B207DA82400678B28 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		BDF3094D207DAFD500678B28 /* TJY_ADLaunchVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJY_ADLaunchVC.h; sourceTree = "<group>"; };
+		BDF3094E207DAFD500678B28 /* TJY_ADLaunchVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJY_ADLaunchVC.m; sourceTree = "<group>"; };
+		BDF30950207DB01700678B28 /* ImageServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageServices.m; sourceTree = "<group>"; };
+		BDF30951207DB01700678B28 /* ImageServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageServices.h; sourceTree = "<group>"; };
+		BDF30953207DB0C100678B28 /* DataService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataService.h; sourceTree = "<group>"; };
+		BDF30954207DB0C100678B28 /* DataService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataService.m; sourceTree = "<group>"; };
+		BDF30956207DB10000678B28 /* code2city.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = code2city.js; sourceTree = "<group>"; };
+		BDF30957207DB10000678B28 /* city2code.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = city2code.js; sourceTree = "<group>"; };
+		BDF3095A207DB1FF00678B28 /* Picture.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Picture.h; sourceTree = "<group>"; };
+		BDF3095B207DB1FF00678B28 /* Picture.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Picture.m; sourceTree = "<group>"; };
+		BDF3095D207DB7DF00678B28 /* TryAgainView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TryAgainView.xib; sourceTree = "<group>"; };
+		BDF3095E207DB7DF00678B28 /* TryAgainView640.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TryAgainView640.xib; sourceTree = "<group>"; };
+		BDF3095F207DB7DF00678B28 /* TryAgainView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TryAgainView.m; sourceTree = "<group>"; };
+		BDF30960207DB7DF00678B28 /* TryAgainView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TryAgainView.h; sourceTree = "<group>"; };
+		BDF30964207DB81D00678B28 /* ButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonView.m; sourceTree = "<group>"; };
+		BDF30965207DB81D00678B28 /* LadderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LadderView.h; sourceTree = "<group>"; };
+		BDF30966207DB81D00678B28 /* ButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonView.h; sourceTree = "<group>"; };
+		BDF30967207DB81D00678B28 /* LadderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LadderView.m; sourceTree = "<group>"; };
+		BDF3096A207DB84E00678B28 /* loading.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = loading.html; sourceTree = "<group>"; };
+		BDF3096B207DB84E00678B28 /* icon_loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_loading.png; sourceTree = "<group>"; };
+		BDF3096E207DB86600678B28 /* failed--load_web.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "failed--load_web.png"; sourceTree = "<group>"; };
+		BDF30971207DBCD800678B28 /* emojis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = emojis.h; sourceTree = "<group>"; };
+		BDF30972207DBCD800678B28 /* UILabel+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Addition.m"; sourceTree = "<group>"; };
+		BDF30974207DBCD800678B28 /* NSString+MD5Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5Addition.m"; sourceTree = "<group>"; };
+		BDF30975207DBCD800678B28 /* UIColor+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Addition.h"; sourceTree = "<group>"; };
+		BDF30976207DBCD800678B28 /* UIImageView+LBBlurredImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+LBBlurredImage.h"; sourceTree = "<group>"; };
+		BDF30977207DBCD800678B28 /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
+		BDF30978207DBCD800678B28 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
+		BDF30979207DBCD800678B28 /* NSString+Emojize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Emojize.m"; sourceTree = "<group>"; };
+		BDF3097A207DBCD800678B28 /* NSString+Emoji.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Emoji.m"; sourceTree = "<group>"; };
+		BDF3097B207DBCD800678B28 /* UIResponder+RemoteEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIResponder+RemoteEvent.m"; sourceTree = "<group>"; };
+		BDF3097C207DBCD800678B28 /* NSString+MD5Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5Addition.h"; sourceTree = "<group>"; };
+		BDF3097E207DBCD800678B28 /* UILabel+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Addition.h"; sourceTree = "<group>"; };
+		BDF3097F207DBCD800678B28 /* UIImageView+LBBlurredImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+LBBlurredImage.m"; sourceTree = "<group>"; };
+		BDF30980207DBCD800678B28 /* UIColor+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Addition.m"; sourceTree = "<group>"; };
+		BDF30981207DBCD800678B28 /* NSString+Emojize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Emojize.h"; sourceTree = "<group>"; };
+		BDF30982207DBCD800678B28 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
+		BDF30983207DBCD800678B28 /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
+		BDF30984207DBCD800678B28 /* UIResponder+RemoteEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIResponder+RemoteEvent.h"; sourceTree = "<group>"; };
+		BDF30985207DBCD800678B28 /* NSString+Emoji.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Emoji.h"; sourceTree = "<group>"; };
+		BDF30990207DD82C00678B28 /* TJY_RequestServiceManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJY_RequestServiceManager.h; sourceTree = "<group>"; };
+		BDF30991207DD82C00678B28 /* TJY_RequestServiceManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJY_RequestServiceManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,9 +226,9 @@
 				BDF3093D207D9EE000678B28 /* Config */,
 				BDF30937207D9EE000678B28 /* Manager */,
 				BDF3092E207D9EE000678B28 /* Modules */,
-				BDF30923207D9EDF00678B28 /* Resource */,
 				BDF30924207D9EE000678B28 /* ThirdParty */,
 				BDF30941207D9EE000678B28 /* Utils */,
+				BDF30923207D9EDF00678B28 /* Resource */,
 				BDF308FA207D9E7500678B28 /* Assets.xcassets */,
 				BDF308FC207D9E7500678B28 /* LaunchScreen.storyboard */,
 				BDF308FF207D9E7500678B28 /* Info.plist */,
@@ -190,6 +258,11 @@
 		BDF30923207D9EDF00678B28 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				BDF3096E207DB86600678B28 /* failed--load_web.png */,
+				BDF3096B207DB84E00678B28 /* icon_loading.png */,
+				BDF3096A207DB84E00678B28 /* loading.html */,
+				BDF30957207DB10000678B28 /* city2code.js */,
+				BDF30956207DB10000678B28 /* code2city.js */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -251,6 +324,7 @@
 				BDF30936207D9EE000678B28 /* View */,
 				BDF30935207D9EE000678B28 /* Model */,
 				BDF3092F207D9EE000678B28 /* ViewModel */,
+				BDF30948207DA7AB00678B28 /* Storyboard */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -276,6 +350,8 @@
 				BDF30932207D9EE000678B28 /* TJY_HomeViewController.h */,
 				BDF30933207D9EE000678B28 /* TJY_HomeViewController.m */,
 				BDF30934207D9EE000678B28 /* TJY_HomeViewController.xib */,
+				BDF3094D207DAFD500678B28 /* TJY_ADLaunchVC.h */,
+				BDF3094E207DAFD500678B28 /* TJY_ADLaunchVC.m */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -283,6 +359,8 @@
 		BDF30935207D9EE000678B28 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BDF3095A207DB1FF00678B28 /* Picture.h */,
+				BDF3095B207DB1FF00678B28 /* Picture.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -290,6 +368,14 @@
 		BDF30936207D9EE000678B28 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BDF30966207DB81D00678B28 /* ButtonView.h */,
+				BDF30964207DB81D00678B28 /* ButtonView.m */,
+				BDF30965207DB81D00678B28 /* LadderView.h */,
+				BDF30967207DB81D00678B28 /* LadderView.m */,
+				BDF30960207DB7DF00678B28 /* TryAgainView.h */,
+				BDF3095F207DB7DF00678B28 /* TryAgainView.m */,
+				BDF3095D207DB7DF00678B28 /* TryAgainView.xib */,
+				BDF3095E207DB7DF00678B28 /* TryAgainView640.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -297,6 +383,8 @@
 		BDF30937207D9EE000678B28 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				BDF30990207DD82C00678B28 /* TJY_RequestServiceManager.h */,
+				BDF30991207DD82C00678B28 /* TJY_RequestServiceManager.m */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -325,8 +413,47 @@
 		BDF30941207D9EE000678B28 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				BDF30970207DBCD800678B28 /* Category */,
+				BDF30953207DB0C100678B28 /* DataService.h */,
+				BDF30954207DB0C100678B28 /* DataService.m */,
+				BDF30951207DB01700678B28 /* ImageServices.h */,
+				BDF30950207DB01700678B28 /* ImageServices.m */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		BDF30948207DA7AB00678B28 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				BDF3094B207DA82400678B28 /* Login.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		BDF30970207DBCD800678B28 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				BDF30971207DBCD800678B28 /* emojis.h */,
+				BDF3097C207DBCD800678B28 /* NSString+MD5Addition.h */,
+				BDF30974207DBCD800678B28 /* NSString+MD5Addition.m */,
+				BDF30976207DBCD800678B28 /* UIImageView+LBBlurredImage.h */,
+				BDF3097F207DBCD800678B28 /* UIImageView+LBBlurredImage.m */,
+				BDF3097E207DBCD800678B28 /* UILabel+Addition.h */,
+				BDF30972207DBCD800678B28 /* UILabel+Addition.m */,
+				BDF30975207DBCD800678B28 /* UIColor+Addition.h */,
+				BDF30980207DBCD800678B28 /* UIColor+Addition.m */,
+				BDF30981207DBCD800678B28 /* NSString+Emojize.h */,
+				BDF30979207DBCD800678B28 /* NSString+Emojize.m */,
+				BDF30978207DBCD800678B28 /* UIImage+ImageEffects.h */,
+				BDF30982207DBCD800678B28 /* UIImage+ImageEffects.m */,
+				BDF30983207DBCD800678B28 /* UIView+Frame.h */,
+				BDF30977207DBCD800678B28 /* UIView+Frame.m */,
+				BDF30984207DBCD800678B28 /* UIResponder+RemoteEvent.h */,
+				BDF3097B207DBCD800678B28 /* UIResponder+RemoteEvent.m */,
+				BDF30985207DBCD800678B28 /* NSString+Emoji.h */,
+				BDF3097A207DBCD800678B28 /* NSString+Emoji.m */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -400,6 +527,7 @@
 		BDF308E6207D9E7400678B28 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = TJY_;
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = wangwei;
 				TargetAttributes = {
@@ -441,9 +569,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDF30962207DB7DF00678B28 /* TryAgainView640.xib in Resources */,
+				BDF30961207DB7DF00678B28 /* TryAgainView.xib in Resources */,
+				BDF3096C207DB84E00678B28 /* loading.html in Resources */,
+				BDF3094C207DA82400678B28 /* Login.storyboard in Resources */,
 				BDF30945207D9EE000678B28 /* TJY_HomeViewController.xib in Resources */,
+				BDF3096F207DB86600678B28 /* failed--load_web.png in Resources */,
+				BDF3096D207DB84E00678B28 /* icon_loading.png in Resources */,
 				BDF308FE207D9E7500678B28 /* LaunchScreen.storyboard in Resources */,
+				BDF30958207DB10000678B28 /* code2city.js in Resources */,
 				BDF308FB207D9E7500678B28 /* Assets.xcassets in Resources */,
+				BDF30959207DB10000678B28 /* city2code.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -626,11 +762,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDF3098A207DBCD800678B28 /* NSString+Emoji.m in Sources */,
+				BDF3094F207DAFD500678B28 /* TJY_ADLaunchVC.m in Sources */,
+				BDF30987207DBCD800678B28 /* NSString+MD5Addition.m in Sources */,
+				BDF30969207DB81D00678B28 /* LadderView.m in Sources */,
+				BDF30952207DB01700678B28 /* ImageServices.m in Sources */,
 				BDF30947207D9EE000678B28 /* AppDelegate+AppService.m in Sources */,
 				BDF30901207D9E7500678B28 /* main.m in Sources */,
 				BDF30944207D9EE000678B28 /* TJY_HomeViewController.m in Sources */,
+				BDF30963207DB7DF00678B28 /* TryAgainView.m in Sources */,
+				BDF30988207DBCD800678B28 /* UIView+Frame.m in Sources */,
+				BDF30992207DD82C00678B28 /* TJY_RequestServiceManager.m in Sources */,
+				BDF30989207DBCD800678B28 /* NSString+Emojize.m in Sources */,
 				BDF30943207D9EE000678B28 /* TJY_BaseViewController.m in Sources */,
+				BDF3098B207DBCD800678B28 /* UIResponder+RemoteEvent.m in Sources */,
+				BDF3095C207DB1FF00678B28 /* Picture.m in Sources */,
+				BDF30955207DB0C100678B28 /* DataService.m in Sources */,
+				BDF3098F207DBCD800678B28 /* UIImage+ImageEffects.m in Sources */,
+				BDF30986207DBCD800678B28 /* UILabel+Addition.m in Sources */,
 				BDF30942207D9EE000678B28 /* TJY_MainTabBarViewController.m in Sources */,
+				BDF30968207DB81D00678B28 /* ButtonView.m in Sources */,
+				BDF3098D207DBCD800678B28 /* UIImageView+LBBlurredImage.m in Sources */,
+				BDF3098E207DBCD800678B28 /* UIColor+Addition.m in Sources */,
 				BDF30946207D9EE000678B28 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -797,6 +950,7 @@
 				DEVELOPMENT_TEAM = Y63TN95R3W;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/TJYFoundation/Config/PrefixHeader.pch";
 				INFOPLIST_FILE = TJYFoundation/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -816,6 +970,7 @@
 				DEVELOPMENT_TEAM = Y63TN95R3W;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/TJYFoundation/Config/PrefixHeader.pch";
 				INFOPLIST_FILE = TJYFoundation/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
