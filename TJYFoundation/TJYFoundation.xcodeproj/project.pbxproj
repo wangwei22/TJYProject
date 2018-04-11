@@ -247,10 +247,10 @@
 		BDF3092E207D9EE000678B28 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				BDF3092F207D9EE000678B28 /* ViewModel */,
 				BDF30930207D9EE000678B28 /* Controller */,
-				BDF30935207D9EE000678B28 /* Model */,
 				BDF30936207D9EE000678B28 /* View */,
+				BDF30935207D9EE000678B28 /* Model */,
+				BDF3092F207D9EE000678B28 /* ViewModel */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -315,8 +315,8 @@
 		BDF3093D207D9EE000678B28 /* Config */ = {
 			isa = PBXGroup;
 			children = (
-				BDF3093E207D9EE000678B28 /* AppMacros.h */,
 				BDF3093F207D9EE000678B28 /* AppConfig.h */,
+				BDF3093E207D9EE000678B28 /* AppMacros.h */,
 				BDF30940207D9EE000678B28 /* PrefixHeader.pch */,
 			);
 			path = Config;
