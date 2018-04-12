@@ -20,6 +20,7 @@
 }
 - (IBAction)btnClick:(id)sender {
     [self.navigationController  pushViewController:[TJY_BaseViewController new] animated:YES];
+//    [self  presentViewController:[TJY_BaseViewController new]  animated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {

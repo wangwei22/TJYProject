@@ -12,6 +12,7 @@
 {
     NavTitleView *titleView;
 }
+@property(nonatomic,assign) BOOL  navTitleViewIsHidden ;
 @property(nonatomic,strong)NavTitleView *titleView;
-@property (copy, nonatomic) void (^backClicked)();
+@property (copy, nonatomic) void (^backClicked)(void);
 @end

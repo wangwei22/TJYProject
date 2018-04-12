@@ -321,14 +321,14 @@
         NSString * message = nil;
         if (error) {
             [[NSNotificationCenter defaultCenter] postNotificationName:@"HideMBProgressHUD" object:nil];
-            if (_delegate&& [_delegate respondsToSelector:@selector(openFailed:)]) {
-                [_delegate openFailed:resp];
+            if (self->_delegate&& [self->_delegate respondsToSelector:@selector(openFailed:)]) {
+                [self->_delegate openFailed:resp];
             }
         }else{
             if ([result isKindOfClass:[UMSocialUserInfoResponse class]]) {
                 UMSocialUserInfoResponse * resp  = result;
-                if (_delegate&&[_delegate respondsToSelector:@selector(openLoginSucce:snsName:)]) {
-                    [_delegate openLoginSucce:resp snsName:snsName];
+                if (self->_delegate&&[self->_delegate respondsToSelector:@selector(openLoginSucce:snsName:)]) {
+                    [self->_delegate openLoginSucce:resp snsName:snsName];
                 }
             }else{
                 message = @"Get info fail";
