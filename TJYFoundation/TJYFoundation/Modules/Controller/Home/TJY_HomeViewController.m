@@ -7,7 +7,8 @@
 //
 
 #import "TJY_HomeViewController.h"
-
+#import "TJY_ADLaunchVC.h"
+#import "TJY_RootWebViewController.h"
 @interface TJY_HomeViewController ()
 
 @end
@@ -17,6 +18,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    NSDictionary *infoDict = [[NSBundle mainBundle] infoDictionary];
+    //获取所有启动图片信息数组
+    NSArray *launchImagesArr = infoDict[@"UILaunchImages"];
+    NSLog(@"launchImagesArr: %@", launchImagesArr);
+    GMLog("---infoDict:%@---",infoDict);
+    [kNotificationCenter  addObserver:self selector:@selector(pushToAd) name:@"pushToAd" object:nil];
+}
+-(void)pushToAd{
+    TJY_RootWebViewController  * vc = [[TJY_RootWebViewController  alloc] initWithUrl:@"http://www.hao123.com"];
+    vc.isShowCloseBtn = YES;
+    [self.navigationController  pushViewController:vc animated:YES];
 }
 - (IBAction)btnClick:(id)sender {
     [self.navigationController  pushViewController:[TJY_BaseViewController new] animated:YES];

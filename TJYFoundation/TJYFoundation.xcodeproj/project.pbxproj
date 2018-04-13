@@ -10,8 +10,10 @@
 		3876C832DCD87F68C3DECBCD /* libPods-TJYFoundationTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FC2191DB5674B697C0F85C1 /* libPods-TJYFoundationTests.a */; };
 		86FF7473C4BCF8D27B01DA3E /* libPods-TJYFoundation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AB5CA5B3032D3D98FCAAEF3 /* libPods-TJYFoundation.a */; };
 		A616C3AEB97D6D991BE55A9B /* libPods-TJYFoundationUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EBC924F7BD3EA214B663DF0 /* libPods-TJYFoundationUITests.a */; };
+		BD32A8DC207F3FB9009E9D03 /* TJY_MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD32A8DB207F3FB9009E9D03 /* TJY_MainViewController.m */; };
 		BD4AB7E1207EF53400591A4C /* TJY_WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD4AB7E0207EF53400591A4C /* TJY_WebViewController.m */; };
 		BD4AB7E4207EF5B100591A4C /* TJY_JSHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = BD4AB7E3207EF5B100591A4C /* TJY_JSHandle.m */; };
+		BD4AB7E7207F09D300591A4C /* TJY_RootWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD4AB7E6207F09D300591A4C /* TJY_RootWebViewController.m */; };
 		BDF308FB207D9E7500678B28 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDF308FA207D9E7500678B28 /* Assets.xcassets */; };
 		BDF308FE207D9E7500678B28 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDF308FC207D9E7500678B28 /* LaunchScreen.storyboard */; };
 		BDF30901207D9E7500678B28 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF30900207D9E7500678B28 /* main.m */; };
@@ -83,10 +85,14 @@
 		6FAEEF9D3D13B63EF2C3EC36 /* Pods-TJYFoundationUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TJYFoundationUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TJYFoundationUITests/Pods-TJYFoundationUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		7FC2191DB5674B697C0F85C1 /* libPods-TJYFoundationTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TJYFoundationTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9965E9808A8D00FCCF3F0FD /* Pods-TJYFoundationTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TJYFoundationTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TJYFoundationTests/Pods-TJYFoundationTests.debug.xcconfig"; sourceTree = "<group>"; };
+		BD32A8DA207F3FB9009E9D03 /* TJY_MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJY_MainViewController.h; sourceTree = "<group>"; };
+		BD32A8DB207F3FB9009E9D03 /* TJY_MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJY_MainViewController.m; sourceTree = "<group>"; };
 		BD4AB7DF207EF53400591A4C /* TJY_WebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJY_WebViewController.h; sourceTree = "<group>"; };
 		BD4AB7E0207EF53400591A4C /* TJY_WebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJY_WebViewController.m; sourceTree = "<group>"; };
 		BD4AB7E2207EF5B100591A4C /* TJY_JSHandle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJY_JSHandle.h; sourceTree = "<group>"; };
 		BD4AB7E3207EF5B100591A4C /* TJY_JSHandle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJY_JSHandle.m; sourceTree = "<group>"; };
+		BD4AB7E5207F09D300591A4C /* TJY_RootWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJY_RootWebViewController.h; sourceTree = "<group>"; };
+		BD4AB7E6207F09D300591A4C /* TJY_RootWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJY_RootWebViewController.m; sourceTree = "<group>"; };
 		BDF308EE207D9E7400678B28 /* TJYFoundation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TJYFoundation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDF308FA207D9E7500678B28 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BDF308FD207D9E7500678B28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -320,6 +326,8 @@
 				BD4AB7E3207EF5B100591A4C /* TJY_JSHandle.m */,
 				BD4AB7DF207EF53400591A4C /* TJY_WebViewController.h */,
 				BD4AB7E0207EF53400591A4C /* TJY_WebViewController.m */,
+				BD4AB7E5207F09D300591A4C /* TJY_RootWebViewController.h */,
+				BD4AB7E6207F09D300591A4C /* TJY_RootWebViewController.m */,
 			);
 			path = WebViewController;
 			sourceTree = "<group>";
@@ -329,6 +337,8 @@
 			children = (
 				BDF30928207D9EE000678B28 /* TJY_MainTabBarViewController.h */,
 				BDF30929207D9EE000678B28 /* TJY_MainTabBarViewController.m */,
+				BD32A8DA207F3FB9009E9D03 /* TJY_MainViewController.h */,
+				BD32A8DB207F3FB9009E9D03 /* TJY_MainViewController.m */,
 			);
 			path = TabBarViewController;
 			sourceTree = "<group>";
@@ -512,10 +522,10 @@
 		BDF309A8207DEB9A00678B28 /* ADView */ = {
 			isa = PBXGroup;
 			children = (
-				BDF309A9207DEB9A00678B28 /* ButtonView.m */,
 				BDF309AA207DEB9B00678B28 /* LadderView.h */,
 				BDF309AB207DEB9B00678B28 /* LadderView.m */,
 				BDF309AC207DEB9B00678B28 /* ButtonView.h */,
+				BDF309A9207DEB9A00678B28 /* ButtonView.m */,
 			);
 			path = ADView;
 			sourceTree = "<group>";
@@ -827,6 +837,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BDF3098A207DBCD800678B28 /* NSString+Emoji.m in Sources */,
+				BD32A8DC207F3FB9009E9D03 /* TJY_MainViewController.m in Sources */,
 				BDF309AD207DEB9B00678B28 /* ButtonView.m in Sources */,
 				BDF3094F207DAFD500678B28 /* TJY_ADLaunchVC.m in Sources */,
 				BDF30987207DBCD800678B28 /* NSString+MD5Addition.m in Sources */,
@@ -839,6 +850,7 @@
 				BDF30901207D9E7500678B28 /* main.m in Sources */,
 				BDF309A7207DE49000678B28 /* MBProgressHUD+XY.m in Sources */,
 				BDF30944207D9EE000678B28 /* TJY_HomeViewController.m in Sources */,
+				BD4AB7E7207F09D300591A4C /* TJY_RootWebViewController.m in Sources */,
 				BDF30963207DB7DF00678B28 /* TryAgainView.m in Sources */,
 				BDF309B1207E0A5100678B28 /* TJY_NavigationController.m in Sources */,
 				BDF30992207DD82C00678B28 /* TJY_RequestServiceManager.m in Sources */,
@@ -1018,6 +1030,7 @@
 			baseConfigurationReference = 29BCAA55DCBEC15AAEAF7415 /* Pods-TJYFoundation.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y63TN95R3W;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/TJYFoundation/Config/PrefixHeader.pch";
@@ -1038,6 +1051,7 @@
 			baseConfigurationReference = 0CBA04C0AF02CDE9B8AFEFE2 /* Pods-TJYFoundation.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y63TN95R3W;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/TJYFoundation/Config/PrefixHeader.pch";

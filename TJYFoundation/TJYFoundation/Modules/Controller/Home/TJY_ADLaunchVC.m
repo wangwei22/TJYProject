@@ -11,6 +11,7 @@
 #import "ButtonView.h"
 #import "LadderView.h"
 #import <SDWebImageManager.h>
+
 @interface TJY_ADLaunchVC ()
 {
     NSString* _url;
@@ -25,10 +26,33 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     isImgUrlDown = NO;
-    _url = @"";
+    _url = @"www.baidu.com  ";
     _picurl = @"";
     [self creationLogo];
-    // Do any additional setup after loading the view.
+    self.view.backgroundColor = [UIColor  yellowColor];
+}
+//手势事件
+- (void)skipPanFrom{
+    //[self.navigationController setNavigationBarHidden:NO animated:NO];
+    [self.navigationController popViewControllerAnimated:NO];
+    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
+    
+    if(_delegate){
+        if([_delegate respondsToSelector:@selector(nextController)]){
+            [_delegate nextController];
+        }
+    }else{
+        [UIView animateWithDuration:0.3f animations:^{
+            
+            self.view.alpha = 0.f;
+            
+        } completion:^(BOOL finished) {
+            
+            [self.view removeFromSuperview];
+            
+        }];
+    }
+    
 }
 - (void)setAdvImage:(BOOL)onlyLocal{
     NSDictionary *dic = NSUDGetUserStartAd;
@@ -36,7 +60,7 @@
 //    _adResInfo = [[ResInformation alloc] initWithDictionary:dic error:&err];
 //    _url = _adResInfo.args.url;
 //    Picture *pic = (Picture*)_adResInfo.pics[0];
-    _picurl = [[[Picture  alloc] init] u];
+    _picurl =@"http://pic35.nipic.com/20131104/12954233_100827450197_2.jpg";// [[[Picture  alloc] init] u];
     
     if(_picurl){
         
@@ -51,7 +75,7 @@
         loadingView.alpha = 0.f;
         
         ButtonView *btnView = [[ButtonView alloc]init];
-        btnView.frame = CGRectMake(loadingView.frame.size.width - 74 - 15, 20, 74, 27);
+        btnView.frame = CGRectMake(loadingView.frame.size.width - 74 - 15, kStatusBarHeight, 74, 27);
         btnView.backgroundColor = [UIColor colorWithRed:((float)((0x000000 & 0xff0000) >> 16))/255.0 green:((float)((0x000000 & 0x00ff00) >> 8))/255.0 blue:((float)(0x000000 & 0x0000ff))/255.0 alpha:0.8];
         btnView.layer.cornerRadius = 13.5;
         btnView.layer.borderColor = [UIColor colorWithRed:((float)((0xcccccc & 0xff0000) >> 16))/255.0 green:((float)((0xcccccc & 0x00ff00) >> 8))/255.0 blue:((float)(0xcccccc & 0x0000ff))/255.0 alpha:0.3].CGColor;
@@ -64,15 +88,16 @@
         }];
         
         NSDate *startDate = [NSDate date];
-        NSURL *imgUrl = [NSURL URLWithString:[ImageServices imageUrlFromServer:_picurl width:loadingView.width height:loadingView.height]];
+        NSURL *imgUrl = [NSURL URLWithString:_picurl];
+//        NSURL *imgUrl = [NSURL URLWithString:[ImageServices imageUrlFromServer:_picurl width:loadingView.width height:loadingView.height]];
         NSLog(@"loadAD Str:%@",imgUrl.description);
         __block  BOOL  _isInCache;
         [[SDWebImageManager  sharedManager] diskImageExistsForURL:imgUrl completion:^(BOOL isInCache) {
             _isInCache = isInCache;
         }];
-        if (!_isInCache && onlyLocal) {
-            [self timerFired];
-        }else{
+//        if (!_isInCache && onlyLocal) {
+//            [self timerFired];
+//        }else{
             @weakify(self);
             [loadingView sd_setImageWithURL:imgUrl placeholderImage:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
                 @strongify(self);
@@ -96,20 +121,19 @@
                         loadingView.alpha = 1.f;
                         
                     } completion:^(BOOL finished) {
-                        NSTimer *showTimer = [NSTimer scheduledTimerWithTimeInterval:2.5f target:self selector:@selector(timerFired) userInfo:nil repeats:NO];
+                     [NSTimer scheduledTimerWithTimeInterval:2.5f target:self selector:@selector(timerFired) userInfo:nil repeats:NO];
                     }];
                 }else{
                     [self timerFired];
                 }
             }];
-        }
+//        }
     }else{
         [self timerFired];
     }
 }
 -(void)adBtnAction:(id)sender{
-    
-    
+    [kNotificationCenter  postNotificationName:@"pushToAd" object:nil];
 }
 //创建默认logo启动页
 - (void)creationLogo{
@@ -122,15 +146,14 @@
         bgImage.image = [UIImage imageNamed:@"LaunchImage-800-667h"];
     }else if (ssiPhone6plus) {
         bgImage.image = [UIImage imageNamed:@"LaunchImage-800-Portrait-736h"];
-    }else {
+    }else if (kDevice_Is_iPhoneX) {
+         bgImage.image = [UIImage imageNamed:@"LaunchImage-1100-Portrait-2436h"];
+    } else {
         bgImage.image = [UIImage imageNamed:@"LaunchImage-700"];
     }
     [self.view addSubview:bgImage];
     
     loadTimer = [NSTimer scheduledTimerWithTimeInterval:AD_LOADING_SEC target:self selector:@selector(stoploading) userInfo:nil repeats:NO];
-//    _requestServices = [[RequestServices alloc] initWithDelegate:self];
-//    [_requestServices getListAdNews:0];
-    //[[RequestServices sharedInstance:self] getListAdNews:0];
 }
 - (void)stoploading {
     NSLog(@"stoploading");
@@ -146,7 +169,7 @@
 
 - (void)timerFired {
     NSLog(@"timefied");
-    [self  dismissViewControllerAnimated:YES completion:nil];
+    [self skipPanFrom];
     [[[TJY_RequestServiceManager  alloc] initWithDelegate:self] cancel];
 }
 - (void)didReceiveMemoryWarning {

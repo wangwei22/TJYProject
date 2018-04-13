@@ -18,17 +18,25 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.frame = CGRectMake(0, 0, SCREEN_W, SCREEN_H);
-    
+     self.automaticallyAdjustsScrollViewInsets = NO;
     self.view.backgroundColor = [UIColor colorWithHex:0xf6f6f6];
     titleView = [[NavTitleView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_W, MyNavHeight+STATUSBAR_H)];
       [titleView.backBtn addTarget:self action:@selector(back:) forControlEvents:UIControlEventTouchUpInside];
     [titleView addObserver:self forKeyPath:@"title" options:0 context:NULL];
+    if (self.navigationController.viewControllers.count >2) {
+          titleView.shutBtn.hidden = false;
+     [[titleView.shutBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+         [self.navigationController popToRootViewControllerAnimated:YES];
+        }];
+    }else{
+         titleView.shutBtn.hidden = YES;
+    }
     if ( self.navigationController.viewControllers.count>1) {
         titleView.backBtn.hidden = false;
     }else{
         titleView.backBtn.hidden = YES;
     }
-    GMLog("%ld---lk",self.navigationController.viewControllers.count);
+    GMLog("%u---lk",self.navigationController.viewControllers.count);
     [self.view insertSubview:titleView atIndex:0];
 }
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
@@ -54,10 +62,17 @@
 {
     [super  viewDidDisappear:animated];
     self.navigationController.interactivePopGestureRecognizer.enabled = YES;
+    [self.view endEditing:YES];
 }
 
+//取消请求
+- (void)cancelRequest
+{
+    
+}
 -(void)dealloc{
     [titleView removeObserver:self forKeyPath:@"title"];
+    [self  cancelRequest];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

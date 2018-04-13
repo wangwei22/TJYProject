@@ -7,7 +7,11 @@
 //
 
 #import "TJY_BaseViewController.h"
-
-@interface TJY_ADLaunchVC : TJY_BaseViewController
-
+@protocol  TJY_ADLaunchVCDelegate<NSObject>
+@optional
+-(void)nextController;
+@end
+@interface TJY_ADLaunchVC : UIViewController
+@property(nonatomic,assign)id<TJY_ADLaunchVCDelegate>delegate;
+-(void)setDelegate:(id<TJY_ADLaunchVCDelegate>)delegate;
 @end

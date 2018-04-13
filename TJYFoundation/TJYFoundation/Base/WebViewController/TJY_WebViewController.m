@@ -45,7 +45,7 @@
     
     CGRect f = self.view.bounds;
     if (self.navigationController && self.navTitleViewIsHidden == NO) {
-        f = CGRectMake(0, 0, self.view.bounds.size.width, kScreenHeight - kTopHeight);
+        f = CGRectMake(0, kStatusBarHeight+kNavBarHeight, self.view.bounds.size.width, kScreenHeight - kTopHeight);
     }
     
     self.webView = [[WKWebView alloc]initWithFrame:f configuration:configuration];

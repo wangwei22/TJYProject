@@ -15,4 +15,7 @@
 @property(nonatomic,assign) BOOL  navTitleViewIsHidden ;
 @property(nonatomic,strong)NavTitleView *titleView;
 @property (copy, nonatomic) void (^backClicked)(void);
+
+//取消网络请求
+- (void)cancelRequest;
 @end
