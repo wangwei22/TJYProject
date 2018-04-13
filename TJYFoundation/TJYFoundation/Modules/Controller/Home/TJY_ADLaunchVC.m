@@ -11,9 +11,12 @@
 #import "ButtonView.h"
 #import "LadderView.h"
 #import <SDWebImageManager.h>
-
-@interface TJY_ADLaunchVC ()
+#import "TJY_HomeRequestService.h"
+#import "TJY_AdInfomation.h"
+@interface TJY_ADLaunchVC ()<TJY_RequestServiceManagerDelegate>
 {
+    TJY_HomeRequestService  * rs;
+    TJY_AdInfomation * adInfo;
     NSString* _url;
     NSString* _picurl;
     BOOL isImgUrlDown;
@@ -26,7 +29,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     isImgUrlDown = NO;
-    _url = @"www.baidu.com  ";
+    _url = @"www.baidu.com";
     _picurl = @"";
     [self creationLogo];
     self.view.backgroundColor = [UIColor  yellowColor];
@@ -55,12 +58,14 @@
     
 }
 - (void)setAdvImage:(BOOL)onlyLocal{
-    NSDictionary *dic = NSUDGetUserStartAd;
-    NSError *err = nil;
-//    _adResInfo = [[ResInformation alloc] initWithDictionary:dic error:&err];
-//    _url = _adResInfo.args.url;
-//    Picture *pic = (Picture*)_adResInfo.pics[0];
-    _picurl =@"http://pic35.nipic.com/20131104/12954233_100827450197_2.jpg";// [[[Picture  alloc] init] u];
+    NSArray *arrayS = NSUDGetUserStartAd;
+    NSArray  * array = [TJY_AdInfomation mj_objectArrayWithKeyValuesArray:arrayS];
+    if (adInfo.url.length>0) {
+        _url = [NSString  stringWithFormat:@"%@%@",CNHB_SERVER,adInfo.url];
+    }
+    adInfo =(TJY_AdInfomation*)array.firstObject;
+    _picurl =[NSString  stringWithFormat:@"%@%@",CNHB_SERVER,adInfo.imageUrl];
+;//@"http://pic35.nipic.com/20131104/12954233_100827450197_2.jpg";// [[[Picture  alloc] init] u];
     
     if(_picurl){
         
@@ -95,9 +100,9 @@
         [[SDWebImageManager  sharedManager] diskImageExistsForURL:imgUrl completion:^(BOOL isInCache) {
             _isInCache = isInCache;
         }];
-//        if (!_isInCache && onlyLocal) {
-//            [self timerFired];
-//        }else{
+        if (!_isInCache && onlyLocal) {
+            [self timerFired];
+        }else{
             @weakify(self);
             [loadingView sd_setImageWithURL:imgUrl placeholderImage:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
                 @strongify(self);
@@ -127,13 +132,13 @@
                     [self timerFired];
                 }
             }];
-//        }
+        }
     }else{
         [self timerFired];
     }
 }
 -(void)adBtnAction:(id)sender{
-    [kNotificationCenter  postNotificationName:@"pushToAd" object:nil];
+    [kNotificationCenter  postNotificationName:@"pushToAd" object:adInfo.url];
 }
 //创建默认logo启动页
 - (void)creationLogo{
@@ -154,12 +159,14 @@
     [self.view addSubview:bgImage];
     
     loadTimer = [NSTimer scheduledTimerWithTimeInterval:AD_LOADING_SEC target:self selector:@selector(stoploading) userInfo:nil repeats:NO];
+    rs = [[TJY_HomeRequestService  alloc] initWithDelegate:self];
+    [rs  getListAdNews:100];
 }
 - (void)stoploading {
     NSLog(@"stoploading");
     if (!isImgUrlDown) {
         NSLog(@"111");
-       [[[TJY_RequestServiceManager  alloc] initWithDelegate:self] cancel];
+       [rs cancel];
         [self setAdvImage:YES];
     }else{
         NSLog(@"222");
@@ -170,7 +177,23 @@
 - (void)timerFired {
     NSLog(@"timefied");
     [self skipPanFrom];
-    [[[TJY_RequestServiceManager  alloc] initWithDelegate:self] cancel];
+    [rs cancel];
+}
+
+-(void)getFinished:(NSDictionary *)obj tag:(long long)tag{
+    if (tag == 100) {
+        GMLog("32423421:%@",obj);
+        NSUDSetUserStartAd([obj objectForKey:@"result"]);
+        isImgUrlDown = YES;
+        [self setAdvImage:NO];
+    }
+}
+-(void)getError:(NSError *)error tag:(long long)tag{
+    if (tag == 100) {
+        GMLog("dfdfdfdr:%@",error);
+        [self setAdvImage:YES];
+    }
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

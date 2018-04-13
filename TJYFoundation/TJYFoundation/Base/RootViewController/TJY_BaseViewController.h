@@ -18,4 +18,6 @@
 
 //取消网络请求
 - (void)cancelRequest;
+// 修改textField 的placeholedColor
+-(void)textFieldPlaceholderColorWithTextField:(UITextField*)textField;
 @end

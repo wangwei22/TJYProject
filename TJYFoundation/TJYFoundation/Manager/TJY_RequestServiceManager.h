@@ -25,4 +25,5 @@
 - (id)initWithDelegate:(id)delegate;
 -(void)cancel;
 #pragma mark - 其他
+-(void)startHttpRequest:(NSDictionary*)dic target:(NSString*)target tag:(long long)tag;
 @end

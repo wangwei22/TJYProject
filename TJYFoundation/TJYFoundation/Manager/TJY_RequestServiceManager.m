@@ -22,7 +22,6 @@
         _manager = [AFHTTPSessionManager manager];
         self.delegate = delegate;
     }
-    
     return self;
 }
 
@@ -50,8 +49,8 @@
         [pDic removeObjectForKey:key];
     }
     
-    [pDic setObject:NSUDGetPostCityCode forKey:@"hd_cc"];
-    [pDic setObject:NSUDGetEntCode forKey:@"hd_ec"];
+/*   [pDic setObject:NSUDGetPostCityCode forKey:@"hd_cc"];
+    [pDic setObject:NSUDGetEntCode forKey:@"hd_ec"];*/
    if ([JPUSHService registrationID]) {
         [pDic setObject:[JPUSHService registrationID] forKey:@"hd_pid"];
     }

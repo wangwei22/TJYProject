@@ -36,7 +36,7 @@
     }else{
         titleView.backBtn.hidden = YES;
     }
-    GMLog("%u---lk",self.navigationController.viewControllers.count);
+//    GMLog("%u---lk",self.navigationController.viewControllers.count);
     [self.view insertSubview:titleView atIndex:0];
 }
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
@@ -70,6 +70,10 @@
 {
     
 }
+-(void)textFieldPlaceholderColorWithTextField:(UITextField*)textField{
+    [textField  setValue:ssRGBHex(0x999999) forKeyPath:@"_placeholderLabel.textColor"];
+}
+
 -(void)dealloc{
     [titleView removeObserver:self forKeyPath:@"title"];
     [self  cancelRequest];
