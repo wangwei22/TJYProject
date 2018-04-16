@@ -64,8 +64,8 @@
     NSFileManager *defaultManager = [NSFileManager defaultManager];
     if ([defaultManager isDeletableFileAtPath:filePath]) {
         [defaultManager removeItemAtPath:filePath error:nil];
-//        [[NSNotificationCenter defaultCenter] postNotificationName:KNotificationLoginStateChange object:nil];
     }
+    KPostNotification(KNotificationLoginStateChange, @NO);
     _isLogined = NO ;
     _loginUser = nil;
 }
