@@ -11,4 +11,5 @@
 #define  PHP_ADURL  @"api/index/getSilde"
 #define  LOGIN_INFOURL  @"api/public/getD"
 #define  REGIST_URL  @"api/public/register"
+#define  LOGIN_URL @"api/public/login"
 #endif /* HomePageHeader_h */

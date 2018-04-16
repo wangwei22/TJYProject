@@ -10,10 +10,12 @@
 #import "HomePageHeader.h"
 #import "TJY_AdInfomation.h"
 #import "TJY_DutyList.h"
+#import "UserInfo.h"
 @interface TJY_HomePageViewModel()
 @property(nonatomic, strong) RACCommand *sourceCommand;
 @property(nonatomic,strong)RACCommand *LoginInfoCommand;
 @property(nonatomic,strong)RACCommand  * registCommand;
+@property(nonatomic,strong)RACCommand  *LoginCommand;
 @end
 @implementation TJY_HomePageViewModel
 -(RACCommand *)sourceCommand{
@@ -44,10 +46,23 @@
     if (!_registCommand) {
         _registCommand =[ [RACCommand  alloc] initWithSignalBlock:^RACSignal * _Nonnull(NSDictionary * input) {
             return [[AFNetWorkUtils  racPOSTWthURL:REGIST_URL params:input] map:^id _Nullable(NSDictionary * value) {
+                GMLog("valve:::%@",value);
                 return  value;
             }];
         }];
     }
     return   _registCommand;
+}
+-(RACCommand *)LoginCommand{
+    if (!_LoginCommand) {
+        _LoginCommand  =[ [RACCommand  alloc] initWithSignalBlock:^RACSignal * _Nonnull(NSDictionary * input) {
+            return[ [AFNetWorkUtils  racPOSTWthURL:LOGIN_URL params:input] map:^id _Nullable(id  _Nullable value) {
+                UserInfo  * user = [UserInfo  mj_objectWithKeyValues:[value objectForKey:@"result"]];
+                
+                return   user;
+            }];
+        }];
+    }
+    return  _LoginCommand;
 }
 @end

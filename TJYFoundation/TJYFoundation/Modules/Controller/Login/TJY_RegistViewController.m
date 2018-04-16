@@ -76,7 +76,16 @@
                            _departmentId,@"division_id",
                            _professionId,@"duties_id",
                            self.code.text,@"key",nil];
-     [viewModel.registCommand execute:dic] ;
+   RACSignal  * sours =   [viewModel.registCommand execute:dic];
+    @weakify(self);
+    [sours  subscribeNext:^(id  _Nullable x) {
+        @strongify(self);
+        [self  showHint:[x objectForKey:@"msg"]];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self.navigationController  popViewControllerAnimated:YES];
+        });
+    } error:^(NSError * _Nullable error) {
+    }];
     
 }
 - (void)didReceiveMemoryWarning {

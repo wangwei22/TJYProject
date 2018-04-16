@@ -10,6 +10,8 @@
 		3876C832DCD87F68C3DECBCD /* libPods-TJYFoundationTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FC2191DB5674B697C0F85C1 /* libPods-TJYFoundationTests.a */; };
 		86FF7473C4BCF8D27B01DA3E /* libPods-TJYFoundation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AB5CA5B3032D3D98FCAAEF3 /* libPods-TJYFoundation.a */; };
 		A616C3AEB97D6D991BE55A9B /* libPods-TJYFoundationUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EBC924F7BD3EA214B663DF0 /* libPods-TJYFoundationUITests.a */; };
+		BD293033208495F900304FBA /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = BD293032208495F900304FBA /* UserInfo.m */; };
+		BD2930362084998500304FBA /* TJY_UserApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = BD2930352084998500304FBA /* TJY_UserApplication.m */; };
 		BD2C87EA20835A8400B5AF2F /* TJY_HomePageViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BD2C87E920835A8400B5AF2F /* TJY_HomePageViewModel.m */; };
 		BD2C87F22083838800B5AF2F /* TJY_LoginCellHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BD2C87F02083838800B5AF2F /* TJY_LoginCellHelper.m */; };
 		BD2C87F520838C1500B5AF2F /* TJY_DutyList.m in Sources */ = {isa = PBXBuildFile; fileRef = BD2C87F420838C1500B5AF2F /* TJY_DutyList.m */; };
@@ -95,6 +97,10 @@
 		6FAEEF9D3D13B63EF2C3EC36 /* Pods-TJYFoundationUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TJYFoundationUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TJYFoundationUITests/Pods-TJYFoundationUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		7FC2191DB5674B697C0F85C1 /* libPods-TJYFoundationTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TJYFoundationTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9965E9808A8D00FCCF3F0FD /* Pods-TJYFoundationTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TJYFoundationTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TJYFoundationTests/Pods-TJYFoundationTests.debug.xcconfig"; sourceTree = "<group>"; };
+		BD293031208495F900304FBA /* UserInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
+		BD293032208495F900304FBA /* UserInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
+		BD2930342084998500304FBA /* TJY_UserApplication.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJY_UserApplication.h; sourceTree = "<group>"; };
+		BD2930352084998500304FBA /* TJY_UserApplication.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJY_UserApplication.m; sourceTree = "<group>"; };
 		BD2C87E820835A8400B5AF2F /* TJY_HomePageViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJY_HomePageViewModel.h; sourceTree = "<group>"; };
 		BD2C87E920835A8400B5AF2F /* TJY_HomePageViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJY_HomePageViewModel.m; sourceTree = "<group>"; };
 		BD2C87EB2083709300B5AF2F /* HomePageHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomePageHeader.h; sourceTree = "<group>"; };
@@ -478,6 +484,8 @@
 				BD2F400B2080504000682FFB /* TJY_AdInfomation.m */,
 				BD2C87F320838C1500B5AF2F /* TJY_DutyList.h */,
 				BD2C87F420838C1500B5AF2F /* TJY_DutyList.m */,
+				BD293031208495F900304FBA /* UserInfo.h */,
+				BD293032208495F900304FBA /* UserInfo.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -504,6 +512,8 @@
 				BD6C970F2081FFC4003D0306 /* HTTP */,
 				BDF30990207DD82C00678B28 /* TJY_RequestServiceManager.h */,
 				BDF30991207DD82C00678B28 /* TJY_RequestServiceManager.m */,
+				BD2930342084998500304FBA /* TJY_UserApplication.h */,
+				BD2930352084998500304FBA /* TJY_UserApplication.m */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -920,6 +930,7 @@
 				BDF309AD207DEB9B00678B28 /* ButtonView.m in Sources */,
 				BDF3094F207DAFD500678B28 /* TJY_ADLaunchVC.m in Sources */,
 				BDF30987207DBCD800678B28 /* NSString+MD5Addition.m in Sources */,
+				BD293033208495F900304FBA /* UserInfo.m in Sources */,
 				BDF30995207DE06C00678B28 /* OpenAPIServices.m in Sources */,
 				BD2C87EA20835A8400B5AF2F /* TJY_HomePageViewModel.m in Sources */,
 				BD4AB7E1207EF53400591A4C /* TJY_WebViewController.m in Sources */,
@@ -943,6 +954,7 @@
 				BDF30943207D9EE000678B28 /* TJY_BaseViewController.m in Sources */,
 				BD2C87F22083838800B5AF2F /* TJY_LoginCellHelper.m in Sources */,
 				BDF3098B207DBCD800678B28 /* UIResponder+RemoteEvent.m in Sources */,
+				BD2930362084998500304FBA /* TJY_UserApplication.m in Sources */,
 				BDF3095C207DB1FF00678B28 /* Picture.m in Sources */,
 				BDF3099F207DE0B800678B28 /* PushInfo.m in Sources */,
 				BD2F40132080916A00682FFB /* TJY_RegistViewController.m in Sources */,
