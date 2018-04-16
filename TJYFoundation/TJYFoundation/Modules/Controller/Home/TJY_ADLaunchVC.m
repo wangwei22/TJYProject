@@ -13,6 +13,7 @@
 #import <SDWebImageManager.h>
 #import "TJY_HomeRequestService.h"
 #import "TJY_AdInfomation.h"
+#import "TJY_HomePageViewModel.h"
 @interface TJY_ADLaunchVC ()<TJY_RequestServiceManagerDelegate>
 {
     TJY_HomeRequestService  * rs;
@@ -21,6 +22,7 @@
     NSString* _picurl;
     BOOL isImgUrlDown;
     NSTimer *loadTimer;
+    TJY_HomePageViewModel * model;
 }
 @end
 
@@ -160,7 +162,18 @@
     
     loadTimer = [NSTimer scheduledTimerWithTimeInterval:AD_LOADING_SEC target:self selector:@selector(stoploading) userInfo:nil repeats:NO];
     rs = [[TJY_HomeRequestService  alloc] initWithDelegate:self];
-    [rs  getListAdNews:100];
+//    [rs  getListAdNews:100];
+    model = [[TJY_HomePageViewModel  alloc] init];
+    @weakify(self);
+    [[model.sourceCommand execute:nil] subscribeNext:^(id  _Nullable x) {
+        @strongify(self);
+        GMLog("x....%@",x);
+        self->isImgUrlDown = YES;
+        [self setAdvImage:NO];
+    } error:^(NSError * _Nullable error) {
+        GMLog("error:::%@",error.description);
+           [self setAdvImage:YES];
+    }];
 }
 - (void)stoploading {
     NSLog(@"stoploading");

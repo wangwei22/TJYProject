@@ -14,4 +14,6 @@
 @property(nonatomic,copy)NSString * Id;
 @property(nonatomic,copy)NSString *title;
 @property(nonatomic,copy)NSString *status;
+
 @end
+

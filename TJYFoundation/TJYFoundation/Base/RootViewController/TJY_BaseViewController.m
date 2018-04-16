@@ -14,6 +14,15 @@
 
 @implementation TJY_BaseViewController
 @synthesize titleView;
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        if ([self respondsToSelector:@selector(edgesForExtendedLayout)]) {
+            self.edgesForExtendedLayout = UIRectEdgeNone;
+        }
+    }
+    return self;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -58,11 +67,15 @@
     [super  viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = YES;
 }
+-(void)viewWillDisappear:(BOOL)animated{
+    [super  viewWillDisappear:animated];
+    [self.view endEditing:YES];
+     [[UIApplication  sharedApplication] .keyWindow endEditing:YES];
+}
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super  viewDidDisappear:animated];
     self.navigationController.interactivePopGestureRecognizer.enabled = YES;
-    [self.view endEditing:YES];
 }
 
 //取消请求
@@ -80,7 +93,12 @@
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+        GMLog("%@---didReceiveMemoryWarning", self.title);
+        [[SDImageCache sharedImageCache] setValue:nil forKey:@"memCache"];
+        //清除所有的内存中图片缓存，不影响正在显示的图片
+        [[SDImageCache sharedImageCache] clearMemory];
+        //停止正在进行的图片下载操作
+        [[SDWebImageManager sharedManager] cancelAll];
 }
 
 

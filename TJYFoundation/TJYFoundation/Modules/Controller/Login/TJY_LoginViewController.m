@@ -7,8 +7,11 @@
 //
 
 #import "TJY_LoginViewController.h"
-
+#import "TJY_HomePageViewModel.h"
 @interface TJY_LoginViewController ()
+{
+        TJY_HomePageViewModel * model;
+}
 @property (weak, nonatomic) IBOutlet UITextField *telphone;
 @property (weak, nonatomic) IBOutlet UITextField *password;
 
@@ -19,10 +22,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    GMLog("tabBarHeight %f",self.tabBarController.tabBar.frame.size.height);
     self.titleView.hidden = YES;
     [self textFieldPlaceholderColorWithTextField:self.telphone];
     [self textFieldPlaceholderColorWithTextField:self.password];
-//    self.password.clearButtonMode = UITextFieldViewModeAlways;
 }
 - (IBAction)submit:(id)sender {
     

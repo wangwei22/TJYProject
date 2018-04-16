@@ -7,7 +7,11 @@
 //
 
 #import "TJY_BaseViewController.h"
-
+@protocol  TJY_InfoListViewControllerDelegate<NSObject>
+@optional
+-(void)popViewControllerWithTitel:(NSString*)title  Id :(NSString*)Id  isdepartment:(BOOL)isdepartment;
+@end
 @interface TJY_InfoListViewController : TJY_BaseViewController
 @property(nonatomic,assign) BOOL  isdepartment;
+@property(nonatomic,weak)id<TJY_InfoListViewControllerDelegate>delegate;
 @end

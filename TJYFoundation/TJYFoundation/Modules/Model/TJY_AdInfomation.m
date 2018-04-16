@@ -10,6 +10,7 @@
 
 @implementation TJY_AdInfomation
 +(NSDictionary *)mj_replacedKeyFromPropertyName{
-    return @{@"Id":@"id",@"imageUrl":@"image"};
+    return @{@"Id":@"id",@"imageUrl":@"image",@"divName":@"dic_name",@"dutyName":@"duties_name"};
 }
 @end
+
