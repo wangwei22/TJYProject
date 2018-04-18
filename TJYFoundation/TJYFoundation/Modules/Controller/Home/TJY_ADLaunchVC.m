@@ -156,7 +156,7 @@
     }else if (kDevice_Is_iPhoneX) {
          bgImage.image = [UIImage imageNamed:@"LaunchImage-1100-Portrait-2436h"];
     } else {
-        bgImage.image = [UIImage imageNamed:@"LaunchImage-700"];
+        bgImage.image =  [UIImage imageNamed:@"LaunchImage-800-Portrait-736h"];
     }
     [self.view addSubview:bgImage];
     
@@ -165,7 +165,8 @@
 //    [rs  getListAdNews:100];
     model = [[TJY_HomePageViewModel  alloc] init];
     @weakify(self);
-    [[model.sourceCommand execute:nil] subscribeNext:^(id  _Nullable x) {
+    NSDictionary  * dic = [NSDictionary  dictionaryWithObjectsAndKeys:@"1",@"id", nil];
+    [[model.sourceCommand execute:dic] subscribeNext:^(id  _Nullable x) {
         @strongify(self);
         GMLog("x....%@",x);
         self->isImgUrlDown = YES;

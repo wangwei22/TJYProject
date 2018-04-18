@@ -12,6 +12,9 @@
 		A616C3AEB97D6D991BE55A9B /* libPods-TJYFoundationUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EBC924F7BD3EA214B663DF0 /* libPods-TJYFoundationUITests.a */; };
 		BD293033208495F900304FBA /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = BD293032208495F900304FBA /* UserInfo.m */; };
 		BD2930362084998500304FBA /* TJY_UserApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = BD2930352084998500304FBA /* TJY_UserApplication.m */; };
+		BD2B35382085BDD3003BC03B /* TJY_HomePageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BD2B35372085BDD3003BC03B /* TJY_HomePageHelper.m */; };
+		BD2B353D2085BFCA003BC03B /* TJY_HomeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BD2B353B2085BFCA003BC03B /* TJY_HomeCollectionViewCell.m */; };
+		BD2B353E2085BFCA003BC03B /* TJY_HomeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD2B353C2085BFCA003BC03B /* TJY_HomeCollectionViewCell.xib */; };
 		BD2C87EA20835A8400B5AF2F /* TJY_HomePageViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BD2C87E920835A8400B5AF2F /* TJY_HomePageViewModel.m */; };
 		BD2C87F22083838800B5AF2F /* TJY_LoginCellHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BD2C87F02083838800B5AF2F /* TJY_LoginCellHelper.m */; };
 		BD2C87F520838C1500B5AF2F /* TJY_DutyList.m in Sources */ = {isa = PBXBuildFile; fileRef = BD2C87F420838C1500B5AF2F /* TJY_DutyList.m */; };
@@ -26,6 +29,8 @@
 		BD4AB7E4207EF5B100591A4C /* TJY_JSHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = BD4AB7E3207EF5B100591A4C /* TJY_JSHandle.m */; };
 		BD4AB7E7207F09D300591A4C /* TJY_RootWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD4AB7E6207F09D300591A4C /* TJY_RootWebViewController.m */; };
 		BD6C97122081FFC4003D0306 /* AFNetWorkUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = BD6C97102081FFC4003D0306 /* AFNetWorkUtils.m */; };
+		BD6D650920873A0E008C747C /* HomePage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD6D650820873A0E008C747C /* HomePage.storyboard */; };
+		BD6D650C20873A34008C747C /* TJY_SmartCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD6D650B20873A34008C747C /* TJY_SmartCardViewController.m */; };
 		BDF308FB207D9E7500678B28 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDF308FA207D9E7500678B28 /* Assets.xcassets */; };
 		BDF308FE207D9E7500678B28 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDF308FC207D9E7500678B28 /* LaunchScreen.storyboard */; };
 		BDF30901207D9E7500678B28 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF30900207D9E7500678B28 /* main.m */; };
@@ -101,6 +106,11 @@
 		BD293032208495F900304FBA /* UserInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
 		BD2930342084998500304FBA /* TJY_UserApplication.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJY_UserApplication.h; sourceTree = "<group>"; };
 		BD2930352084998500304FBA /* TJY_UserApplication.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJY_UserApplication.m; sourceTree = "<group>"; };
+		BD2B35362085BDD3003BC03B /* TJY_HomePageHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJY_HomePageHelper.h; sourceTree = "<group>"; };
+		BD2B35372085BDD3003BC03B /* TJY_HomePageHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJY_HomePageHelper.m; sourceTree = "<group>"; };
+		BD2B353A2085BFCA003BC03B /* TJY_HomeCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJY_HomeCollectionViewCell.h; sourceTree = "<group>"; };
+		BD2B353B2085BFCA003BC03B /* TJY_HomeCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJY_HomeCollectionViewCell.m; sourceTree = "<group>"; };
+		BD2B353C2085BFCA003BC03B /* TJY_HomeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TJY_HomeCollectionViewCell.xib; sourceTree = "<group>"; };
 		BD2C87E820835A8400B5AF2F /* TJY_HomePageViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJY_HomePageViewModel.h; sourceTree = "<group>"; };
 		BD2C87E920835A8400B5AF2F /* TJY_HomePageViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJY_HomePageViewModel.m; sourceTree = "<group>"; };
 		BD2C87EB2083709300B5AF2F /* HomePageHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomePageHeader.h; sourceTree = "<group>"; };
@@ -130,6 +140,9 @@
 		BD4AB7E6207F09D300591A4C /* TJY_RootWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJY_RootWebViewController.m; sourceTree = "<group>"; };
 		BD6C97102081FFC4003D0306 /* AFNetWorkUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetWorkUtils.m; sourceTree = "<group>"; };
 		BD6C97112081FFC4003D0306 /* AFNetWorkUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetWorkUtils.h; sourceTree = "<group>"; };
+		BD6D650820873A0E008C747C /* HomePage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomePage.storyboard; sourceTree = "<group>"; };
+		BD6D650A20873A34008C747C /* TJY_SmartCardViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJY_SmartCardViewController.h; sourceTree = "<group>"; };
+		BD6D650B20873A34008C747C /* TJY_SmartCardViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJY_SmartCardViewController.m; sourceTree = "<group>"; };
 		BDF308EE207D9E7400678B28 /* TJYFoundation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TJYFoundation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDF308FA207D9E7500678B28 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BDF308FD207D9E7500678B28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -263,11 +276,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BD2B35392085BFB0003BC03B /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				BD2B353A2085BFCA003BC03B /* TJY_HomeCollectionViewCell.h */,
+				BD2B353B2085BFCA003BC03B /* TJY_HomeCollectionViewCell.m */,
+				BD2B353C2085BFCA003BC03B /* TJY_HomeCollectionViewCell.xib */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		BD2C87EF2083838800B5AF2F /* Helper */ = {
 			isa = PBXGroup;
 			children = (
 				BD2C87F12083838800B5AF2F /* TJY_LoginCellHelper.h */,
 				BD2C87F02083838800B5AF2F /* TJY_LoginCellHelper.m */,
+				BD2B35362085BDD3003BC03B /* TJY_HomePageHelper.h */,
+				BD2B35372085BDD3003BC03B /* TJY_HomePageHelper.m */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -292,6 +317,15 @@
 				BD6C97102081FFC4003D0306 /* AFNetWorkUtils.m */,
 			);
 			path = HTTP;
+			sourceTree = "<group>";
+		};
+		BD6D6507208739E0008C747C /* SmartCard */ = {
+			isa = PBXGroup;
+			children = (
+				BD6D650A20873A34008C747C /* TJY_SmartCardViewController.h */,
+				BD6D650B20873A34008C747C /* TJY_SmartCardViewController.m */,
+			);
+			path = SmartCard;
 			sourceTree = "<group>";
 		};
 		BDF308E5207D9E7400678B28 = {
@@ -466,6 +500,7 @@
 		BDF30931207D9EE000678B28 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				BD6D6507208739E0008C747C /* SmartCard */,
 				BDF30932207D9EE000678B28 /* TJY_HomeViewController.h */,
 				BDF30933207D9EE000678B28 /* TJY_HomeViewController.m */,
 				BDF30934207D9EE000678B28 /* TJY_HomeViewController.xib */,
@@ -493,6 +528,7 @@
 		BDF30936207D9EE000678B28 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BD2B35392085BFB0003BC03B /* Home */,
 				BDF309A8207DEB9A00678B28 /* ADView */,
 				BDF309B5207E106100678B28 /* MainMenuView.h */,
 				BDF309B6207E106100678B28 /* MainMenuView.m */,
@@ -556,6 +592,7 @@
 			isa = PBXGroup;
 			children = (
 				BDF3094B207DA82400678B28 /* Login.storyboard */,
+				BD6D650820873A0E008C747C /* HomePage.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -738,6 +775,8 @@
 				BDF3096D207DB84E00678B28 /* icon_loading.png in Resources */,
 				BDF308FE207D9E7500678B28 /* LaunchScreen.storyboard in Resources */,
 				BDF30958207DB10000678B28 /* code2city.js in Resources */,
+				BD2B353E2085BFCA003BC03B /* TJY_HomeCollectionViewCell.xib in Resources */,
+				BD6D650920873A0E008C747C /* HomePage.storyboard in Resources */,
 				BDF308FB207D9E7500678B28 /* Assets.xcassets in Resources */,
 				BDF30959207DB10000678B28 /* city2code.js in Resources */,
 			);
@@ -939,6 +978,7 @@
 				BDF30947207D9EE000678B28 /* AppDelegate+AppService.m in Sources */,
 				BDF309B4207E0CCD00678B28 /* NavTitleView.m in Sources */,
 				BDF30901207D9E7500678B28 /* main.m in Sources */,
+				BD2B353D2085BFCA003BC03B /* TJY_HomeCollectionViewCell.m in Sources */,
 				BD2F40092080498100682FFB /* TJY_HomeRequestService.m in Sources */,
 				BDF309A7207DE49000678B28 /* MBProgressHUD+XY.m in Sources */,
 				BDF30944207D9EE000678B28 /* TJY_HomeViewController.m in Sources */,
@@ -951,12 +991,14 @@
 				BDF30989207DBCD800678B28 /* NSString+Emojize.m in Sources */,
 				BDF309A3207DE33900678B28 /* UIViewController+SLHUD.m in Sources */,
 				BDF309AE207DEB9B00678B28 /* LadderView.m in Sources */,
+				BD6D650C20873A34008C747C /* TJY_SmartCardViewController.m in Sources */,
 				BDF30943207D9EE000678B28 /* TJY_BaseViewController.m in Sources */,
 				BD2C87F22083838800B5AF2F /* TJY_LoginCellHelper.m in Sources */,
 				BDF3098B207DBCD800678B28 /* UIResponder+RemoteEvent.m in Sources */,
 				BD2930362084998500304FBA /* TJY_UserApplication.m in Sources */,
 				BDF3095C207DB1FF00678B28 /* Picture.m in Sources */,
 				BDF3099F207DE0B800678B28 /* PushInfo.m in Sources */,
+				BD2B35382085BDD3003BC03B /* TJY_HomePageHelper.m in Sources */,
 				BD2F40132080916A00682FFB /* TJY_RegistViewController.m in Sources */,
 				BDF30955207DB0C100678B28 /* DataService.m in Sources */,
 				BDF3098F207DBCD800678B28 /* UIImage+ImageEffects.m in Sources */,

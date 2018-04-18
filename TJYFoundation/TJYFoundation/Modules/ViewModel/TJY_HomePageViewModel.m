@@ -20,8 +20,7 @@
 @implementation TJY_HomePageViewModel
 -(RACCommand *)sourceCommand{
     if (!_sourceCommand) {
-        _sourceCommand =[ [RACCommand  alloc] initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
-             NSDictionary  * dic = [NSDictionary  dictionaryWithObjectsAndKeys:@"1",@"id", nil];
+        _sourceCommand =[ [RACCommand  alloc] initWithSignalBlock:^RACSignal * _Nonnull(NSDictionary  * dic ) {
             return [[AFNetWorkUtils  racPOSTWthURL:PHP_ADURL params:dic] map:^id _Nullable(id  _Nullable value) {
                   NSUDSetUserStartAd([value objectForKey:@"result"]);
                 return   value;

@@ -54,24 +54,24 @@ static  CGFloat  const CYLTabBarControllerHeight = 40.f;
 }
 - (NSArray *)tabBarItemsAttributesForController {
     NSDictionary *firstTabBarItemsAttributes = @{
-                                                 //                                                 CYLTabBarItemTitle : @"首页",
-                                                 CYLTabBarItemImage : @"home_normal",  /* NSString and UIImage are supported*/
-                                                 CYLTabBarItemSelectedImage : @"home_highlight", /* NSString and UIImage are supported*/
+                                                                                                  CYLTabBarItemTitle : @"首页",
+                                                 CYLTabBarItemImage : @"home1",  /* NSString and UIImage are supported*/
+                                                 CYLTabBarItemSelectedImage : @"home2", /* NSString and UIImage are supported*/
                                                  };
     NSDictionary *secondTabBarItemsAttributes = @{
-                                                  //                                                  CYLTabBarItemTitle : @"同城",
-                                                  CYLTabBarItemImage : @"mycity_normal",
-                                                  CYLTabBarItemSelectedImage : @"mycity_highlight",
+                                                                                                    CYLTabBarItemTitle : @"客户",
+                                                  CYLTabBarItemImage : @"customer1",
+                                                  CYLTabBarItemSelectedImage : @"customer2",
                                                   };
     NSDictionary *thirdTabBarItemsAttributes = @{
-                                                 //                                                 CYLTabBarItemTitle : @"消息",
-                                                 CYLTabBarItemImage : @"message_normal",
-                                                 CYLTabBarItemSelectedImage : @"message_highlight",
+                                                                                                  CYLTabBarItemTitle : @"汇报",
+                                                 CYLTabBarItemImage : @"report1",
+                                                 CYLTabBarItemSelectedImage : @"report2",
                                                  };
     NSDictionary *fourthTabBarItemsAttributes = @{
-                                                  //                                                  CYLTabBarItemTitle : @"我的",
-                                                  CYLTabBarItemImage : @"account_normal",
-                                                  CYLTabBarItemSelectedImage : @"account_highlight"
+                                                                                                    CYLTabBarItemTitle : @"我的",
+                                                  CYLTabBarItemImage : @"me1",
+                                                  CYLTabBarItemSelectedImage : @"me2"
                                                   };
     NSArray *tabBarItemsAttributes = @[
                                        firstTabBarItemsAttributes,

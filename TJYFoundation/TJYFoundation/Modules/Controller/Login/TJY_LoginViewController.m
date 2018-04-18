@@ -28,9 +28,18 @@
     [self textFieldPlaceholderColorWithTextField:self.telphone];
     [self textFieldPlaceholderColorWithTextField:self.password];
 }
-- (IBAction)submit:(id)sender {
+- (IBAction)submit:(UIButton*)sender {
     [self.view  endEditing: YES];
     NSString* wrongMsg = nil;
+    NSInteger  tag = sender.tag;
+    if (tag==111) {
+        UIAlertController  *  alert = [UIAlertController  alertControllerWithTitle:@"找回密码" message:@"如果您忘记密码，可以通过直接联系超级管理员修改密码，联系方式如下:" preferredStyle:UIAlertControllerStyleAlert];
+        [alert  addAction:[UIAlertAction  actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            
+        }]];
+        [self presentViewController:alert animated:YES completion:nil];
+        return ;
+    }
     if (![NSString  valiMobile:self.telphone.text]){
         wrongMsg = @"手机号码格式不正确";
         [self  showHint:wrongMsg];

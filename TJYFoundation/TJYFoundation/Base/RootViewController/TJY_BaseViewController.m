@@ -31,7 +31,7 @@
     self.view.backgroundColor = [UIColor colorWithHex:0xf6f6f6];
     titleView = [[NavTitleView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_W, MyNavHeight+STATUSBAR_H)];
       [titleView.backBtn addTarget:self action:@selector(back:) forControlEvents:UIControlEventTouchUpInside];
-    [titleView addObserver:self forKeyPath:@"title" options:0 context:NULL];
+    [self addObserver:self forKeyPath:@"title" options:0 context:NULL];
     if (self.navigationController.viewControllers.count >2) {
           titleView.shutBtn.hidden = false;
      [[titleView.shutBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
@@ -88,7 +88,7 @@
 }
 
 -(void)dealloc{
-    [titleView removeObserver:self forKeyPath:@"title"];
+    [self removeObserver:self forKeyPath:@"title"];
     [self  cancelRequest];
 }
 - (void)didReceiveMemoryWarning {

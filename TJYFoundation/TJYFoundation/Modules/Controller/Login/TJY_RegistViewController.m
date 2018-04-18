@@ -10,12 +10,15 @@
 #import "TJY_HomePageViewModel.h"
 #import "TJY_InfoListViewController.h"
 #import "TJY_HomeRequestService.h"
+#import <YYLabel.h>
+#import <YYTextLine.h>
 @interface TJY_RegistViewController ()<TJY_InfoListViewControllerDelegate,TJY_RequestServiceManagerDelegate>
 {
     NSString  * _departmentStr;
     NSString  * _departmentId;
     NSString *  _professionStr;
-     NSString *  _professionId;
+    NSString *  _professionId;
+    BOOL  _agreeClick;
 }
 @property (weak, nonatomic) IBOutlet UITextField *name;
 @property (weak, nonatomic) IBOutlet UITextField *telphone;
@@ -23,7 +26,10 @@
 @property (weak, nonatomic) IBOutlet UITextField *code;
 @property (weak, nonatomic) IBOutlet UILabel *department;
 @property (weak, nonatomic) IBOutlet UILabel *duty;
-@property (weak, nonatomic) IBOutlet YYLabel *lbl;
+@property (weak, nonatomic) IBOutlet UILabel *lbl;
+@property (weak, nonatomic) IBOutlet UIButton *submit;
+@property (weak, nonatomic) IBOutlet UIButton *agreeBtn;
+@property (weak, nonatomic) IBOutlet UIImageView *check;
 @end
 
 @implementation TJY_RegistViewController
@@ -31,13 +37,42 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.titleView.titleLabel.text = @"注册";
+    self.title = @"注册";
     [self  textFieldPlaceholderColorWithTextField:self.name];
      [self  textFieldPlaceholderColorWithTextField:self.telphone];
      [self  textFieldPlaceholderColorWithTextField:self.password];
      [self  textFieldPlaceholderColorWithTextField:self.code];
+     YYLabel *label = [[YYLabel alloc]init];
+    [self.view addSubview:label];
+    [label  mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(self.lbl);
+    }];
+    NSString  * yy_text = @"我已阅读并同意遵守用户协议";
+    NSMutableAttributedString  *  text = [[NSMutableAttributedString  alloc] initWithString:@"我已阅读并同意遵守用户协议"];
+    text.underlineStyle = NSUnderlineByWord;
+    NSRange  ranges = [yy_text  rangeOfString:@"用户协议"];
+    [text  setTextUnderline:[YYTextDecoration  decorationWithStyle:YYTextLineStyleSingle] range:ranges];
+    [text  setTextHighlightRange:ranges color:ssRGBHex(0x0080ff) backgroundColor:ssRGBHex(0x222222) tapAction:^(UIView * _Nonnull containerView, NSAttributedString * _Nonnull text, NSRange range, CGRect rect) {
+        GMLog("....click");
+    }];
+    label.attributedText = text;
+    @weakify(self);
+    [[self.agreeBtn  rac_signalForControlEvents: UIControlEventTouchUpInside]  subscribeNext:^(__kindof UIControl * _Nullable x) {
+        @strongify(self);
+        self->_agreeClick = !self->_agreeClick;
+        if (self->_agreeClick) {
+            self.check.image = [UIImage imageNamed:@"unchecked"];
+        }else{
+              self.check.image = [UIImage imageNamed:@"check"];
+        }
+        GMLog("-----%@",x);
+    }];
 }
 - (IBAction)submit:(UIButton *)sender {
+    if (_agreeClick) {
+        [self  showHint:@"需要遵守用户协议"];
+        return;
+    }
        [self.view  endEditing: YES];
         NSString* wrongMsg = nil;
         if ([NSString  isBlankString:self.name.text]) {
@@ -85,6 +120,7 @@
             [self.navigationController  popViewControllerAnimated:YES];
         });
     } error:^(NSError * _Nullable error) {
+            [self  showHint: [error.userInfo objectForKey:@"customErrorInfoKey"] ] ;
     }];
     
 }
