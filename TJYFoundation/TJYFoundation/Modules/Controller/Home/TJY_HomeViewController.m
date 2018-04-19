@@ -80,9 +80,10 @@
 }
 #pragma mark --  HomePageVC  Page jump
 -(void)pushViewControllerWithIndexPath:(NSIndexPath*)indexPath{
+    UIStoryboard  *  sb = [UIStoryboard  storyboardWithName:@"HomePage" bundle:nil];
     switch (indexPath.section) {
         case 0:{
-            TJY_SmartCardViewController *  vc = [TJY_SmartCardViewController  new];
+            TJY_SmartCardViewController *  vc = [sb  instantiateViewControllerWithIdentifier:@"TJY_SmartCardViewController"];
             [self.navigationController  pushViewController:vc animated:YES];
             break;
         }

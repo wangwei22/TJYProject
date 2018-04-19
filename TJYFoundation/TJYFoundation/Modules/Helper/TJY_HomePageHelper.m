@@ -93,8 +93,9 @@
         bannerView = [[SDCycleScrollView  alloc] init];
         [headerView addSubview:bannerView];
         [bannerView  mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.leading.trailing.mas_equalTo(headerView);
-            make.height.mas_equalTo(SCREEN_W/1260*695);
+            make.top.leading.mas_equalTo(20);
+            make.trailing.mas_equalTo(-20);
+            make.height.mas_equalTo(SCREEN_W/1200*605);
         }];
         [label  mas_makeConstraints:^(MASConstraintMaker *make) {
             make.leading.mas_equalTo(20);
@@ -116,7 +117,7 @@
             make.top.mas_equalTo(headerView);
             make.height.mas_equalTo(0.8);
         }];
-        lineView.backgroundColor = [UIColor  lightGrayColor];
+        lineView.backgroundColor = ssRGBHex(0xdbdbdb);
     }
     return headerView;
 }
@@ -124,7 +125,7 @@
 {
     if(section == 0)
     {
-        CGSize size = {SCREEN_W, SCREEN_W/1260*695+40};
+        CGSize size = {SCREEN_W, SCREEN_W/1200*605+80};
         return size;
     }
     else
@@ -154,7 +155,7 @@
     bannerView.currentPageDotColor = [UIColor yellowColor]; // 自定义分页控件小圆标颜色
     bannerView.pageDotColor = [UIColor darkTextColor];
     bannerView.delegate = self;
-    bannerView.autoScroll = YES;
+    bannerView.autoScroll = false;
     bannerView.autoScrollTimeInterval = 5;
     bannerView.placeholderImage = [UIImage imageNamed:@"banner"];
 }
