@@ -49,11 +49,13 @@
         [self  showHint:wrongMsg];
         return;
     }
+    NSUDSetValueWithKey(@"psd",self.password.text);
     TJY_HomePageViewModel  * model = [TJY_HomePageViewModel  new];
  //   NSString  * authPwd = [[@"tijianbao" stringByAppendingString:self.password.text] stringFromMD5];
     NSDictionary  * dic = [NSDictionary  dictionaryWithObjectsAndKeys:self.telphone.text,@"per_mobile",
                            self.password.text,@"password",nil];
-    RACSignal  * sours = [model.LoginCommand  execute:dic];
+      RACTuple  *tupe = [RACTuple  tupleWithObjects:dic, nil];
+    RACSignal  * sours = [model.LoginCommand  execute:tupe];
 
     [sours  subscribeNext:^(id  _Nullable x) {
         [[TJY_UserApplication  shareManager] setLoginUser:x];

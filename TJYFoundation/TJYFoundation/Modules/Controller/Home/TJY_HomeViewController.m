@@ -14,6 +14,7 @@
 #import "TJY_AdInfomation.h"
 #import "TJY_HomePageViewModel.h"
 #import "TJY_SmartCardViewController.h"
+#import "TJY_SignMapViewController.h"
 @interface TJY_HomeViewController ()
 {
     NSMutableDictionary  *  _dic;
@@ -88,7 +89,8 @@
             break;
         }
         case 1:{
-            
+            TJY_SignMapViewController * vc = [TJY_SignMapViewController  new];
+              [self.navigationController  pushViewController:vc animated:YES];
             break;
         }
         case 2:{

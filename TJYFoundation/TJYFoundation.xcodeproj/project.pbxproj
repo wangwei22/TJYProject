@@ -24,7 +24,11 @@
 		BD2F40132080916A00682FFB /* TJY_RegistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD2F40122080916A00682FFB /* TJY_RegistViewController.m */; };
 		BD2F40162080980100682FFB /* TJY_InfoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD2F40152080980100682FFB /* TJY_InfoListViewController.m */; };
 		BD2F40192080A6D400682FFB /* NSString+textCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = BD2F40182080A6D400682FFB /* NSString+textCheck.m */; };
+		BD3096042089E001003901C4 /* CustomAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3095FE2089E001003901C4 /* CustomAnnotationView.m */; };
+		BD3096052089E001003901C4 /* CustomCalloutView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3096022089E001003901C4 /* CustomCalloutView.m */; };
+		BD3096062089E001003901C4 /* DPointAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3096032089E001003901C4 /* DPointAnnotation.m */; };
 		BD32A8DC207F3FB9009E9D03 /* TJY_MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD32A8DB207F3FB9009E9D03 /* TJY_MainViewController.m */; };
+		BD379D6A20889830008DBD31 /* TJY_SignMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD379D6920889830008DBD31 /* TJY_SignMapViewController.m */; };
 		BD4AB7E1207EF53400591A4C /* TJY_WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD4AB7E0207EF53400591A4C /* TJY_WebViewController.m */; };
 		BD4AB7E4207EF5B100591A4C /* TJY_JSHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = BD4AB7E3207EF5B100591A4C /* TJY_JSHandle.m */; };
 		BD4AB7E7207F09D300591A4C /* TJY_RootWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD4AB7E6207F09D300591A4C /* TJY_RootWebViewController.m */; };
@@ -130,8 +134,16 @@
 		BD2F40152080980100682FFB /* TJY_InfoListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJY_InfoListViewController.m; sourceTree = "<group>"; };
 		BD2F40172080A6D400682FFB /* NSString+textCheck.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+textCheck.h"; sourceTree = "<group>"; };
 		BD2F40182080A6D400682FFB /* NSString+textCheck.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+textCheck.m"; sourceTree = "<group>"; };
+		BD3095FE2089E001003901C4 /* CustomAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAnnotationView.m; sourceTree = "<group>"; };
+		BD3095FF2089E001003901C4 /* CustomCalloutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCalloutView.h; sourceTree = "<group>"; };
+		BD3096002089E001003901C4 /* DPointAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPointAnnotation.h; sourceTree = "<group>"; };
+		BD3096012089E001003901C4 /* CustomAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAnnotationView.h; sourceTree = "<group>"; };
+		BD3096022089E001003901C4 /* CustomCalloutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCalloutView.m; sourceTree = "<group>"; };
+		BD3096032089E001003901C4 /* DPointAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPointAnnotation.m; sourceTree = "<group>"; };
 		BD32A8DA207F3FB9009E9D03 /* TJY_MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJY_MainViewController.h; sourceTree = "<group>"; };
 		BD32A8DB207F3FB9009E9D03 /* TJY_MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJY_MainViewController.m; sourceTree = "<group>"; };
+		BD379D6820889830008DBD31 /* TJY_SignMapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJY_SignMapViewController.h; sourceTree = "<group>"; };
+		BD379D6920889830008DBD31 /* TJY_SignMapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJY_SignMapViewController.m; sourceTree = "<group>"; };
 		BD4AB7DF207EF53400591A4C /* TJY_WebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJY_WebViewController.h; sourceTree = "<group>"; };
 		BD4AB7E0207EF53400591A4C /* TJY_WebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJY_WebViewController.m; sourceTree = "<group>"; };
 		BD4AB7E2207EF5B100591A4C /* TJY_JSHandle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJY_JSHandle.h; sourceTree = "<group>"; };
@@ -310,6 +322,19 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		BD3095FD2089E001003901C4 /* AMap */ = {
+			isa = PBXGroup;
+			children = (
+				BD3096002089E001003901C4 /* DPointAnnotation.h */,
+				BD3096032089E001003901C4 /* DPointAnnotation.m */,
+				BD3095FF2089E001003901C4 /* CustomCalloutView.h */,
+				BD3096022089E001003901C4 /* CustomCalloutView.m */,
+				BD3096012089E001003901C4 /* CustomAnnotationView.h */,
+				BD3095FE2089E001003901C4 /* CustomAnnotationView.m */,
+			);
+			path = AMap;
+			sourceTree = "<group>";
+		};
 		BD6C970F2081FFC4003D0306 /* HTTP */ = {
 			isa = PBXGroup;
 			children = (
@@ -324,6 +349,8 @@
 			children = (
 				BD6D650A20873A34008C747C /* TJY_SmartCardViewController.h */,
 				BD6D650B20873A34008C747C /* TJY_SmartCardViewController.m */,
+				BD379D6820889830008DBD31 /* TJY_SignMapViewController.h */,
+				BD379D6920889830008DBD31 /* TJY_SignMapViewController.m */,
 			);
 			path = SmartCard;
 			sourceTree = "<group>";
@@ -528,6 +555,7 @@
 		BDF30936207D9EE000678B28 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BD3095FD2089E001003901C4 /* AMap */,
 				BD2B35392085BFB0003BC03B /* Home */,
 				BDF309A8207DEB9A00678B28 /* ADView */,
 				BDF309B5207E106100678B28 /* MainMenuView.h */,
@@ -806,6 +834,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-TJYFoundation/Pods-TJYFoundation-resources.sh",
+				"${PODS_ROOT}/AMap3DMap/MAMapKit.framework/AMap.bundle",
 				"${PODS_ROOT}/GKNavigationController/GKNavigationController/Resource",
 				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
@@ -814,6 +843,7 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AMap.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Resource",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
@@ -963,6 +993,7 @@
 			files = (
 				BD2F40162080980100682FFB /* TJY_InfoListViewController.m in Sources */,
 				BD2F400C2080504000682FFB /* TJY_AdInfomation.m in Sources */,
+				BD3096042089E001003901C4 /* CustomAnnotationView.m in Sources */,
 				BDF3098A207DBCD800678B28 /* NSString+Emoji.m in Sources */,
 				BD2F40192080A6D400682FFB /* NSString+textCheck.m in Sources */,
 				BD32A8DC207F3FB9009E9D03 /* TJY_MainViewController.m in Sources */,
@@ -990,10 +1021,12 @@
 				BDF30992207DD82C00678B28 /* TJY_RequestServiceManager.m in Sources */,
 				BDF30989207DBCD800678B28 /* NSString+Emojize.m in Sources */,
 				BDF309A3207DE33900678B28 /* UIViewController+SLHUD.m in Sources */,
+				BD3096062089E001003901C4 /* DPointAnnotation.m in Sources */,
 				BDF309AE207DEB9B00678B28 /* LadderView.m in Sources */,
 				BD6D650C20873A34008C747C /* TJY_SmartCardViewController.m in Sources */,
 				BDF30943207D9EE000678B28 /* TJY_BaseViewController.m in Sources */,
 				BD2C87F22083838800B5AF2F /* TJY_LoginCellHelper.m in Sources */,
+				BD379D6A20889830008DBD31 /* TJY_SignMapViewController.m in Sources */,
 				BDF3098B207DBCD800678B28 /* UIResponder+RemoteEvent.m in Sources */,
 				BD2930362084998500304FBA /* TJY_UserApplication.m in Sources */,
 				BDF3095C207DB1FF00678B28 /* Picture.m in Sources */,
@@ -1001,6 +1034,7 @@
 				BD2B35382085BDD3003BC03B /* TJY_HomePageHelper.m in Sources */,
 				BD2F40132080916A00682FFB /* TJY_RegistViewController.m in Sources */,
 				BDF30955207DB0C100678B28 /* DataService.m in Sources */,
+				BD3096052089E001003901C4 /* CustomCalloutView.m in Sources */,
 				BDF3098F207DBCD800678B28 /* UIImage+ImageEffects.m in Sources */,
 				BDF30986207DBCD800678B28 /* UILabel+Addition.m in Sources */,
 				BD2C87F520838C1500B5AF2F /* TJY_DutyList.m in Sources */,

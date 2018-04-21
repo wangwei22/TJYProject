@@ -103,6 +103,8 @@
             make.bottom.mas_equalTo(headerView);
             make.trailing.mas_equalTo(-20);
         }];
+        bannerView.layer.cornerRadius = 15;
+        bannerView.layer.masksToBounds = YES;
          [self  configBannerView];
     }else{
         [label  mas_makeConstraints:^(MASConstraintMaker *make) {

@@ -24,4 +24,5 @@
 @property(nonatomic,copy)NSString  *sex;
 @property(nonatomic,copy)NSString  *token;
 @property(nonatomic,copy)NSString  *userId;
+@property(nonatomic,assign)BOOL  netState;
 @end

@@ -54,10 +54,9 @@
 }
 -(RACCommand *)LoginCommand{
     if (!_LoginCommand) {
-        _LoginCommand  =[ [RACCommand  alloc] initWithSignalBlock:^RACSignal * _Nonnull(NSDictionary * input) {
-            return[ [AFNetWorkUtils  racPOSTWthURL:LOGIN_URL params:input] map:^id _Nullable(id  _Nullable value) {
+        _LoginCommand  =[ [RACCommand  alloc] initWithSignalBlock:^RACSignal * _Nonnull(RACTuple * input) {
+            return[ [AFNetWorkUtils  racPOSTWthURL:LOGIN_URL params:input.first] map:^id _Nullable(id  _Nullable value) {
                 UserInfo  * user = [UserInfo  mj_objectWithKeyValues:[value objectForKey:@"result"]];
-                
                 return   user;
             }];
         }];

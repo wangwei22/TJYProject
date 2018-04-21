@@ -11,8 +11,14 @@
 @interface TJY_SmartCardViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *stateLbl;
 @property (weak, nonatomic) IBOutlet UILabel *stateClosed;
-@property (weak, nonatomic) IBOutlet YYLabel *addressLbl;
-@property (weak, nonatomic) IBOutlet YYLabel *addressClosed;
+@property (weak, nonatomic) IBOutlet UIView *addressLbl;
+@property (weak, nonatomic) IBOutlet UIView *addressClosed;
+@property (weak, nonatomic) IBOutlet UIImageView *imgView;
+@property (weak, nonatomic) IBOutlet UILabel *nameLbl;
+@property (weak, nonatomic) IBOutlet UILabel *timeLbl;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *signImgConstraintHeight;
+@property (weak, nonatomic) IBOutlet UIImageView *signImg;
+@property (weak, nonatomic) IBOutlet UIView *detailView;
 
 @end
 
@@ -24,22 +30,49 @@
       self.title = @"company";
      [self  labelBorderColorWithLabel:self.stateLbl];
      [self  labelBorderColorWithLabel:self.stateClosed];
-//    [self  configLabel:self.addressLbl];
+     [self  configUI];
+}
+-(void)configUI{
+    NSDateFormatter  *  formatter = [[NSDateFormatter  alloc] init];
+    [formatter  setDateFormat:@"yyyy-MM-dd"];
+    NSString  *  currentDateString = [formatter  stringFromDate:[NSDate  date]];
+    self.timeLbl.text = currentDateString;
+      UserInfo  * user = [TJY_UserApplication  shareManager].loginUser;
+    self.nameLbl.text =  user.perName;
+    
+    YYLabel  * morningLbl = [[YYLabel  alloc] init];
+//    morningLbl.backgroundColor = [UIColor  yellowColor];
+    YYLabel *eveningLbl = [[YYLabel  alloc] init];
+    [self.view addSubview:morningLbl];
+    [self.view  addSubview:eveningLbl];
+    [morningLbl  mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(self.addressLbl);
+    }];
+    [eveningLbl  mas_makeConstraints:^(MASConstraintMaker *make) {
+         make.edges.mas_equalTo(self.addressClosed);
+    }];
+    [self configLabel:morningLbl];
+    [self  configLabel:eveningLbl];
 }
 -(void)labelBorderColorWithLabel:(UILabel*)label{
     label.layer.borderWidth = 1;
     label.layer.borderColor = ssRGBHex(0xff6a4c).CGColor;
 }
 -(void)configLabel:(YYLabel *)label{
-    label.numberOfLines = 0;
-    label.preferredMaxLayoutWidth = self.addressLbl.frame.size.width;
+    NSDictionary  *  attributeDict = [NSDictionary  dictionaryWithObjectsAndKeys:[UIFont  systemFontOfSize:16],NSFontAttributeName, nil];
+    label.lineBreakMode = 0;
+    label.numberOfLines = NSLineBreakByWordWrapping;
+    label.displaysAsynchronously = YES;
+    label.preferredMaxLayoutWidth =  SCREEN_W -122;
+    label.textAlignment = YYTextVerticalAlignmentTop;
     YYAnimatedImageView * imageView = [[YYAnimatedImageView  alloc] initWithImage:[UIImage  imageNamed:@"location"]];
     imageView.frame =  CGRectMake(0, 0, 16, 16);
-    NSMutableAttributedString *attachText1= [NSMutableAttributedString attachmentStringWithContent:imageView contentMode:UIViewContentModeScaleAspectFit attachmentSize:imageView.frame.size alignToFont:[UIFont systemFontOfSize:24] alignment:YYTextVerticalAlignmentCenter];
-    NSMutableAttributedString *attri = [[NSMutableAttributedString alloc] initWithString:@"DAKASDASHO"];
+    NSMutableAttributedString *attachText1= [NSMutableAttributedString attachmentStringWithContent:imageView contentMode:UIViewContentModeScaleAspectFit attachmentSize:imageView.frame.size alignToFont:[UIFont systemFontOfSize:16] alignment:YYTextVerticalAlignmentCenter];
+    NSMutableAttributedString *attri = [[NSMutableAttributedString alloc] initWithString:@" YYLabel  为什么设置对齐方式不起作用，YYLabel  为什么设置对齐方式不起作用YYLabel  为什么设置对齐方式不起作用"];
+    attri.headIndent = 10;
+    [attri  addAttributes:attributeDict range:NSMakeRange(0, attri.length)];
     [attri insertAttributedString:attachText1 atIndex:0];
     label.attributedText =  attri;
-
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
