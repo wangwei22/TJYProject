@@ -43,11 +43,11 @@
 
 -(void)viewDidAppear:(BOOL)animated{
     [super  viewDidAppear:animated];
-        // 进入界面就以定位点为地图中心
+    [self  userPermissionSetting];
+    // 进入界面就以定位点为地图中心
     [self.mapView  setCenterCoordinate:CLLocationCoordinate2DMake([self.userLatitude  floatValue], [self.userLongitude floatValue]) animated:NO];
     // 将绘制的图形添加到地图上
     [self.mapView  addOverlays:self.circles];
-
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -66,7 +66,7 @@
     [self.view  addSubview:self.mapView];
     self.search.delegate=self;
     [self.mapView  addAnnotation:self.companyP];
-    [self.mapView  addAnnotations:@[self.companyP]];
+    [self.mapView  selectAnnotation:self.companyP animated:YES];
 }
 
 - (void)initUserLocationRepresentation {
@@ -253,13 +253,19 @@
         NSLog(@"********* %@ %@",ddAnnotation.title,ddAnnotation.number);
         annotationView.calloutView.title = _mapView.userLocation.title ;//ddAnnotation.title
         annotationView.calloutView.subtitle = _mapView.userLocation.subtitle;//ddAnnotation.subtitle
-        
         annotationView.image = ddAnnotation.image;//设置大头针图片
         // 设置中心点偏移，使得标注底部中间点成为经纬度对应点
         annotationView.centerOffset = CGPointMake(0, -18);
         annotationView.selected = YES;
         if ([annotation  isKindOfClass:[DPointAnnotation  class]]) {
             return   annotationView;
+        }else if ([annotation  isEqual:self.companyP]){
+            self.companyP.coordinate = CLLocationCoordinate2DMake(30.61785, 114.25547000000006);
+            self.companyP.title = @"公司";
+            self.companyP.subtitle = @"湖北省武汉市江汉区常青街街道兴城大厦B座";
+            self.companyP.image = [UIImage  imageNamed:@"location"];
+             annotationView.selected = YES;
+            return  annotationView;
         }
         return nil;
     }
@@ -269,6 +275,14 @@
     NSLog(@".....click.....");
 }
 
+-(void)viewDidDisappear:(BOOL)animated{
+    [self.mapView  removeFromSuperview];
+    self.mapView.delegate = nil;
+    self.mapView=nil;
+    self.search = nil;
+    self.search.delegate = nil;
+    self.companyP= nil;
+}
 
 #pragma   mark --  getter  setter  method
 -(MAMapView *)mapView{
@@ -279,7 +293,7 @@
         self.mapView.showsUserLocation = YES;
         self.mapView.showsCompass =  NO;
         // 追踪用户的location更新
-        self.mapView.userTrackingMode = MAUserTrackingModeFollow;
+        self.mapView.userTrackingMode = MAUserTrackingModeNone;
         // 放大等级
         [self.mapView  setZoomLevel:16 animated:YES];
     }
@@ -301,11 +315,31 @@
     }
     return   _companyP;
 }
+
+-(void)userPermissionSetting{
+   if ([CLLocationManager authorizationStatus] == AVAuthorizationStatusRestricted ||[CLLocationManager authorizationStatus] == kCLAuthorizationStatusDenied){
+        UIAlertController  *  alert = [UIAlertController  alertControllerWithTitle:nil message:@"请在iPhone的“设置-隐私-位置”选项中，允许访问你的位置" preferredStyle:UIAlertControllerStyleAlert];
+       @weakify(self);
+        [alert  addAction:[UIAlertAction  actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            @strongify(self);
+            [self.navigationController  popViewControllerAnimated:YES];
+        }]];
+        [alert  addAction:[UIAlertAction  actionWithTitle:@"设置" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            NSURL  *  url = [NSURL  URLWithString:UIApplicationOpenSettingsURLString];
+            if ([[UIApplication  sharedApplication]  canOpenURL:url]) {
+                [[UIApplication  sharedApplication] openURL:url];
+            }
+        }]];
+        [self  presentViewController:alert animated:YES completion:nil];
+        }
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+-(void)dealloc{
+    
+}
 /*
 #pragma mark - Navigation
 

@@ -13,4 +13,6 @@
 @property(nonatomic,strong,readonly)RACCommand *LoginInfoCommand;
 @property(nonatomic,strong,readonly)RACCommand  * registCommand;
 @property(nonatomic,strong,readonly)RACCommand  *LoginCommand;
+@property(nonatomic,strong,readonly)RACCommand  *signConfigCommand;
+
 @end

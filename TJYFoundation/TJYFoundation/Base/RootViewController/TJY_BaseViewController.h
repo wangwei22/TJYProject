@@ -20,4 +20,6 @@
 - (void)cancelRequest;
 // 修改textField 的placeholedColor
 -(void)textFieldPlaceholderColorWithTextField:(UITextField*)textField;
+
+-(NSString *)dateWithTimeIntervalString:(NSString *)string;
 @end

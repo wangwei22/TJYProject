@@ -87,9 +87,23 @@
     [textField  setValue:ssRGBHex(0x999999) forKeyPath:@"_placeholderLabel.textColor"];
 }
 
+
 -(void)dealloc{
     [self removeObserver:self forKeyPath:@"title"];
     [self  cancelRequest];
+}
+
+
+-(NSString *)dateWithTimeIntervalString:(NSString *)string{
+    
+    NSString * timeStampString = string;
+    NSTimeInterval _interval=[timeStampString doubleValue] / 1000.0;
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:_interval];
+    NSDateFormatter *objDateformat = [[NSDateFormatter alloc] init];
+    [objDateformat setDateFormat:@"HH:mm:ss"];
+    //    NSLog(@"%@", [objDateformat stringFromDate: date]);yyyy-MM-dd HH:mm:ss
+    
+    return [objDateformat stringFromDate: date];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

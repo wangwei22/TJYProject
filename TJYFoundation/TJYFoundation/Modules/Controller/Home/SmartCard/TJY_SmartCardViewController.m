@@ -7,8 +7,13 @@
 //
 
 #import "TJY_SmartCardViewController.h"
-
+#import "TJY_HomePageViewModel.h"
+#import "TJY_ConfigInfo.h"
+#import "TJY_SignMapViewController.h"
 @interface TJY_SmartCardViewController ()
+{
+    TJY_ConfigInfo  * _config;
+}
 @property (weak, nonatomic) IBOutlet UILabel *stateLbl;
 @property (weak, nonatomic) IBOutlet UILabel *stateClosed;
 @property (weak, nonatomic) IBOutlet UIView *addressLbl;
@@ -19,6 +24,11 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *signImgConstraintHeight;
 @property (weak, nonatomic) IBOutlet UIImageView *signImg;
 @property (weak, nonatomic) IBOutlet UIView *detailView;
+@property (weak, nonatomic) IBOutlet UILabel *startTime;
+@property (weak, nonatomic) IBOutlet UILabel *signState;
+@property (weak, nonatomic) IBOutlet UILabel *endTime;
+@property (weak, nonatomic) IBOutlet UILabel *endSignState;
+@property(nonatomic,strong) TJY_ConfigInfo  * config;
 
 @end
 
@@ -31,6 +41,26 @@
      [self  labelBorderColorWithLabel:self.stateLbl];
      [self  labelBorderColorWithLabel:self.stateClosed];
      [self  configUI];
+     [self  initData];
+}
+-(void)initData{
+    TJY_HomePageViewModel  *  model = [TJY_HomePageViewModel  new];
+    RACSignal  *  source =  [model.signConfigCommand  execute:nil];
+    @weakify(self);
+    [source  subscribeNext:^(TJY_ConfigInfo* x) {
+        @strongify(self);
+        self.config = x;
+    } error:^(NSError * _Nullable error) {
+    } ];
+    [RACObserve(_config, endWorkTime) subscribeNext:^(id  _Nullable x) {
+             @strongify(self);
+        self.endTime.text = [NSString  stringWithFormat:@"下班时间%@",[self  dateWithTimeIntervalString:self.config.endWorkTime]];
+    }];
+    [RACObserve(_config, startWorkTime) subscribeNext:^(id  _Nullable x) {
+         @strongify(self);
+        self.startTime.text = [NSString  stringWithFormat:@"上班时间%@",[self  dateWithTimeIntervalString:self.config.startWorkTime]];
+        //    RACChannelTo(self.startTime, text)= RACChannelTo(_config, startWorkTime);双向绑定
+    }];
 }
 -(void)configUI{
     NSDateFormatter  *  formatter = [[NSDateFormatter  alloc] init];
@@ -41,7 +71,6 @@
     self.nameLbl.text =  user.perName;
     
     YYLabel  * morningLbl = [[YYLabel  alloc] init];
-//    morningLbl.backgroundColor = [UIColor  yellowColor];
     YYLabel *eveningLbl = [[YYLabel  alloc] init];
     [self.view addSubview:morningLbl];
     [self.view  addSubview:eveningLbl];
@@ -53,6 +82,17 @@
     }];
     [self configLabel:morningLbl];
     [self  configLabel:eveningLbl];
+    self.signImg.userInteractionEnabled = YES;
+    UITapGestureRecognizer  * tap = [[UITapGestureRecognizer  alloc]  init];
+    @weakify(self);
+    [tap  setNumberOfTapsRequired:1];
+    [[tap rac_gestureSignal] subscribeNext:^(__kindof UIGestureRecognizer * _Nullable x) {
+        @strongify(self);
+        TJY_SignMapViewController *  vc = [TJY_SignMapViewController new];
+        [self.navigationController  pushViewController:vc animated:YES];
+    }];
+    [self.signImg  addGestureRecognizer:tap];
+    [self.view  bringSubviewToFront:self.signImg];
 }
 -(void)labelBorderColorWithLabel:(UILabel*)label{
     label.layer.borderWidth = 1;
@@ -68,7 +108,7 @@
     YYAnimatedImageView * imageView = [[YYAnimatedImageView  alloc] initWithImage:[UIImage  imageNamed:@"location"]];
     imageView.frame =  CGRectMake(0, 0, 16, 16);
     NSMutableAttributedString *attachText1= [NSMutableAttributedString attachmentStringWithContent:imageView contentMode:UIViewContentModeScaleAspectFit attachmentSize:imageView.frame.size alignToFont:[UIFont systemFontOfSize:16] alignment:YYTextVerticalAlignmentCenter];
-    NSMutableAttributedString *attri = [[NSMutableAttributedString alloc] initWithString:@" YYLabel  为什么设置对齐方式不起作用，YYLabel  为什么设置对齐方式不起作用YYLabel  为什么设置对齐方式不起作用"];
+    NSMutableAttributedString *attri = [[NSMutableAttributedString alloc] initWithString:@" "];
     attri.headIndent = 10;
     [attri  addAttributes:attributeDict range:NSMakeRange(0, attri.length)];
     [attri insertAttributedString:attachText1 atIndex:0];
@@ -79,7 +119,9 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+-(void)dealloc{
+    
+}
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -87,6 +129,6 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-*/
+
 
 @end

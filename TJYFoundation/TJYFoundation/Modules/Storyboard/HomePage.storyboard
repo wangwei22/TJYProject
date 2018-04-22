@@ -26,7 +26,7 @@
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="T9T-0S-fuL">
                                         <rect key="frame" x="20" y="4" width="36" height="36"/>
-                                        <color key="backgroundColor" red="0.98823529409999999" green="0.050980392159999999" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.0" green="0.50196078430000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="36" id="sVc-rO-GMH"/>
                                             <constraint firstAttribute="width" constant="36" id="trj-5u-dCz"/>
@@ -171,15 +171,15 @@
                                     <constraint firstAttribute="height" constant="80" id="RDH-0O-5dl"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sign" translatesAutoresizingMaskIntoConstraints="NO" id="t2N-QN-QTf">
-                                <rect key="frame" x="137" y="146" width="100" height="100"/>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sign" translatesAutoresizingMaskIntoConstraints="NO" id="t2N-QN-QTf">
+                                <rect key="frame" x="137.5" y="146" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="toM-tU-zkZ"/>
                                     <constraint firstAttribute="height" constant="100" id="vuJ-XO-cvA"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dy5-BL-bV8">
-                                <rect key="frame" x="67" y="266" width="240" height="20"/>
+                                <rect key="frame" x="67.5" y="266" width="240" height="20"/>
                                 <color key="backgroundColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="Amc-Zb-MF8"/>
@@ -234,10 +234,14 @@
                         <outlet property="addressClosed" destination="ltl-gN-xpH" id="Dzr-Vu-63t"/>
                         <outlet property="addressLbl" destination="NBd-RI-UGG" id="IBe-hx-aKY"/>
                         <outlet property="detailView" destination="dy5-BL-bV8" id="m2s-eN-ezN"/>
+                        <outlet property="endSignState" destination="OLj-uR-aNi" id="rgt-Gc-T3J"/>
+                        <outlet property="endTime" destination="FL5-fJ-7A2" id="A39-Y7-Pba"/>
                         <outlet property="imgView" destination="T9T-0S-fuL" id="ibW-IM-1dD"/>
                         <outlet property="nameLbl" destination="fKp-yr-nqH" id="cNp-go-B5J"/>
                         <outlet property="signImg" destination="t2N-QN-QTf" id="HME-Cg-yYb"/>
                         <outlet property="signImgConstraintHeight" destination="i9L-UI-umj" id="Tjo-hV-S4q"/>
+                        <outlet property="signState" destination="2b3-1k-Dzk" id="tYM-xP-kZJ"/>
+                        <outlet property="startTime" destination="fP4-0T-MhM" id="AgF-dW-ehu"/>
                         <outlet property="stateClosed" destination="gKu-fl-VYc" id="c4f-oF-P2d"/>
                         <outlet property="stateLbl" destination="TzU-Kg-hdY" id="B4k-ar-sC4"/>
                         <outlet property="timeLbl" destination="pQs-9a-NvT" id="VjP-6m-SKh"/>

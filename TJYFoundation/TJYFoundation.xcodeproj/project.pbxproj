@@ -18,6 +18,7 @@
 		BD2C87EA20835A8400B5AF2F /* TJY_HomePageViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BD2C87E920835A8400B5AF2F /* TJY_HomePageViewModel.m */; };
 		BD2C87F22083838800B5AF2F /* TJY_LoginCellHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BD2C87F02083838800B5AF2F /* TJY_LoginCellHelper.m */; };
 		BD2C87F520838C1500B5AF2F /* TJY_DutyList.m in Sources */ = {isa = PBXBuildFile; fileRef = BD2C87F420838C1500B5AF2F /* TJY_DutyList.m */; };
+		BD2EBE77208B05E400C2D083 /* TJY_ConfigInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = BD2EBE76208B05E400C2D083 /* TJY_ConfigInfo.m */; };
 		BD2F40092080498100682FFB /* TJY_HomeRequestService.m in Sources */ = {isa = PBXBuildFile; fileRef = BD2F40082080498100682FFB /* TJY_HomeRequestService.m */; };
 		BD2F400C2080504000682FFB /* TJY_AdInfomation.m in Sources */ = {isa = PBXBuildFile; fileRef = BD2F400B2080504000682FFB /* TJY_AdInfomation.m */; };
 		BD2F401020807E8300682FFB /* TJY_LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD2F400F20807E8300682FFB /* TJY_LoginViewController.m */; };
@@ -122,6 +123,8 @@
 		BD2C87F12083838800B5AF2F /* TJY_LoginCellHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJY_LoginCellHelper.h; sourceTree = "<group>"; };
 		BD2C87F320838C1500B5AF2F /* TJY_DutyList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJY_DutyList.h; sourceTree = "<group>"; };
 		BD2C87F420838C1500B5AF2F /* TJY_DutyList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJY_DutyList.m; sourceTree = "<group>"; };
+		BD2EBE75208B05E400C2D083 /* TJY_ConfigInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJY_ConfigInfo.h; sourceTree = "<group>"; };
+		BD2EBE76208B05E400C2D083 /* TJY_ConfigInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJY_ConfigInfo.m; sourceTree = "<group>"; };
 		BD2F40072080498100682FFB /* TJY_HomeRequestService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJY_HomeRequestService.h; sourceTree = "<group>"; };
 		BD2F40082080498100682FFB /* TJY_HomeRequestService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJY_HomeRequestService.m; sourceTree = "<group>"; };
 		BD2F400A2080504000682FFB /* TJY_AdInfomation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJY_AdInfomation.h; sourceTree = "<group>"; };
@@ -548,6 +551,8 @@
 				BD2C87F420838C1500B5AF2F /* TJY_DutyList.m */,
 				BD293031208495F900304FBA /* UserInfo.h */,
 				BD293032208495F900304FBA /* UserInfo.m */,
+				BD2EBE75208B05E400C2D083 /* TJY_ConfigInfo.h */,
+				BD2EBE76208B05E400C2D083 /* TJY_ConfigInfo.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1039,6 +1044,7 @@
 				BDF30986207DBCD800678B28 /* UILabel+Addition.m in Sources */,
 				BD2C87F520838C1500B5AF2F /* TJY_DutyList.m in Sources */,
 				BDF30942207D9EE000678B28 /* TJY_MainTabBarViewController.m in Sources */,
+				BD2EBE77208B05E400C2D083 /* TJY_ConfigInfo.m in Sources */,
 				BDF309B7207E106100678B28 /* MainMenuView.m in Sources */,
 				BDF3098D207DBCD800678B28 /* UIImageView+LBBlurredImage.m in Sources */,
 				BDF3098E207DBCD800678B28 /* UIColor+Addition.m in Sources */,

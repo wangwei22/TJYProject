@@ -11,11 +11,13 @@
 #import "TJY_AdInfomation.h"
 #import "TJY_DutyList.h"
 #import "UserInfo.h"
+#import "TJY_ConfigInfo.h"
 @interface TJY_HomePageViewModel()
 @property(nonatomic, strong) RACCommand *sourceCommand;
 @property(nonatomic,strong)RACCommand *LoginInfoCommand;
 @property(nonatomic,strong)RACCommand  * registCommand;
 @property(nonatomic,strong)RACCommand  *LoginCommand;
+@property(nonatomic,strong)RACCommand  *signConfigCommand;
 @end
 @implementation TJY_HomePageViewModel
 -(RACCommand *)sourceCommand{
@@ -62,5 +64,16 @@
         }];
     }
     return  _LoginCommand;
+}
+-(RACCommand *)signConfigCommand{
+    if (!_signConfigCommand) {
+        _signConfigCommand = [[RACCommand  alloc] initWithSignalBlock:^RACSignal * _Nonnull( id  _Nullable input) {
+            return[ [AFNetWorkUtils  racPOSTWthURL:SIGN_CONFIG params:input] map:^id _Nullable(id  _Nullable value) {
+                TJY_ConfigInfo *  model = [TJY_ConfigInfo  mj_objectWithKeyValues:[value  objectForKey:@"result"]];
+                return   model;
+            }];
+        }];
+    }
+    return   _signConfigCommand;
 }
 @end

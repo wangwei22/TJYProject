@@ -12,4 +12,5 @@
 #define  LOGIN_INFOURL  @"api/public/getD"
 #define  REGIST_URL  @"api/public/register"
 #define  LOGIN_URL @"api/public/login"
+#define  SIGN_CONFIG @"api/Attendance/getClockConfig"
 #endif /* HomePageHeader_h */
