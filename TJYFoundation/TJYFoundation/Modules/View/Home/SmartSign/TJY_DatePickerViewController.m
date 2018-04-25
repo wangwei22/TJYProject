@@ -14,6 +14,7 @@
 }
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 
+@property (weak, nonatomic) IBOutlet UIView *backgroudView;
 @end
 
 @implementation TJY_DatePickerViewController
@@ -31,6 +32,12 @@
         self->_dateString = dateStr;
         GMLog("....%@",dateStr);
     }];
+    UITapGestureRecognizer  *  tap = [[UITapGestureRecognizer alloc] initWithActionBlock:^(    UITapGestureRecognizer  *  sender) {
+        if (!CGRectContainsPoint(self.backgroudView.frame, [sender locationInView:self.view ]) ) {
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
+    }];
+    [self.view  addGestureRecognizer:tap];
 }
 - (IBAction)btnClick:(UIButton *)sender {
     NSInteger  index = sender.tag;

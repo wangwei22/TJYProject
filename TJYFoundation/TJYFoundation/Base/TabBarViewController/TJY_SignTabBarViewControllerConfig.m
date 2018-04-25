@@ -40,7 +40,8 @@ static  CGFloat  const CYLTabBarControllerHeight = 40.f;
 -(NSArray *)viewControllers{
     UIStoryboard  *  sb = [UIStoryboard  storyboardWithName:@"HomePage" bundle:nil];
      TJY_SmartCardViewController *  vc = [sb  instantiateViewControllerWithIdentifier:@"TJY_SmartCardViewController"];
-    NSArray  * array = @[vc,[TJY_StatisticsViewController new]];
+    TJY_StatisticsViewController  * svc =[sb  instantiateViewControllerWithIdentifier:@"TJY_StatisticsViewController"];
+    NSArray  * array = @[vc,svc];
     __block  NSMutableArray  * viewControllers =[NSMutableArray  arrayWithCapacity:5];
     [array  enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         UIViewController  * vc = [[TJY_NavigationController  alloc] initWithRootViewController:array[idx]];

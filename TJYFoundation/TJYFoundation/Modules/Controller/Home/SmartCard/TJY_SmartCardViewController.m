@@ -239,6 +239,7 @@
     label.layer.borderWidth = 1;
     label.textColor = color;
     label.layer.borderColor = [color   CGColor]; //ssRGBHex(0xff6a4c)
+
 }
 -(void)tapClick{
     TJY_DatePickerViewController  *  picker = [[UIStoryboard  storyboardWithName:@"HomePage" bundle:nil] instantiateViewControllerWithIdentifier:@"TJY_DatePickerViewController"];
