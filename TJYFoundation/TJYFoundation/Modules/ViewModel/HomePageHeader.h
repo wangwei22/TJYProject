@@ -13,4 +13,6 @@
 #define  REGIST_URL  @"api/public/register"
 #define  LOGIN_URL @"api/public/login"
 #define  SIGN_CONFIG @"api/Attendance/getClockConfig"
+#define  SIGN_CLICK      @"api/Attendance/clockInsert"
+#define  USER_Sign_Info  @"api/Attendance/getSamedayClock"
 #endif /* HomePageHeader_h */

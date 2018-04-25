@@ -16,7 +16,7 @@
 @property(nonatomic,copy)NSString  *lat;
 @property(nonatomic,copy)NSString  *lng;
 @property(nonatomic,copy)NSString  *monIsOn;
-@property(nonatomic,copy)NSString  *range;
+@property(nonatomic,copy)NSString  *ranges;
 @property(nonatomic,copy)NSString  *staIsOn;
 @property(nonatomic,copy)NSString  *startWorkTime;
 @property(nonatomic,copy)NSString  *sunIsOn;

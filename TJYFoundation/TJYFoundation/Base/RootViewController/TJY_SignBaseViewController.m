@@ -1,51 +1,37 @@
 //
-//  TJY_BaseViewController.m
+//  TJY_SignBaseViewController.m
 //  TJYFoundation
 //
-//  Created by wang_wei on 2018/4/9.
+//  Created by wang_wei on 2018/4/25.
 //  Copyright © 2018年 wangwei. All rights reserved.
 //
 
-#import "TJY_BaseViewController.h"
+#import "TJY_SignBaseViewController.h"
 
-@interface TJY_BaseViewController ()
+@interface TJY_SignBaseViewController ()
 
 @end
 
-@implementation TJY_BaseViewController
+@implementation TJY_SignBaseViewController
 @synthesize titleView;
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        if ([self respondsToSelector:@selector(edgesForExtendedLayout)]) {
-            self.edgesForExtendedLayout = UIRectEdgeNone;
-        }
-    }
-    return self;
-}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     self.view.frame = CGRectMake(0, 0, SCREEN_W, SCREEN_H);
-     self.automaticallyAdjustsScrollViewInsets = NO;
+    self.automaticallyAdjustsScrollViewInsets = NO;
     self.view.backgroundColor = [UIColor colorWithHex:0xf6f6f6];
     titleView = [[NavTitleView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_W, MyNavHeight+STATUSBAR_H)];
-      [titleView.backBtn addTarget:self action:@selector(back:) forControlEvents:UIControlEventTouchUpInside];
-    [self addObserver:self forKeyPath:@"title" options:0 context:NULL];
+    [titleView.backBtn addTarget:self action:@selector(back:) forControlEvents:UIControlEventTouchUpInside];
+//    [self addObserver:self forKeyPath:@"title" options:0 context:NULL];
     if (self.navigationController.viewControllers.count >3) {
-          titleView.shutBtn.hidden = false;
-     [[titleView.shutBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
-         [self.navigationController popToRootViewControllerAnimated:YES];
+        titleView.shutBtn.hidden = false;
+        [[titleView.shutBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+//            [self.navigationController popToRootViewControllerAnimated:YES];
+              [self.tabBarController.navigationController popToRootViewControllerAnimated:YES];
         }];
     }else{
-         titleView.shutBtn.hidden = YES;
+        titleView.shutBtn.hidden = YES;
     }
-    if ( self.navigationController.viewControllers.count>1) {
-        titleView.backBtn.hidden = false;
-    }else{
-        titleView.backBtn.hidden = YES;
-    }
-//    GMLog("%u---lk",self.navigationController.viewControllers.count);
     [self.view insertSubview:titleView atIndex:0];
 }
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
@@ -59,7 +45,8 @@
         if (self.presentingViewController) {
             [self dismissViewControllerAnimated:YES completion:nil];
         }else{
-            [self.navigationController popViewControllerAnimated:YES];
+//            [self.navigationController popViewControllerAnimated:YES];
+            [self.tabBarController.navigationController popToRootViewControllerAnimated:YES];
         }
     }
 }
@@ -70,7 +57,7 @@
 -(void)viewWillDisappear:(BOOL)animated{
     [super  viewWillDisappear:animated];
     [self.view endEditing:YES];
-     [[UIApplication  sharedApplication] .keyWindow endEditing:YES];
+    [[UIApplication  sharedApplication] .keyWindow endEditing:YES];
 }
 - (void)viewDidDisappear:(BOOL)animated
 {
@@ -78,19 +65,8 @@
     self.navigationController.interactivePopGestureRecognizer.enabled = YES;
 }
 
-//取消请求
-- (void)cancelRequest
-{
-    
-}
--(void)textFieldPlaceholderColorWithTextField:(UITextField*)textField{
-    [textField  setValue:ssRGBHex(0x999999) forKeyPath:@"_placeholderLabel.textColor"];
-}
-
-
 -(void)dealloc{
-    [self removeObserver:self forKeyPath:@"title"];
-    [self  cancelRequest];
+//    [self removeObserver:self forKeyPath:@"title"];
 }
 
 
@@ -101,8 +77,6 @@
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:_interval];
     NSDateFormatter *objDateformat = [[NSDateFormatter alloc] init];
     [objDateformat setDateFormat:@"HH:mm:ss"];
-    //    NSLog(@"%@", [objDateformat stringFromDate: date]);yyyy-MM-dd HH:mm:ss
-    
     return [objDateformat stringFromDate: date];
 }
 
@@ -133,14 +107,13 @@
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-        GMLog("%@---didReceiveMemoryWarning", self.title);
-        [[SDImageCache sharedImageCache] setValue:nil forKey:@"memCache"];
-        //清除所有的内存中图片缓存，不影响正在显示的图片
-        [[SDImageCache sharedImageCache] clearMemory];
-        //停止正在进行的图片下载操作
-        [[SDWebImageManager sharedManager] cancelAll];
+    GMLog("%@---didReceiveMemoryWarning", self.title);
+    [[SDImageCache sharedImageCache] setValue:nil forKey:@"memCache"];
+    //清除所有的内存中图片缓存，不影响正在显示的图片
+    [[SDImageCache sharedImageCache] clearMemory];
+    //停止正在进行的图片下载操作
+    [[SDWebImageManager sharedManager] cancelAll];
 }
-
 
 /*
 #pragma mark - Navigation

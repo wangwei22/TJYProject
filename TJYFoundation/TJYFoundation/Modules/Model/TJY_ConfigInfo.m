@@ -19,7 +19,8 @@
              @"sunIsOn":@"sun_is_on",
              @"thurIsOn":@"thur_is_on",
              @"tuesIsOn":@"tues_is_on",
-             @"wedIsOn":@"wed_is_on"
+             @"wedIsOn":@"wed_is_on",
+             @"ranges":@"range"
              };
 }
 @end

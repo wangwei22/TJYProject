@@ -84,25 +84,13 @@
     [signBtn setTitle:@"签 到" forState:UIControlStateNormal];
     [signBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [signBtn addTarget:self action:@selector(signWork) forControlEvents:UIControlEventTouchUpInside];
-//    [self.view addSubview:signBtn];
+    [self.view addSubview:signBtn];
     // 定位按钮
     UIButton *searchBtn = [[UIButton alloc ] initWithFrame:CGRectMake(SCREEN_W - 20 - 37, kNavBarHeight+kStatusBarHeight + 20, 37, 37)];
     [searchBtn setBackgroundImage:[UIImage imageNamed:@"locationPoint"] forState:UIControlStateNormal];
     [searchBtn setBackgroundImage:[UIImage imageNamed:@"locationPoint_select"] forState:UIControlStateHighlighted];
     [searchBtn addTarget:self action:@selector(locationClick) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:searchBtn];
-    
-    UIButton *zoomUpBtn = [[UIButton alloc] initWithFrame:CGRectMake(signBtn.right - 37, signBtn.top - 67 - 30, 37, 37)];
-    [zoomUpBtn setBackgroundImage:[UIImage imageNamed:@"up"] forState:UIControlStateNormal];
-    [zoomUpBtn setBackgroundImage:[UIImage imageNamed:@"up_select"] forState:UIControlStateHighlighted];
-    [zoomUpBtn addTarget:self action:@selector(zoomUp) forControlEvents:UIControlEventTouchUpInside];
-//    [self.view addSubview:zoomUpBtn];
-    
-    UIButton *zoomDownBtn = [[UIButton alloc ] initWithFrame:CGRectMake(signBtn.right - 37, signBtn.top - 30 - 30, 37, 37)];
-    [zoomDownBtn setBackgroundImage:[UIImage imageNamed:@"down"] forState:UIControlStateNormal];
-    [zoomDownBtn setBackgroundImage:[UIImage imageNamed:@"down_select"] forState:UIControlStateHighlighted];
-    [zoomDownBtn addTarget:self action:@selector(zoomDown) forControlEvents:UIControlEventTouchUpInside];
-//    [self.view addSubview:zoomDownBtn];
     
     BOOL isOnline = self.user.netState;
     // 判断是否离线
@@ -337,6 +325,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 -(void)dealloc{
     
 }

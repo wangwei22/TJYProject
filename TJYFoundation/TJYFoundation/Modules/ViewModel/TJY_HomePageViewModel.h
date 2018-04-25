@@ -14,5 +14,6 @@
 @property(nonatomic,strong,readonly)RACCommand  * registCommand;
 @property(nonatomic,strong,readonly)RACCommand  *LoginCommand;
 @property(nonatomic,strong,readonly)RACCommand  *signConfigCommand;
-
+@property(nonatomic,strong,readonly)RACCommand* signClickCommand;
+@property(nonatomic,strong,readonly)RACCommand* userSignInfoCommand;
 @end

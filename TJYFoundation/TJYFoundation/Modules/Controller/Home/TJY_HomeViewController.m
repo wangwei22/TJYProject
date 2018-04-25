@@ -15,7 +15,8 @@
 #import "TJY_HomePageViewModel.h"
 #import "TJY_SmartCardViewController.h"
 #import "TJY_SignMapViewController.h"
-@interface TJY_HomeViewController ()
+#import "TJY_SignTabBarViewControllerConfig.h"
+@interface TJY_HomeViewController ()<UITabBarControllerDelegate>
 {
     NSMutableDictionary  *  _dic;
 }
@@ -84,8 +85,11 @@
     UIStoryboard  *  sb = [UIStoryboard  storyboardWithName:@"HomePage" bundle:nil];
     switch (indexPath.section) {
         case 0:{
+            TJY_SignTabBarViewControllerConfig  *  config = [TJY_SignTabBarViewControllerConfig  new];
+            CYLTabBarController  * tabBar = config.tabBarController;
+            tabBar.delegate =  self;
             TJY_SmartCardViewController *  vc = [sb  instantiateViewControllerWithIdentifier:@"TJY_SmartCardViewController"];
-            [self.navigationController  pushViewController:vc animated:YES];
+            [self.navigationController  pushViewController:tabBar animated:YES];
             break;
         }
         case 1:{
@@ -117,6 +121,12 @@
         }];
     }
     return  _collectionView;
+}
+
+- (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController {
+    UIViewController *viewController_ = [viewController   cyl_getViewControllerInsteadIOfNavigationController];
+    [[viewController_ cyl_tabBarController] updateSelectionStatusIfNeededForTabBarController:tabBarController shouldSelectViewController:viewController];
+    return YES;
 }
 /*
 #pragma mark - Navigation

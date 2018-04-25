@@ -6,8 +6,8 @@
 //  Copyright © 2018年 wangwei. All rights reserved.
 //
 
-#import "TJY_BaseViewController.h"
+#import "TJY_SignBaseViewController.h"
 
-@interface TJY_SmartCardViewController : TJY_BaseViewController
+@interface TJY_SmartCardViewController : TJY_SignBaseViewController
 
 @end
