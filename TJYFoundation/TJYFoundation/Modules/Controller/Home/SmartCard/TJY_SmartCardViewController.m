@@ -67,7 +67,7 @@
         self.signFlag.text = x.second;
     } error:^(NSError * _Nullable error) {
     } ];
-    [RACObserve(self.config, endWorkTime) subscribeNext:^(id  _Nullable x) {
+   [RACObserve(self.config, endWorkTime) subscribeNext:^(id  _Nullable x) {
              @strongify(self);
         self.endTime.text = [NSString  stringWithFormat:@"下班时间%@",[self  dateWithTimeIntervalString:self.config.endWorkTime]];
     }];
@@ -78,7 +78,7 @@
 }
 -(void)configUI{
     NSDateFormatter  *  formatter = [[NSDateFormatter  alloc] init];
-    [formatter  setDateFormat:@"yyyy-MM-dd"];
+    [formatter  setDateFormat:@"yyyy.MM.dd"];
     NSString  *  currentDateString = [formatter  stringFromDate:[NSDate  date]];
     self.timeLbl.text = currentDateString;
       _user= [TJY_UserApplication  shareManager].loginUser;
@@ -123,7 +123,6 @@
 }
 -(void)handleMorning:(TJY_SignInfo*)infoAm{
     if (infoAm.clockTime) {
-        self.signState.text = [infoAm clockTime]?[NSString  stringWithFormat:@"打卡时间%@",[infoAm clockTime]] :@"";
         if ([infoAm.outType isEqualToString:@"1"]) {
             self.stateLbl.text = @"正常";
          [self  labelBorderColorWithLabel:self.stateLbl color:ssRGBHex(0x0080ff)];
@@ -135,7 +134,9 @@
             [self  labelBorderColorWithLabel:self.stateLbl color:ssRGBHex(0xff6a4c)];
         }
        [self  configLabel:morningLbl withText:infoAm.address];
+        self.signState.text = [infoAm clockTime]?[NSString  stringWithFormat:@"打卡时间%@",[infoAm clockTime]] :@"";
         self.signImgConstraintHeight.constant = 180;
+        self.stateLeadingConstraintWidth.constant = 10;
         [self.view  layoutIfNeeded];
     }else{
         if ([_flag isEqualToString:@"2"]) {
@@ -171,7 +172,7 @@
         }
     }else{
         self.stateClosed.text = @"";
-        self.stateLeadingConstraintWidth.constant = 0;
+        self.stateClosedConstraintWidth.constant = 0;
         [self.view  layoutIfNeeded];
     }
  
@@ -188,6 +189,13 @@
         if(result==-1){
             TJY_AlertViewController * vc = [[UIStoryboard  storyboardWithName:@"HomePage" bundle:nil] instantiateViewControllerWithIdentifier:@"TJY_AlertViewController"];
              vc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+            vc.dissAppearBlock = ^{
+                TJY_HomePageViewModel  *  model = [TJY_HomePageViewModel  new];
+                [[model.signClickCommand  execute:  [NSString  stringWithFormat:@"%@",[[TJY_UserApplication  shareManager].gPlmark.addressDictionary objectForKey:@"FormattedAddressLines"][0]]? [NSString  stringWithFormat:@"%@",[[TJY_UserApplication  shareManager].gPlmark.addressDictionary objectForKey:@"FormattedAddressLines"][0]]:@""] subscribeNext:^(id  _Nullable x) {
+                } error:^(NSError * _Nullable error) {
+                    [MBProgressHUD  showTopTipMessage: [error.userInfo objectForKey:@"customErrorInfoKey"]  isWindow:YES];
+                }];
+            };
             [self.tabBarController presentViewController:vc animated:YES completion:nil];
         }else{
             NSString  *  address =  [NSString  stringWithFormat:@"%@",[[TJY_UserApplication  shareManager].gPlmark.addressDictionary objectForKey:@"FormattedAddressLines"][0]] ;
@@ -198,6 +206,8 @@
                  [MBProgressHUD  showTopTipMessage: [error.userInfo objectForKey:@"customErrorInfoKey"]  isWindow:YES];
             }];
         }
+    }else{
+        [self  showHint:@"定位失败"];
     }
 }
 -(void)bindData{
@@ -205,8 +215,12 @@
     @weakify(self);
     [[model.userSignInfoCommand execute:nil] subscribeNext:^(NSArray * x) {
         @strongify(self);
-        [self  handleMorning:(TJY_SignInfo *) x.firstObject];
-        [self  handleEvening: (TJY_SignInfo *)x.lastObject];
+        if ([self->_flag isEqualToString:@"1"]) {
+                [self  handleMorning:(TJY_SignInfo *) x.firstObject];
+        }else{
+               [self  handleMorning:(TJY_SignInfo *) x.firstObject];
+               [self  handleEvening: (TJY_SignInfo *)x.lastObject];
+        }
     } error:^(NSError * _Nullable error) {
         [MBProgressHUD   showTopTipMessage:[error.userInfo  objectForKey:@"customErrorInfoKey"] isWindow:YES];
     }];
@@ -239,7 +253,6 @@
     label.layer.borderWidth = 1;
     label.textColor = color;
     label.layer.borderColor = [color   CGColor]; //ssRGBHex(0xff6a4c)
-
 }
 -(void)tapClick{
     TJY_DatePickerViewController  *  picker = [[UIStoryboard  storyboardWithName:@"HomePage" bundle:nil] instantiateViewControllerWithIdentifier:@"TJY_DatePickerViewController"];
@@ -260,11 +273,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
--(void)dealloc{
-    
-}
-
 #pragma   mark setter  getter  method
 #pragma mark - Navigation
 

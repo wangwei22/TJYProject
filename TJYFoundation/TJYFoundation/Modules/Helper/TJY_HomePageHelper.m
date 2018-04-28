@@ -15,6 +15,7 @@
     UICollectionView  * _collectionView;
     SDCycleScrollView *bannerView;
 }
+@property(strong, nonatomic) NSMutableDictionary  *  dic;
 @end
 @implementation TJY_HomePageHelper
 
@@ -162,4 +163,36 @@
     bannerView.placeholderImage = [UIImage imageNamed:@"banner"];
 }
 
+
+-(void)dealWithModel{
+    _dic = [NSMutableDictionary  dictionary];
+    NSArray  *  first = @[@"zhinengdaka",@"baifangqiandao",@"qingjiashenpi",@"bukashenpi",@"waichushenpi",@"jiabanshenpi",@"chuchaishenpi"];
+    NSArray  *  firstTitle = @[@"智能打卡",@"拜访签到",@"请假审批",@"补卡审批",@"外出审批",@"加班审批",@"出差审批"];
+    NSArray  *  second = @[@"gongsikuangjia",@"danganwenjian"];
+    NSArray  *  secondTitle = @[@"公司框架",@"档案文件"];
+    NSArray  *  third = @[@"feiyongbaoxiao",@"feiyongshenqing",@"cangkujinhuo",@"cangkuxiaohuo"];
+    NSArray  *  thirdTitle = @[@"费用报销",@"费用申请",@"仓库进货",@"仓库销货"];
+    NSArray  *  fourth = @[@"wupinlingyong",@"yongcheshenqing",@"yonyinshenqing",@"caigoushenqing"];
+    NSArray  *  fourthTitle = @[@"物品领用",@"用车申请",@"用印申请",@"采购申请"];
+    [self  handleModelWithImg:first title:firstTitle  index:0];
+    [self  handleModelWithImg:second title:secondTitle index:1];
+    [self  handleModelWithImg:third title:thirdTitle index:2];
+    [self  handleModelWithImg:fourth title:fourthTitle index:3];
+}
+-(void)handleModelWithImg:(NSArray*)img title:(NSArray*)title index:(NSInteger)index{
+    NSMutableArray  * array = [NSMutableArray  array];
+    [img  enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        TJY_AdInfomation *  model = [[TJY_AdInfomation  alloc] init];
+        model.title = title[idx];
+        model.imageUrl = img[idx];
+        [array  addObject:model];
+    }];
+    [_dic  setObject:array forKey:[NSIndexPath  indexPathWithIndex:index]];
+}
+-(NSMutableDictionary *)dic{
+    if (!_dic) {
+        [self dealWithModel];
+    }
+    return   _dic;
+}
 @end

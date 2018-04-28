@@ -10,7 +10,7 @@
 
 @interface TJY_HomePageHelper : NSObject
 @property(strong, nonatomic, readonly) NSArray *data;
-@property(strong, nonatomic) NSDictionary  *  dic;
+
 @property(strong,nonatomic)NSMutableArray  * imgArray;
 - (instancetype)initWithCollectionView:(UICollectionView *)collectionView
                             dataSource:(RACSignal *)source

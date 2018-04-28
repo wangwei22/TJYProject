@@ -24,13 +24,12 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [[UIColor darkTextColor] colorWithAlphaComponent:0.7];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    dateFormatter.dateFormat = @"yyyy-MM-dd";
+    dateFormatter.dateFormat = @"yyyy.MM.dd";
     dateFormatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"zh_CN"];
    _dateString = [dateFormatter stringFromDate:[NSDate  date]];
     [[self.datePicker  rac_newDateChannelWithNilValue:[NSDate  date]] subscribeNext:^(NSDate * _Nullable x) {
         NSString *dateStr = [dateFormatter stringFromDate:x];
         self->_dateString = dateStr;
-        GMLog("....%@",dateStr);
     }];
     UITapGestureRecognizer  *  tap = [[UITapGestureRecognizer alloc] initWithActionBlock:^(    UITapGestureRecognizer  *  sender) {
         if (!CGRectContainsPoint(self.backgroudView.frame, [sender locationInView:self.view ]) ) {

@@ -8,11 +8,25 @@
 
 #ifndef HomePageHeader_h
 #define HomePageHeader_h
-#define  PHP_ADURL  @"api/index/getSilde"
-#define  LOGIN_INFOURL  @"api/public/getD"
-#define  REGIST_URL  @"api/public/register"
-#define  LOGIN_URL @"api/public/login"
-#define  SIGN_CONFIG @"api/Attendance/getClockConfig"
-#define  SIGN_CLICK      @"api/Attendance/clockInsert"
-#define  USER_Sign_Info  @"api/Attendance/getSamedayClock"
+#define  PHP_ADURL                  @"api/index/getSilde"
+#define  LOGIN_INFOURL              @"api/public/getD"
+#define  REGIST_URL                 @"api/public/register"
+#define  LOGIN_URL                  @"api/public/login"
+#define  SIGN_CONFIG                @"api/Attendance/getClockConfig"
+#define  SIGN_CLICK                 @"api/Attendance/clockInsert"
+#define  USER_Sign_Info             @"api/Attendance/getSamedayClock"
+#define  DAY_CLOCK_URL              @"api/Attendance/everydayClocks"
+#define  DAY_CLOCK_DETAIL           @"api/Attendance/everydayClockDetail"
+#define  MONTH_CLOCK_DETAIL_URL     @"api/Attendance/monthClockDetail"
+#define  MONTH_CLOCK_URL            @"api/Attendance/monthClock"
+#define  MONTH_MY_URL               @"api/Attendance/monthClockPer"
+/*  model */
+#import "TJY_AdInfomation.h"
+#import "TJY_DutyList.h"
+#import "UserInfo.h"
+#import "TJY_ConfigInfo.h"
+#import "TJY_SignInfo.h"
+#import "TJY_SignClockInfo.h"
+#import "TJY_Clock.h"
+#import "TJY_MySignInfo.h"
 #endif /* HomePageHeader_h */

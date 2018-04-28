@@ -16,4 +16,9 @@
 @property(nonatomic,strong,readonly)RACCommand  *signConfigCommand;
 @property(nonatomic,strong,readonly)RACCommand* signClickCommand;
 @property(nonatomic,strong,readonly)RACCommand* userSignInfoCommand;
+@property(nonatomic,strong,readonly)RACCommand* dayClockInfoCommand;
+@property(nonatomic,strong,readonly)RACCommand* userDayClockInfoCommand;
+@property(nonatomic,strong,readonly)RACCommand* monthClockInfoCommand;
+@property(nonatomic,strong,readonly)RACCommand* myMonthClockInfoCommand;
+@property(nonatomic,strong,readonly)RACCommand* monthClockDetailCommand;
 @end
