@@ -1,12 +1,13 @@
 //
-//  TJY_SignMapViewController.m
+//  TJY_VisitSignHomeViewController.m
 //  TJYFoundation
 //
-//  Created by wang_wei on 2018/4/19.
+//  Created by wang_wei on 2018/5/3.
 //  Copyright © 2018年 wangwei. All rights reserved.
 //
 
-#import "TJY_SignMapViewController.h"
+#import "TJY_VisitSignHomeViewController.h"
+
 #import <MAMapKit/MAMapKit.h>
 #import <AMapFoundationKit/AMapFoundationKit.h>
 #import <AMapSearchKit/AMapSearchKit.h>
@@ -16,7 +17,7 @@
 #define kLatitude 30.480672
 #define kLongitude 114.542898
 
-@interface TJY_SignMapViewController ()<MAMapViewDelegate,AMapSearchDelegate>
+@interface TJY_VisitSignHomeViewController ()<MAMapViewDelegate,AMapSearchDelegate>
 {
     BOOL isSelect;
     UIImageView *selectImg;
@@ -37,10 +38,15 @@
 
 @property(nonatomic,strong)AMapSearchAPI * search;
 @property(nonatomic,strong) DPointAnnotation*  companyP;
+@property (weak, nonatomic) IBOutlet UIView *visitBgView;
+@property (weak, nonatomic) IBOutlet UITextField *textField;
+@property (weak, nonatomic) IBOutlet UIView *mapBgView;
+@property (weak, nonatomic) IBOutlet UIView *titleBgView;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+
 @end
 
-@implementation TJY_SignMapViewController
-
+@implementation TJY_VisitSignHomeViewController
 -(void)viewDidAppear:(BOOL)animated{
     [super  viewDidAppear:animated];
     [self  userPermissionSetting];
@@ -50,23 +56,35 @@
     [self.mapView  addOverlays:self.circles];
 }
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
+     [super viewDidLoad];
+     // Do any additional setup after loading the view.
+     [self  configUI];
     // 初始化地图
-//    [self initMapView];
+    [self initMapView];
     // 初始化 MAUserLocationRepresentation 对象
     [self initUserLocationRepresentation];
     // 创建按钮
     [self initMapButton];
 }
+-(void)configUI{
+    [self textFieldPlaceholderColorWithTextField:self.textField];
+    self.visitBgView.layer.borderWidth = 0.5;
+    self.visitBgView.layer.borderColor = [UIColor  lightGrayColor].CGColor;
+    
+    NSDateFormatter  *  formater = [[NSDateFormatter  alloc] init];
+    [formater  setDateFormat:@"HH:mm"];
+    self.timeLabel.text =[formater  stringFromDate:[NSDate  date]];
+}
+
+
 - (void)initMapView {
-       // https配置
+    // https配置
     [AMapServices  sharedServices].enableHTTPS = YES;
-     // 初始化地图
+    // 初始化地图
     [self.view  addSubview:self.mapView];
     self.search.delegate=self;
-    [self.mapView  addAnnotation:self.companyP];
-    [self.mapView  selectAnnotation:self.companyP animated:YES];
+//    [self.mapView  addAnnotation:self.companyP];
+//    [self.mapView  selectAnnotation:self.companyP animated:YES];
 }
 
 - (void)initUserLocationRepresentation {
@@ -84,22 +102,13 @@
     [signBtn setTitle:@"签 到" forState:UIControlStateNormal];
     [signBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [signBtn addTarget:self action:@selector(signWork) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:signBtn];
+//    [self.view addSubview:signBtn];
     // 定位按钮
-    UIButton *searchBtn = [[UIButton alloc ] initWithFrame:CGRectMake(SCREEN_W - 20 - 37, kNavBarHeight+kStatusBarHeight + 20, 37, 37)];
+    UIButton *searchBtn = [[UIButton alloc ] initWithFrame:CGRectMake(SCREEN_W - 20 - 37, kNavBarHeight+kStatusBarHeight + 20+44, 37, 37)];
     [searchBtn setBackgroundImage:[UIImage imageNamed:@"locationPoint"] forState:UIControlStateNormal];
     [searchBtn setBackgroundImage:[UIImage imageNamed:@"locationPoint_select"] forState:UIControlStateHighlighted];
     [searchBtn addTarget:self action:@selector(locationClick) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:searchBtn];
-    
-    BOOL isOnline = self.user.netState;
-    // 判断是否离线
-    if (isOnline) {
-        // 绘制打卡范围
-        [self setAddress];
-    }else {
-        [self setAddress];
-    }
 }
 - (void)setAddress {
     NSMutableArray *arr = [NSMutableArray array];
@@ -247,14 +256,15 @@
         annotationView.selected = YES;
         if ([annotation  isKindOfClass:[DPointAnnotation  class]]) {
             return   annotationView;
-        }else if ([annotation  isEqual:self.companyP]){
+        }
+   /*     else if ([annotation  isEqual:self.companyP]){
             self.companyP.coordinate = CLLocationCoordinate2DMake(30.61785, 114.25547000000006);
             self.companyP.title = @"公司";
             self.companyP.subtitle = @"湖北省武汉市江汉区常青街街道兴城大厦B座";
             self.companyP.image = [UIImage  imageNamed:@"location"];
-             annotationView.selected = YES;
+            annotationView.selected = YES;
             return  annotationView;
-        }
+        }*/
         return nil;
     }
     return nil;
@@ -262,20 +272,17 @@
 -(void)mapView:(MAMapView *)mapView didSelectAnnotationView:(MAAnnotationView *)view{
     NSLog(@".....click.....");
 }
-
 -(void)viewDidDisappear:(BOOL)animated{
-    [self.mapView  removeFromSuperview];
     self.mapView.delegate = nil;
     self.mapView=nil;
     self.search = nil;
     self.search.delegate = nil;
     self.companyP= nil;
 }
-
 #pragma   mark --  getter  setter  method
 -(MAMapView *)mapView{
     if (!_mapView) {
-        _mapView = [[MAMapView  alloc] initWithFrame:CGRectMake(0, kTopHeight, SCREEN_W, SCREEN_H-kTopHeight-kTabBarHeight-160)];
+        _mapView = [[MAMapView  alloc] initWithFrame:CGRectMake(0, kTopHeight+44, SCREEN_W, SCREEN_H-kTopHeight-kTabBarHeight-170-88)];
         _mapView.delegate = self;
         // 显示定位小蓝点
         self.mapView.showsUserLocation = YES;
@@ -296,8 +303,8 @@
 -(DPointAnnotation *)companyP{
     if (!_companyP) {
         _companyP = [[DPointAnnotation  alloc] init];
-          _companyP.coordinate = CLLocationCoordinate2DMake(30.61785, 114.25547000000006);
-         _companyP.title = @"公司";
+        _companyP.coordinate = CLLocationCoordinate2DMake(30.61785, 114.25547000000006);
+        _companyP.title = @"公司";
         _companyP.subtitle = @"湖北省武汉市江汉区常青街街道兴城大厦B座";
         _companyP.image = [UIImage  imageNamed:@"location"];
     }
@@ -305,9 +312,9 @@
 }
 
 -(void)userPermissionSetting{
-   if ([CLLocationManager authorizationStatus] == AVAuthorizationStatusRestricted ||[CLLocationManager authorizationStatus] == kCLAuthorizationStatusDenied){
+    if ([CLLocationManager authorizationStatus] == AVAuthorizationStatusRestricted ||[CLLocationManager authorizationStatus] == kCLAuthorizationStatusDenied){
         UIAlertController  *  alert = [UIAlertController  alertControllerWithTitle:nil message:@"请在iPhone的“设置-隐私-位置”选项中，允许访问你的位置" preferredStyle:UIAlertControllerStyleAlert];
-       @weakify(self);
+        @weakify(self);
         [alert  addAction:[UIAlertAction  actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
             @strongify(self);
             [self.navigationController  popViewControllerAnimated:YES];
@@ -319,7 +326,7 @@
             }
         }]];
         [self  presentViewController:alert animated:YES completion:nil];
-        }
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -327,9 +334,6 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)dealloc{
-    
-}
 /*
 #pragma mark - Navigation
 

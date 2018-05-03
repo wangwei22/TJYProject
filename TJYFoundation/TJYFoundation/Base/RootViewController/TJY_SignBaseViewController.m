@@ -114,7 +114,9 @@
     //停止正在进行的图片下载操作
     [[SDWebImageManager sharedManager] cancelAll];
 }
-
+-(void)textFieldPlaceholderColorWithTextField:(UITextField*)textField{
+    [textField  setValue:ssRGBHex(0x999999) forKeyPath:@"_placeholderLabel.textColor"];
+}
 /*
 #pragma mark - Navigation
 

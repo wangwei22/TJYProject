@@ -9,5 +9,5 @@
 #import "TJY_BaseViewController.h"
 
 @interface TJY_SignMapViewController : TJY_BaseViewController
-
+- (void)initMapView;
 @end

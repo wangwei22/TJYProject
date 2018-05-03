@@ -17,4 +17,5 @@
 @property (copy, nonatomic) void (^backClicked)(void);
 -(NSString *)dateWithTimeIntervalString:(NSString *)string;
 - (int)compareOneDay:(NSDate *)oneDay withAnotherDay:(NSDate *)anotherDay;
+-(void)textFieldPlaceholderColorWithTextField:(UITextField*)textField;
 @end

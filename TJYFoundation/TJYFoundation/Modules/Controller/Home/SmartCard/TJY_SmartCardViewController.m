@@ -143,7 +143,7 @@
             self.stateLbl.text = @"缺勤";
              [self  labelBorderColorWithLabel:self.stateLbl color:ssRGBHex(0xff6a4c)];
              [self  configLabel:morningLbl withText:@""];
-             self.signImgConstraintHeight.constant = 180;
+            self.signImgConstraintHeight.constant = 180;
             self.stateLeadingConstraintWidth.constant = 0;
             [self.view  layoutIfNeeded];
         }else{
@@ -170,6 +170,8 @@
             self.stateClosed.text = @"早退";
               [self  labelBorderColorWithLabel:self.stateClosed color:ssRGBHex(0xff6a4c)];
         }
+        self.stateClosedConstraintWidth.constant = 10;
+        [self.view  layoutIfNeeded];
     }else{
         self.stateClosed.text = @"";
         self.stateClosedConstraintWidth.constant = 0;
@@ -186,12 +188,13 @@
         NSDate  * futerDate = [formattter  dateFromString:self.config.endWorkTime];
         int  result = [self  compareOneDay:currentDate withAnotherDay:futerDate];
         GMLog("%d",result);
-        if(result==-1){
+        if(result==-1 && [_flag isEqualToString:@"2"]){
             TJY_AlertViewController * vc = [[UIStoryboard  storyboardWithName:@"HomePage" bundle:nil] instantiateViewControllerWithIdentifier:@"TJY_AlertViewController"];
              vc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
             vc.dissAppearBlock = ^{
                 TJY_HomePageViewModel  *  model = [TJY_HomePageViewModel  new];
                 [[model.signClickCommand  execute:  [NSString  stringWithFormat:@"%@",[[TJY_UserApplication  shareManager].gPlmark.addressDictionary objectForKey:@"FormattedAddressLines"][0]]? [NSString  stringWithFormat:@"%@",[[TJY_UserApplication  shareManager].gPlmark.addressDictionary objectForKey:@"FormattedAddressLines"][0]]:@""] subscribeNext:^(id  _Nullable x) {
+                    [self  bindData];
                 } error:^(NSError * _Nullable error) {
                     [MBProgressHUD  showTopTipMessage: [error.userInfo objectForKey:@"customErrorInfoKey"]  isWindow:YES];
                 }];

@@ -16,6 +16,7 @@
 #import "TJY_SmartCardViewController.h"
 #import "TJY_SignMapViewController.h"
 #import "TJY_SignTabBarViewControllerConfig.h"
+#import "TJY_VisitSignTbarBarViewControllerConfig.h"
 @interface TJY_HomeViewController ()<UITabBarControllerDelegate>
 {
     NSMutableDictionary  *  _dic;
@@ -28,7 +29,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"首页";
+    self.titleView.titleLabel.text = @"首页";
         // Do any additional setup after loading the view from its nib.
     self.collectionView.backgroundColor = [UIColor  whiteColor];
     [kNotificationCenter  addObserver:self selector:@selector(pushToAd:) name:@"pushToAd" object:nil];
@@ -58,10 +59,27 @@
   //  UIStoryboard  *  sb = [UIStoryboard  storyboardWithName:@"HomePage" bundle:nil];
     switch (indexPath.section) {
         case 0:{
-            TJY_SignTabBarViewControllerConfig  *  config = [TJY_SignTabBarViewControllerConfig  new];
-            CYLTabBarController  * tabBar = config.tabBarController;
-            tabBar.delegate =  self;
-            [self.navigationController  pushViewController:tabBar animated:YES];
+            switch (indexPath.row) {
+                case 0:{
+                    TJY_SignTabBarViewControllerConfig  *  config = [TJY_SignTabBarViewControllerConfig  new];
+                    CYLTabBarController  * tabBar = config.tabBarController;
+                    tabBar.delegate =  self;
+                    [self.navigationController  pushViewController:tabBar animated:YES];
+                    break;
+                }
+                case 1:{
+                    TJY_VisitSignTbarBarViewControllerConfig  *  config = [TJY_VisitSignTbarBarViewControllerConfig  new];
+                    CYLTabBarController  * tabBar = config.tabBarController;
+                    tabBar.delegate =  self;
+                    [self.navigationController  pushViewController:tabBar animated:YES];
+                    break;
+                }
+                case 2:{
+                    break;
+                }
+                default:
+                    break;
+            }
             break;
         }
         case 1:{

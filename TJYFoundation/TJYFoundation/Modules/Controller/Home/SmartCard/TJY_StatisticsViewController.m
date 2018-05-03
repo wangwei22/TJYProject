@@ -61,7 +61,7 @@
         self.totalNum.text = [NSString  stringWithFormat:@"%@/%@",self.model.dkCount,self.model.ydCount];
         CABasicAnimation  * anima = [CABasicAnimation  animationWithKeyPath:@"strokeEnd"];
         anima.fromValue =[NSNumber numberWithFloat:0.0];
-        anima.toValue = [NSNumber  numberWithFloat:[self.model.wdkCount floatValue]/[self.model.ydCount floatValue]];
+        anima.toValue = [NSNumber  numberWithFloat:[self.model.dkCount floatValue]/[self.model.ydCount floatValue]];
         anima.duration = 1;
         anima.repeatCount = 1;
         anima.removedOnCompletion =false;

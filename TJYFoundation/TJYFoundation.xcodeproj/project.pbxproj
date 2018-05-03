@@ -10,6 +10,7 @@
 		3876C832DCD87F68C3DECBCD /* libPods-TJYFoundationTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FC2191DB5674B697C0F85C1 /* libPods-TJYFoundationTests.a */; };
 		86FF7473C4BCF8D27B01DA3E /* libPods-TJYFoundation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AB5CA5B3032D3D98FCAAEF3 /* libPods-TJYFoundation.a */; };
 		A616C3AEB97D6D991BE55A9B /* libPods-TJYFoundationUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EBC924F7BD3EA214B663DF0 /* libPods-TJYFoundationUITests.a */; };
+		BD0535CA2099A8C800D40A49 /* TJY_ImageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0535C92099A8C800D40A49 /* TJY_ImageCollectionViewCell.m */; };
 		BD26E9922090A8AA006073EF /* TJY_SignClockInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = BD26E9912090A8AA006073EF /* TJY_SignClockInfo.m */; };
 		BD26E9952090C838006073EF /* TJY_SignInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD26E9942090C838006073EF /* TJY_SignInfoViewController.m */; };
 		BD293033208495F900304FBA /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = BD293032208495F900304FBA /* UserInfo.m */; };
@@ -35,6 +36,10 @@
 		BD31AF002091A4C10069C158 /* TJY_Clock.m in Sources */ = {isa = PBXBuildFile; fileRef = BD31AEFF2091A4C10069C158 /* TJY_Clock.m */; };
 		BD320961208E1A9100FE700C /* CMInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD32095F208E1A9000FE700C /* CMInputView.m */; };
 		BD32A8DC207F3FB9009E9D03 /* TJY_MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD32A8DB207F3FB9009E9D03 /* TJY_MainViewController.m */; };
+		BD32DB1A209AABCD00CABED1 /* TJY_VisitSignHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD32DB19209AABCD00CABED1 /* TJY_VisitSignHomeViewController.m */; };
+		BD34727820998A94008DD836 /* TJY_VisitSignTbarBarViewControllerConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = BD34727720998A94008DD836 /* TJY_VisitSignTbarBarViewControllerConfig.m */; };
+		BD34727F209990F1008DD836 /* TJY_VisitSignViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD34727E209990F1008DD836 /* TJY_VisitSignViewController.m */; };
+		BD34728220999155008DD836 /* TJY_TrackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD34728120999155008DD836 /* TJY_TrackViewController.m */; };
 		BD3706E9209411F000217573 /* TJY_MonthDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3706E8209411F000217573 /* TJY_MonthDetailViewController.m */; };
 		BD3706EC2094161700217573 /* TJY_MonthTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3706EB2094161700217573 /* TJY_MonthTableViewCell.m */; };
 		BD3706EF20944DBA00217573 /* TJY_MyStatisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3706EE20944DBA00217573 /* TJY_MyStatisticsViewController.m */; };
@@ -123,6 +128,8 @@
 		6FAEEF9D3D13B63EF2C3EC36 /* Pods-TJYFoundationUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TJYFoundationUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TJYFoundationUITests/Pods-TJYFoundationUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		7FC2191DB5674B697C0F85C1 /* libPods-TJYFoundationTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TJYFoundationTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9965E9808A8D00FCCF3F0FD /* Pods-TJYFoundationTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TJYFoundationTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TJYFoundationTests/Pods-TJYFoundationTests.debug.xcconfig"; sourceTree = "<group>"; };
+		BD0535C82099A8C800D40A49 /* TJY_ImageCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJY_ImageCollectionViewCell.h; sourceTree = "<group>"; };
+		BD0535C92099A8C800D40A49 /* TJY_ImageCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJY_ImageCollectionViewCell.m; sourceTree = "<group>"; };
 		BD26E9902090A8AA006073EF /* TJY_SignClockInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJY_SignClockInfo.h; sourceTree = "<group>"; };
 		BD26E9912090A8AA006073EF /* TJY_SignClockInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJY_SignClockInfo.m; sourceTree = "<group>"; };
 		BD26E9932090C838006073EF /* TJY_SignInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJY_SignInfoViewController.h; sourceTree = "<group>"; };
@@ -173,6 +180,14 @@
 		BD320960208E1A9000FE700C /* CMInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMInputView.h; sourceTree = "<group>"; };
 		BD32A8DA207F3FB9009E9D03 /* TJY_MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJY_MainViewController.h; sourceTree = "<group>"; };
 		BD32A8DB207F3FB9009E9D03 /* TJY_MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJY_MainViewController.m; sourceTree = "<group>"; };
+		BD32DB18209AABCD00CABED1 /* TJY_VisitSignHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJY_VisitSignHomeViewController.h; sourceTree = "<group>"; };
+		BD32DB19209AABCD00CABED1 /* TJY_VisitSignHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJY_VisitSignHomeViewController.m; sourceTree = "<group>"; };
+		BD34727620998A94008DD836 /* TJY_VisitSignTbarBarViewControllerConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJY_VisitSignTbarBarViewControllerConfig.h; sourceTree = "<group>"; };
+		BD34727720998A94008DD836 /* TJY_VisitSignTbarBarViewControllerConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJY_VisitSignTbarBarViewControllerConfig.m; sourceTree = "<group>"; };
+		BD34727D209990F1008DD836 /* TJY_VisitSignViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJY_VisitSignViewController.h; sourceTree = "<group>"; };
+		BD34727E209990F1008DD836 /* TJY_VisitSignViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJY_VisitSignViewController.m; sourceTree = "<group>"; };
+		BD34728020999155008DD836 /* TJY_TrackViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJY_TrackViewController.h; sourceTree = "<group>"; };
+		BD34728120999155008DD836 /* TJY_TrackViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJY_TrackViewController.m; sourceTree = "<group>"; };
 		BD3706E7209411F000217573 /* TJY_MonthDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJY_MonthDetailViewController.h; sourceTree = "<group>"; };
 		BD3706E8209411F000217573 /* TJY_MonthDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJY_MonthDetailViewController.m; sourceTree = "<group>"; };
 		BD3706EA2094161700217573 /* TJY_MonthTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJY_MonthTableViewCell.h; sourceTree = "<group>"; };
@@ -339,9 +354,19 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BD0535C72099A8A900D40A49 /* VisitSign */ = {
+			isa = PBXGroup;
+			children = (
+				BD0535C82099A8C800D40A49 /* TJY_ImageCollectionViewCell.h */,
+				BD0535C92099A8C800D40A49 /* TJY_ImageCollectionViewCell.m */,
+			);
+			path = VisitSign;
+			sourceTree = "<group>";
+		};
 		BD2B35392085BFB0003BC03B /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				BD0535C72099A8A900D40A49 /* VisitSign */,
 				BD318DB7208DDFC4002553FA /* SmartSign */,
 				BD2B353A2085BFCA003BC03B /* TJY_HomeCollectionViewCell.h */,
 				BD2B353B2085BFCA003BC03B /* TJY_HomeCollectionViewCell.m */,
@@ -426,6 +451,19 @@
 				BD32095F208E1A9000FE700C /* CMInputView.m */,
 			);
 			path = CM_InputView;
+			sourceTree = "<group>";
+		};
+		BD34727C209990B5008DD836 /* VisitSign */ = {
+			isa = PBXGroup;
+			children = (
+				BD32DB18209AABCD00CABED1 /* TJY_VisitSignHomeViewController.h */,
+				BD32DB19209AABCD00CABED1 /* TJY_VisitSignHomeViewController.m */,
+				BD34727D209990F1008DD836 /* TJY_VisitSignViewController.h */,
+				BD34727E209990F1008DD836 /* TJY_VisitSignViewController.m */,
+				BD34728020999155008DD836 /* TJY_TrackViewController.h */,
+				BD34728120999155008DD836 /* TJY_TrackViewController.m */,
+			);
+			path = VisitSign;
 			sourceTree = "<group>";
 		};
 		BD6C970F2081FFC4003D0306 /* HTTP */ = {
@@ -569,6 +607,8 @@
 				BDF30929207D9EE000678B28 /* TJY_MainTabBarViewController.m */,
 				BD5E13CD20900EA400B1D393 /* TJY_SignTabBarViewControllerConfig.h */,
 				BD5E13CE20900EA400B1D393 /* TJY_SignTabBarViewControllerConfig.m */,
+				BD34727620998A94008DD836 /* TJY_VisitSignTbarBarViewControllerConfig.h */,
+				BD34727720998A94008DD836 /* TJY_VisitSignTbarBarViewControllerConfig.m */,
 				BD32A8DA207F3FB9009E9D03 /* TJY_MainViewController.h */,
 				BD32A8DB207F3FB9009E9D03 /* TJY_MainViewController.m */,
 			);
@@ -632,6 +672,7 @@
 		BDF30931207D9EE000678B28 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				BD34727C209990B5008DD836 /* VisitSign */,
 				BD6D6507208739E0008C747C /* SmartCard */,
 				BDF30932207D9EE000678B28 /* TJY_HomeViewController.h */,
 				BDF30933207D9EE000678B28 /* TJY_HomeViewController.m */,
@@ -1127,6 +1168,7 @@
 				BDF30901207D9E7500678B28 /* main.m in Sources */,
 				BD31AEFD209164230069C158 /* TJY_SignInfoTableViewCell.m in Sources */,
 				BD26E9952090C838006073EF /* TJY_SignInfoViewController.m in Sources */,
+				BD0535CA2099A8C800D40A49 /* TJY_ImageCollectionViewCell.m in Sources */,
 				BD2B353D2085BFCA003BC03B /* TJY_HomeCollectionViewCell.m in Sources */,
 				BD2F40092080498100682FFB /* TJY_HomeRequestService.m in Sources */,
 				BDF309A7207DE49000678B28 /* MBProgressHUD+XY.m in Sources */,
@@ -1139,15 +1181,18 @@
 				BD5E13D2209012BE00B1D393 /* TJY_StatisticsViewController.m in Sources */,
 				BDF30992207DD82C00678B28 /* TJY_RequestServiceManager.m in Sources */,
 				BDF30989207DBCD800678B28 /* NSString+Emojize.m in Sources */,
+				BD32DB1A209AABCD00CABED1 /* TJY_VisitSignHomeViewController.m in Sources */,
 				BDF309A3207DE33900678B28 /* UIViewController+SLHUD.m in Sources */,
 				BD5E13DB2090521B00B1D393 /* TJY_AlertViewController.m in Sources */,
 				BD3096062089E001003901C4 /* DPointAnnotation.m in Sources */,
 				BDF309AE207DEB9B00678B28 /* LadderView.m in Sources */,
 				BD5E13CF20900EA400B1D393 /* TJY_SignTabBarViewControllerConfig.m in Sources */,
+				BD34727F209990F1008DD836 /* TJY_VisitSignViewController.m in Sources */,
 				BD31AF002091A4C10069C158 /* TJY_Clock.m in Sources */,
 				BD6D650C20873A34008C747C /* TJY_SmartCardViewController.m in Sources */,
 				BDF30943207D9EE000678B28 /* TJY_BaseViewController.m in Sources */,
 				BD3706EC2094161700217573 /* TJY_MonthTableViewCell.m in Sources */,
+				BD34727820998A94008DD836 /* TJY_VisitSignTbarBarViewControllerConfig.m in Sources */,
 				BD2C87F22083838800B5AF2F /* TJY_LoginCellHelper.m in Sources */,
 				BD379D6A20889830008DBD31 /* TJY_SignMapViewController.m in Sources */,
 				BDF3098B207DBCD800678B28 /* UIResponder+RemoteEvent.m in Sources */,
@@ -1163,6 +1208,7 @@
 				BDF30986207DBCD800678B28 /* UILabel+Addition.m in Sources */,
 				BD5E13D52090143900B1D393 /* TJY_SignBaseViewController.m in Sources */,
 				BD2C87F520838C1500B5AF2F /* TJY_DutyList.m in Sources */,
+				BD34728220999155008DD836 /* TJY_TrackViewController.m in Sources */,
 				BDF30942207D9EE000678B28 /* TJY_MainTabBarViewController.m in Sources */,
 				BD2EBE77208B05E400C2D083 /* TJY_ConfigInfo.m in Sources */,
 				BDF309B7207E106100678B28 /* MainMenuView.m in Sources */,

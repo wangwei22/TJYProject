@@ -81,5 +81,7 @@
 	</array>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>允许获取你的位置信息用于打卡功能</string>
+	<key>NSCameraUsageDescription</key>
+	<string>允许使用相机，用于拍照</string>
 </dict>
 </plist>

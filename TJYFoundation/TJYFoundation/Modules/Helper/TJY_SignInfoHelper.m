@@ -211,17 +211,22 @@
                 }
                 return ;
             }
-            BOOL  isClosed = [[self.dic  objectForKey: [NSString  stringWithFormat:@"key%ld",section]] boolValue];
-            [self.dic  setValue:[NSNumber  numberWithBool:!isClosed] forKey:[NSString  stringWithFormat:@"key%ld",section]];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self->_tableView  reloadSection:section withRowAnimation:UITableViewRowAnimationFade];
-                if (!isClosed) {
-                    CdClock  *  model = self.dataArray[section-1];
-                    if (model.resList.count) {
-                          [self->_tableView  scrollToRow:0 inSection:section atScrollPosition:UITableViewScrollPositionTop animated:YES];
+              CdClock  *  model = self.dataArray[section-1];
+            if (model.resList.count >0) {
+                BOOL  isClosed = [[self.dic  objectForKey: [NSString  stringWithFormat:@"key%ld",section]] boolValue];
+                [self.dic  setValue:[NSNumber  numberWithBool:!isClosed] forKey:[NSString  stringWithFormat:@"key%ld",section]];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self->_tableView  reloadSection:section withRowAnimation:UITableViewRowAnimationFade];
+                    if (!isClosed) {
+                        if (model.resList.count) {
+                            [self->_tableView  scrollToRow:0 inSection:section atScrollPosition:UITableViewScrollPositionTop animated:YES];
+                        }
                     }
-                }
-            });
+                });
+            }else{
+                [MBProgressHUD  showWarnMessage:[NSString  stringWithFormat:@"本月没有%@",self->_sectionTitleArray[section-1]]];
+            }
+           
         }];
         [v addGestureRecognizer:tap];
         return   v;
