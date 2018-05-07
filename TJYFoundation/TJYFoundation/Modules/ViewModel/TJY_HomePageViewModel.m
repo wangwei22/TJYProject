@@ -22,6 +22,9 @@
 @property(nonatomic,strong)RACCommand* monthClockInfoCommand;
 @property(nonatomic,strong)RACCommand* myMonthClockInfoCommand;
 @property(nonatomic,strong)RACCommand* monthClockDetailCommand;
+@property(nonatomic,strong)RACCommand* attendanceCommand;
+@property(nonatomic,strong)RACCommand* attendanceNewListCommand;
+@property(nonatomic,strong)RACCommand* attendanceSignListCommand;
 @end
 @implementation TJY_HomePageViewModel
 -(RACCommand *)sourceCommand{
@@ -234,6 +237,88 @@
     }
     return  _monthClockDetailCommand;
 }
+-(RACCommand *)attendanceCommand{
+    if (!_attendanceCommand) {
+        _attendanceCommand  = [[RACCommand  alloc] initWithSignalBlock:^RACSignal * _Nonnull(RACTuple * tupe) {
+            [MBProgressHUD   showActivityMessageInWindow:@""];
+            UserInfo  *  user = [TJY_UserApplication  shareManager].loginUser;
+            NSArray  * input = tupe.first;
+            NSDictionary  * dic = [NSDictionary  dictionaryWithObjectsAndKeys:user.token,@"token",user.userId,@"user_id",input[0],@"cus_id",input[1],@"lng",input[2],@"lat",input[3],@"sign_address",input[4],@"note",nil];//,input[5],@"images"
+             NSMutableDictionary *mdic = [[NSMutableDictionary alloc] initWithDictionary:dic];
+            NSArray  *  imgs = input[5];
+            if ([imgs count] >=1) {
+                for (int  i=0;i<[imgs count]-1;i++) {
+                     [mdic setObject:imgs[i] forKey:[NSString stringWithFormat:@"file%d",i+1]];
+                }
+            }
+            return  [[AFNetWorkUtils  racPOSTWthURL:ATTENDANCE_EXAMINE_ADD_URL params:mdic] map:^id _Nullable(id  _Nullable value) {
+                return  value;
+            }];
+        }];
+    }
+    return  _attendanceCommand;
+}
+-(RACCommand *)attendanceNewListCommand{
+    if (!_attendanceNewListCommand) {
+        _attendanceNewListCommand = [[RACCommand  alloc] initWithSignalBlock:^RACSignal * _Nonnull(NSString * input) {
+            [MBProgressHUD   showActivityMessageInWindow:@""];
+            UserInfo  *  user = [TJY_UserApplication  shareManager].loginUser;
+            NSDateFormatter  *  format = [[NSDateFormatter  alloc] init];
+            [format  setDateFormat:@"yyyy.MM.dd"];
+            NSString  * dateString = [format  stringFromDate:[NSDate  date]];
+            NSDictionary  * dic = [NSDictionary  dictionaryWithObjectsAndKeys:user.token,@"token",user.userId,@"user_id",user.divisionId,@"div_id",input.length >0?input:dateString,@"date",nil];
+            return  [[AFNetWorkUtils  racPOSTWthURL:ATTENDANCE_SIGN_NEWS_URL params:dic] map:^id _Nullable(id  _Nullable value) {
+                TJY_VisitInfo  *  info = [TJY_VisitInfo  mj_objectWithKeyValues:[value  objectForKey:@"result"]];
+                RACTuple  *  tupe = [RACTuple  tupleWithObjects:info.signSum,info.noSignSum,info.signList,info.noSignList, nil];
+                return   tupe;
+            }];
+        }];
+    }
+    return  _attendanceNewListCommand;
+}
+-(RACCommand *)attendanceSignListCommand{
+    if (!_attendanceSignListCommand) {
+        _attendanceSignListCommand = [[RACCommand  alloc] initWithSignalBlock:^RACSignal * _Nonnull(NSString * input) {
+            [MBProgressHUD   showActivityMessageInWindow:@""];
+            UserInfo  *  user = [TJY_UserApplication  shareManager].loginUser;
+            NSDictionary  * dic = [NSDictionary  dictionaryWithObjectsAndKeys:user.token,@"token",user.userId,@"user_id",input.length>0?input:user.userId,@"per_id",nil];
+            return  [[AFNetWorkUtils  racPOSTWthURL:ATTENDANCE_SIGN_LIST_URL params:dic] map:^id _Nullable(id  _Nullable value) {
+                TJY_MyVisitInfo  *  info = [TJY_MyVisitInfo  mj_objectWithKeyValues:[value  objectForKey:@"result"]];
+               
+                NSMutableArray  *  sectionArray = [NSMutableArray  array];
+                NSMutableArray  *  currentArray =[NSMutableArray  array];
+                NSMutableArray  *  titleArray = [NSMutableArray  array];
+                [currentArray addObject:info.signList[0]];
+                [sectionArray  addObject:currentArray];
+                if (info.signList.count >1) {
+                    for (int  i=1; i<info.signList.count; i++) {
+                        NSMutableArray  *  preArray = [sectionArray  objectAtIndex:sectionArray.count-1];
+                        ListInfo  * obj1 = [preArray objectAtIndex:0];
+                        NSString  * preTime =[NSString  stringWithFormat:@"%@-%@",obj1.addM,obj1.addD];
+                         ListInfo  * obj2 = info.signList[i];
+                        NSString *  currentTime = [NSString  stringWithFormat:@"%@-%@",obj2.addM,obj2.addD];
+                        if ([preTime  isEqualToString:currentTime]) {
+                            [currentArray  addObject:info.signList[i]];
+                        }else{
+                            currentArray = [NSMutableArray  array];
+                            [currentArray  addObject:info.signList[i]];
+                            [sectionArray  addObject:currentArray];
+                        }
+                    }
+                }
+                [sectionArray  enumerateObjectsUsingBlock:^(NSArray * obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                    ListInfo  * obj1 = obj[0];
+                    [titleArray  addObject:@[obj1.addD,[NSString  stringWithFormat:@"%@月",obj1.addM]]];
+                }];
+                 RACTuple  *  tupe = [RACTuple  tupleWithObjects:info.signSum,info.signList, sectionArray,titleArray,nil];
+                return  tupe;
+            }];
+        }];
+    }
+    return  _attendanceSignListCommand;
+}
+
+
 @end
 
 

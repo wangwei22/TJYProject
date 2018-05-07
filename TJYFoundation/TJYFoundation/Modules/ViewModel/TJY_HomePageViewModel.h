@@ -21,4 +21,7 @@
 @property(nonatomic,strong,readonly)RACCommand* monthClockInfoCommand;
 @property(nonatomic,strong,readonly)RACCommand* myMonthClockInfoCommand;
 @property(nonatomic,strong,readonly)RACCommand* monthClockDetailCommand;
+@property(nonatomic,strong,readonly)RACCommand* attendanceCommand;
+@property(nonatomic,strong,readonly)RACCommand* attendanceNewListCommand;
+@property(nonatomic,strong,readonly)RACCommand* attendanceSignListCommand;
 @end

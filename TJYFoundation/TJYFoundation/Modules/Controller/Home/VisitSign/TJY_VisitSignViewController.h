@@ -9,5 +9,8 @@
 
 #import "TJY_BaseViewController.h"
 @interface TJY_VisitSignViewController : TJY_BaseViewController
-
+@property(nonatomic,copy)NSString  *  addressP;
+@property(nonatomic,copy)NSString  *  currentTime;
+@property(nonatomic,copy)NSString  * lng;
+@property(nonatomic,copy)NSString  * lat;
 @end

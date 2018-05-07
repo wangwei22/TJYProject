@@ -22,6 +22,7 @@
     BOOL isSelect;
     UIImageView *selectImg;
     CLLocation  *  _currentLocation;
+    NSString * address;
 }
 // 高德地图
 @property (nonatomic, strong)MAMapView *mapView;
@@ -43,6 +44,7 @@
 @property (weak, nonatomic) IBOutlet UIView *mapBgView;
 @property (weak, nonatomic) IBOutlet UIView *titleBgView;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 
 @end
 
@@ -74,6 +76,9 @@
     NSDateFormatter  *  formater = [[NSDateFormatter  alloc] init];
     [formater  setDateFormat:@"HH:mm"];
     self.timeLabel.text =[formater  stringFromDate:[NSDate  date]];
+    
+    [formater  setDateFormat:@"yyyy-MM-dd"];
+    self.dateLabel.text = [formater  stringFromDate:[NSDate  date]];
 }
 
 
@@ -178,6 +183,7 @@
     }
     _mapView.userLocation.title = title;
     _mapView.userLocation.subtitle = response.regeocode.formattedAddress;
+    address = response.regeocode.formattedAddress;
     NSLog(@".....1111%@",response.regeocode.formattedAddress);
     // 调用创建大头针的方法  一下两种方法必须在此调用
     
@@ -334,14 +340,29 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    UIViewController  *  vc = [segue  destinationViewController];
+    if ([segue.identifier  isEqualToString:@"visitSign"]) {
+        if ([vc  respondsToSelector:@selector(setAddressP:)]) {
+            [vc  setValue:address forKey:@"addressP"];
+        }
+        if ([vc  respondsToSelector:@selector(setCurrentTime:)]) {
+            [vc  setValue:self.timeLabel.text forKey:@"currentTime"];
+        }
+        if ([vc  respondsToSelector:@selector(setLng:)]) {
+            [vc  setValue:self.userLongitude forKey:@"lng"];
+        }
+        if ([vc  respondsToSelector:@selector(setLat:)]) {
+            [vc  setValue:self.userLatitude forKey:@"lat"];
+        }
+    }
 }
-*/
+
 
 @end

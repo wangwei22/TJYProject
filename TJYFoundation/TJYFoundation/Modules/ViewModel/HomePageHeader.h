@@ -20,6 +20,11 @@
 #define  MONTH_CLOCK_DETAIL_URL     @"api/Attendance/monthClockDetail"
 #define  MONTH_CLOCK_URL            @"api/Attendance/monthClock"
 #define  MONTH_MY_URL               @"api/Attendance/monthClockPer"
+
+#define  ATTENDANCE_EXAMINE_ADD_URL  @"api/Attendance/signAdd"
+#define  ATTENDANCE_SIGN_NEWS_URL    @"api/Attendance/signNewList"
+#define  ATTENDANCE_SIGN_LIST_URL    @"api/Attendance/signList"
+
 /*  model */
 #import "TJY_AdInfomation.h"
 #import "TJY_DutyList.h"
@@ -29,4 +34,6 @@
 #import "TJY_SignClockInfo.h"
 #import "TJY_Clock.h"
 #import "TJY_MySignInfo.h"
+#import "TJY_VisitInfo.h"
+#import "TJY_MyVisitInfo.h"
 #endif /* HomePageHeader_h */

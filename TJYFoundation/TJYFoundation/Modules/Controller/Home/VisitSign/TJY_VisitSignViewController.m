@@ -10,6 +10,7 @@
 #import "CMInputView.h"
 #import "TJY_ImageCollectionViewCell.h"
 #import <AssetsLibrary/AssetsLibrary.h>
+#import "TJY_HomePageViewModel.h"
 @interface TJY_VisitSignViewController () <UICollectionViewDelegate,UICollectionViewDataSource,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 {
     UIImagePickerController *imagePicker;
@@ -37,6 +38,10 @@
     [btn setTitle:@"提交" forState:UIControlStateNormal];
     [btn  setTitleColor:ssRGBHex(0x0080ff) forState:UIControlStateNormal];
     [self.titleView  addSubview:btn];
+    
+    self.addressTitle.text =  self.addressP;
+    self.signTime.text = self.currentTime;
+    
     [btn  mas_makeConstraints:^(MASConstraintMaker *make) {
         make.trailing.mas_equalTo(0);
         make.bottom.mas_equalTo(self.titleView);
@@ -44,7 +49,15 @@
         make.height.mas_equalTo(44);
     }];
     [[btn  rac_signalForControlEvents:UIControlEventTouchUpInside]  subscribeNext:^(__kindof UIControl * _Nullable x) {
-        
+        TJY_HomePageViewModel  *  model = [TJY_HomePageViewModel  new];
+        NSArray  *  array = @[@"",self.lng,self.lat,self.addressP, self.inputView.text,self.dataArray];
+        RACTuple  *  tupe = [RACTuple  tupleWithObjects:array,nil];
+        [[model.attendanceCommand  execute:tupe]  subscribeNext:^(NSDictionary * x) {
+            [self  showHint:[x  objectForKey:@"msg"]];
+            [self.navigationController  popViewControllerAnimated:YES];
+        } error:^(NSError * _Nullable error) {
+            
+        }];
     }];
 }
 -(void)configUI{
