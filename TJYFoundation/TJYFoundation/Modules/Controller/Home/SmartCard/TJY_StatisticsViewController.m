@@ -108,6 +108,7 @@
         }else{
             [ obj  setTitleColor:ssRGBHex(0x999999) forState:UIControlStateNormal];
         }
+         [self.view  layoutIfNeeded];
     }];
     [UIView  animateWithDuration:0.2 animations:^{
         self.moveLine.centerX = sender.centerX;

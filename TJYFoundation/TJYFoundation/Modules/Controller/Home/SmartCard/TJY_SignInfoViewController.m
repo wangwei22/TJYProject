@@ -54,6 +54,7 @@
         }else{
               lbl.textColor = ssRGBHex(0x999999);
         }
+         [self.view  layoutIfNeeded];
     }];
     [UIView  animateWithDuration:.25 animations:^{
         self.moveLine.centerX = sender.centerX;

@@ -53,6 +53,10 @@
 		BD4AB7E4207EF5B100591A4C /* TJY_JSHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = BD4AB7E3207EF5B100591A4C /* TJY_JSHandle.m */; };
 		BD4AB7E7207F09D300591A4C /* TJY_RootWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD4AB7E6207F09D300591A4C /* TJY_RootWebViewController.m */; };
 		BD5B16AB209DAF2800C4513A /* Customer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD5B16AA209DAF2800C4513A /* Customer.storyboard */; };
+		BD5D8E9820A13BD100827287 /* TJY_CustomerInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD5D8E9720A13BD100827287 /* TJY_CustomerInputViewController.m */; };
+		BD5D8E9B20A14EFE00827287 /* TJY_ PurchaseRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD5D8E9A20A14EFE00827287 /* TJY_ PurchaseRecordViewController.m */; };
+		BD5D8E9E20A1503600827287 /* TJY_CustomerViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BD5D8E9D20A1503600827287 /* TJY_CustomerViewModel.m */; };
+		BD5D8EA120A1874E00827287 /* TJY_SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD5D8EA020A1874E00827287 /* TJY_SearchViewController.m */; };
 		BD5E13CF20900EA400B1D393 /* TJY_SignTabBarViewControllerConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = BD5E13CE20900EA400B1D393 /* TJY_SignTabBarViewControllerConfig.m */; };
 		BD5E13D2209012BE00B1D393 /* TJY_StatisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD5E13D1209012BE00B1D393 /* TJY_StatisticsViewController.m */; };
 		BD5E13D52090143900B1D393 /* TJY_SignBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD5E13D42090143900B1D393 /* TJY_SignBaseViewController.m */; };
@@ -63,6 +67,9 @@
 		BD6C97122081FFC4003D0306 /* AFNetWorkUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = BD6C97102081FFC4003D0306 /* AFNetWorkUtils.m */; };
 		BD6D650920873A0E008C747C /* HomePage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD6D650820873A0E008C747C /* HomePage.storyboard */; };
 		BD6D650C20873A34008C747C /* TJY_SmartCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD6D650B20873A34008C747C /* TJY_SmartCardViewController.m */; };
+		BDC3B61A209FF327009B48D2 /* TJY_CustomerHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDC3B619209FF327009B48D2 /* TJY_CustomerHomeViewController.m */; };
+		BDC3B62420A04107009B48D2 /* TJY_CustomerInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDC3B62320A04107009B48D2 /* TJY_CustomerInfoViewController.m */; };
+		BDC3B62720A04CC9009B48D2 /* TJY_InfomationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDC3B62620A04CC9009B48D2 /* TJY_InfomationTableViewController.m */; };
 		BDF308FB207D9E7500678B28 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDF308FA207D9E7500678B28 /* Assets.xcassets */; };
 		BDF308FE207D9E7500678B28 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDF308FC207D9E7500678B28 /* LaunchScreen.storyboard */; };
 		BDF30901207D9E7500678B28 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF30900207D9E7500678B28 /* main.m */; };
@@ -219,6 +226,14 @@
 		BD4AB7E5207F09D300591A4C /* TJY_RootWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJY_RootWebViewController.h; sourceTree = "<group>"; };
 		BD4AB7E6207F09D300591A4C /* TJY_RootWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJY_RootWebViewController.m; sourceTree = "<group>"; };
 		BD5B16AA209DAF2800C4513A /* Customer.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Customer.storyboard; sourceTree = "<group>"; };
+		BD5D8E9620A13BD100827287 /* TJY_CustomerInputViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJY_CustomerInputViewController.h; sourceTree = "<group>"; };
+		BD5D8E9720A13BD100827287 /* TJY_CustomerInputViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJY_CustomerInputViewController.m; sourceTree = "<group>"; };
+		BD5D8E9920A14EFE00827287 /* TJY_ PurchaseRecordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TJY_ PurchaseRecordViewController.h"; sourceTree = "<group>"; };
+		BD5D8E9A20A14EFE00827287 /* TJY_ PurchaseRecordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TJY_ PurchaseRecordViewController.m"; sourceTree = "<group>"; };
+		BD5D8E9C20A1503600827287 /* TJY_CustomerViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJY_CustomerViewModel.h; sourceTree = "<group>"; };
+		BD5D8E9D20A1503600827287 /* TJY_CustomerViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJY_CustomerViewModel.m; sourceTree = "<group>"; };
+		BD5D8E9F20A1874E00827287 /* TJY_SearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJY_SearchViewController.h; sourceTree = "<group>"; };
+		BD5D8EA020A1874E00827287 /* TJY_SearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJY_SearchViewController.m; sourceTree = "<group>"; };
 		BD5E13CD20900EA400B1D393 /* TJY_SignTabBarViewControllerConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJY_SignTabBarViewControllerConfig.h; sourceTree = "<group>"; };
 		BD5E13CE20900EA400B1D393 /* TJY_SignTabBarViewControllerConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJY_SignTabBarViewControllerConfig.m; sourceTree = "<group>"; };
 		BD5E13D0209012BE00B1D393 /* TJY_StatisticsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJY_StatisticsViewController.h; sourceTree = "<group>"; };
@@ -238,6 +253,12 @@
 		BD6D650820873A0E008C747C /* HomePage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomePage.storyboard; sourceTree = "<group>"; };
 		BD6D650A20873A34008C747C /* TJY_SmartCardViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJY_SmartCardViewController.h; sourceTree = "<group>"; };
 		BD6D650B20873A34008C747C /* TJY_SmartCardViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJY_SmartCardViewController.m; sourceTree = "<group>"; };
+		BDC3B618209FF327009B48D2 /* TJY_CustomerHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJY_CustomerHomeViewController.h; sourceTree = "<group>"; };
+		BDC3B619209FF327009B48D2 /* TJY_CustomerHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJY_CustomerHomeViewController.m; sourceTree = "<group>"; };
+		BDC3B62220A04107009B48D2 /* TJY_CustomerInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJY_CustomerInfoViewController.h; sourceTree = "<group>"; };
+		BDC3B62320A04107009B48D2 /* TJY_CustomerInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJY_CustomerInfoViewController.m; sourceTree = "<group>"; };
+		BDC3B62520A04CC9009B48D2 /* TJY_InfomationTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJY_InfomationTableViewController.h; sourceTree = "<group>"; };
+		BDC3B62620A04CC9009B48D2 /* TJY_InfomationTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TJY_InfomationTableViewController.m; sourceTree = "<group>"; };
 		BDF308EE207D9E7400678B28 /* TJYFoundation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TJYFoundation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDF308FA207D9E7500678B28 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BDF308FD207D9E7500678B28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -521,6 +542,33 @@
 			path = SmartCard;
 			sourceTree = "<group>";
 		};
+		BDC3B617209FF2FC009B48D2 /* Customer */ = {
+			isa = PBXGroup;
+			children = (
+				BDC3B61E20A034FA009B48D2 /* CustomerInfo */,
+				BDC3B618209FF327009B48D2 /* TJY_CustomerHomeViewController.h */,
+				BDC3B619209FF327009B48D2 /* TJY_CustomerHomeViewController.m */,
+			);
+			path = Customer;
+			sourceTree = "<group>";
+		};
+		BDC3B61E20A034FA009B48D2 /* CustomerInfo */ = {
+			isa = PBXGroup;
+			children = (
+				BDC3B62220A04107009B48D2 /* TJY_CustomerInfoViewController.h */,
+				BDC3B62320A04107009B48D2 /* TJY_CustomerInfoViewController.m */,
+				BDC3B62520A04CC9009B48D2 /* TJY_InfomationTableViewController.h */,
+				BDC3B62620A04CC9009B48D2 /* TJY_InfomationTableViewController.m */,
+				BD5D8E9620A13BD100827287 /* TJY_CustomerInputViewController.h */,
+				BD5D8E9720A13BD100827287 /* TJY_CustomerInputViewController.m */,
+				BD5D8E9920A14EFE00827287 /* TJY_ PurchaseRecordViewController.h */,
+				BD5D8E9A20A14EFE00827287 /* TJY_ PurchaseRecordViewController.m */,
+				BD5D8E9F20A1874E00827287 /* TJY_SearchViewController.h */,
+				BD5D8EA020A1874E00827287 /* TJY_SearchViewController.m */,
+			);
+			path = CustomerInfo;
+			sourceTree = "<group>";
+		};
 		BDF308E5207D9E7400678B28 = {
 			isa = PBXGroup;
 			children = (
@@ -682,6 +730,8 @@
 				BD2F40082080498100682FFB /* TJY_HomeRequestService.m */,
 				BD2C87E820835A8400B5AF2F /* TJY_HomePageViewModel.h */,
 				BD2C87E920835A8400B5AF2F /* TJY_HomePageViewModel.m */,
+				BD5D8E9C20A1503600827287 /* TJY_CustomerViewModel.h */,
+				BD5D8E9D20A1503600827287 /* TJY_CustomerViewModel.m */,
 				BD2C87EB2083709300B5AF2F /* HomePageHeader.h */,
 			);
 			path = ViewModel;
@@ -692,6 +742,7 @@
 			children = (
 				BD2F400D20807E6C00682FFB /* Login */,
 				BDF30931207D9EE000678B28 /* Home */,
+				BDC3B617209FF2FC009B48D2 /* Customer */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1175,6 +1226,7 @@
 				BD3096042089E001003901C4 /* CustomAnnotationView.m in Sources */,
 				BDF3098A207DBCD800678B28 /* NSString+Emoji.m in Sources */,
 				BD2F40192080A6D400682FFB /* NSString+textCheck.m in Sources */,
+				BDC3B62720A04CC9009B48D2 /* TJY_InfomationTableViewController.m in Sources */,
 				BD32A8DC207F3FB9009E9D03 /* TJY_MainViewController.m in Sources */,
 				BDF309AD207DEB9B00678B28 /* ButtonView.m in Sources */,
 				BDF3094F207DAFD500678B28 /* TJY_ADLaunchVC.m in Sources */,
@@ -1208,11 +1260,13 @@
 				BD2F401020807E8300682FFB /* TJY_LoginViewController.m in Sources */,
 				BD6C97122081FFC4003D0306 /* AFNetWorkUtils.m in Sources */,
 				BDF309B1207E0A5100678B28 /* TJY_NavigationController.m in Sources */,
+				BDC3B62420A04107009B48D2 /* TJY_CustomerInfoViewController.m in Sources */,
 				BD5E13D2209012BE00B1D393 /* TJY_StatisticsViewController.m in Sources */,
 				BDF30992207DD82C00678B28 /* TJY_RequestServiceManager.m in Sources */,
 				BDF30989207DBCD800678B28 /* NSString+Emojize.m in Sources */,
 				BD32DB1A209AABCD00CABED1 /* TJY_VisitSignHomeViewController.m in Sources */,
 				BDF309A3207DE33900678B28 /* UIViewController+SLHUD.m in Sources */,
+				BD5D8E9B20A14EFE00827287 /* TJY_ PurchaseRecordViewController.m in Sources */,
 				BD5E13DB2090521B00B1D393 /* TJY_AlertViewController.m in Sources */,
 				BD3096062089E001003901C4 /* DPointAnnotation.m in Sources */,
 				BDF309AE207DEB9B00678B28 /* LadderView.m in Sources */,
@@ -1224,6 +1278,7 @@
 				BDF30943207D9EE000678B28 /* TJY_BaseViewController.m in Sources */,
 				BD3706EC2094161700217573 /* TJY_MonthTableViewCell.m in Sources */,
 				BD34727820998A94008DD836 /* TJY_VisitSignTbarBarViewControllerConfig.m in Sources */,
+				BDC3B61A209FF327009B48D2 /* TJY_CustomerHomeViewController.m in Sources */,
 				BD2C87F22083838800B5AF2F /* TJY_LoginCellHelper.m in Sources */,
 				BD379D6A20889830008DBD31 /* TJY_SignMapViewController.m in Sources */,
 				BDF3098B207DBCD800678B28 /* UIResponder+RemoteEvent.m in Sources */,
@@ -1243,11 +1298,14 @@
 				BD2C87F520838C1500B5AF2F /* TJY_DutyList.m in Sources */,
 				BD34728220999155008DD836 /* TJY_TrackViewController.m in Sources */,
 				BDF30942207D9EE000678B28 /* TJY_MainTabBarViewController.m in Sources */,
+				BD5D8E9820A13BD100827287 /* TJY_CustomerInputViewController.m in Sources */,
 				BD2EBE77208B05E400C2D083 /* TJY_ConfigInfo.m in Sources */,
 				BD30A8D9209C50FB002D398E /* TJY_MyVisitTableViewCell.m in Sources */,
 				BDF309B7207E106100678B28 /* MainMenuView.m in Sources */,
 				BDF3098D207DBCD800678B28 /* UIImageView+LBBlurredImage.m in Sources */,
+				BD5D8E9E20A1503600827287 /* TJY_CustomerViewModel.m in Sources */,
 				BDF3098E207DBCD800678B28 /* UIColor+Addition.m in Sources */,
+				BD5D8EA120A1874E00827287 /* TJY_SearchViewController.m in Sources */,
 				BDF30946207D9EE000678B28 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

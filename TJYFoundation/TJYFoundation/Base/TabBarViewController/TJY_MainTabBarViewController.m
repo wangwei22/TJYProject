@@ -11,6 +11,7 @@
 #import <GKNavigationController.h>
 #import "TJY_NavigationController.h"
 #import "TJY_HomeViewController.h"
+#import "TJY_CustomerHomeViewController.h"
 static  CGFloat  const CYLTabBarControllerHeight = 40.f;
 
 #pragma mark--  viewControllers
@@ -43,7 +44,8 @@ static  CGFloat  const CYLTabBarControllerHeight = 40.f;
     return  _tabBarController;
 }
 -(NSArray *)viewControllers{
-    NSArray  * array = @[[TJY_HomeViewController  new],[TJY_HomeViewController  new],[TJY_HomeViewController  new],[TJY_HomeViewController  new]];
+    TJY_CustomerHomeViewController  *  customerVC =[[UIStoryboard  storyboardWithName:@"Customer" bundle:nil]  instantiateViewControllerWithIdentifier:@"TJY_CustomerHomeViewController"];
+    NSArray  * array = @[[TJY_HomeViewController  new],customerVC,[TJY_HomeViewController  new],[TJY_HomeViewController  new]];
     __block  NSMutableArray  * viewControllers =[NSMutableArray  arrayWithCapacity:5];
     [array  enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         UIViewController  * vc = [[TJY_NavigationController  alloc] initWithRootViewController:array[idx]];

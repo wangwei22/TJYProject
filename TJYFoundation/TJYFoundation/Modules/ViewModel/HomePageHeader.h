@@ -24,7 +24,7 @@
 #define  ATTENDANCE_EXAMINE_ADD_URL  @"api/Attendance/signAdd"
 #define  ATTENDANCE_SIGN_NEWS_URL    @"api/Attendance/signNewList"
 #define  ATTENDANCE_SIGN_LIST_URL    @"api/Attendance/signList"
-
+#define  CUSTOMER_LIST_URL           @"api/customer/cus_list"
 /*  model */
 #import "TJY_AdInfomation.h"
 #import "TJY_DutyList.h"
