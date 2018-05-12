@@ -7,7 +7,7 @@
 //
 
 #import "TJY_BaseViewController.h"
-
+#import "TJY_LoginViewController.h"
 @interface TJY_BaseViewController ()
 
 @end
@@ -47,6 +47,15 @@
     }
 //    GMLog("%u---lk",self.navigationController.viewControllers.count);
     [self.view insertSubview:titleView atIndex:0];
+    
+    [kNotificationCenter  addObserver:self selector:@selector(showLoginViewController:) name:@"Login" object:nil];
+}
+-(void)showLoginViewController:(NSNotification*)notify{
+//     BOOL  loginSuccess = [notify.object  boolValue];
+    UIStoryboard  * sb = [UIStoryboard  storyboardWithName:@"Login" bundle:nil];
+    TJY_LoginViewController  * vc = [sb  instantiateViewControllerWithIdentifier:@"TJY_LoginViewController"];
+    vc.pastToken = YES;
+    [self presentViewController:vc animated:YES completion:nil];
 }
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
     titleView.titleLabel.text = self.title;
@@ -142,7 +151,27 @@
 }
 
 
-/*
+- (NSString *)Charactor:(NSString *)aString getFirstCharactor:(BOOL)isGetFirst
+{
+    //转成了可变字符串
+    NSMutableString *str = [NSMutableString stringWithString:aString];
+    //先转换为带声调的拼音
+    CFStringTransform((CFMutableStringRef)str,NULL, kCFStringTransformMandarinLatin,NO);
+    //再转换为不带声调的拼音
+    CFStringTransform((CFMutableStringRef)str,NULL, kCFStringTransformMandarinLatin,NO);
+    CFStringTransform((CFMutableStringRef)str, NULL, kCFStringTransformStripDiacritics, NO);
+    NSString *pinYin = [str capitalizedString];
+    //转化为大写拼音
+    if(isGetFirst)
+    {
+        //获取并返回首字母
+        return [pinYin substringToIndex:1];
+    }
+    else
+    {
+        return pinYin;
+    }
+}
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -150,6 +179,6 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-*/
+
 
 @end

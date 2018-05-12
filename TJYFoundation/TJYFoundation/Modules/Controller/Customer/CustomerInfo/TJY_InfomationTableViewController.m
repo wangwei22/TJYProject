@@ -7,25 +7,12 @@
 //
 
 #import "TJY_InfomationTableViewController.h"
-
+#import "TJY_DatePickerViewController.h"
+#import "TJY_Nation.h"
+#import "TJY_NationViewController.h"
+#import "TJY_CustomerViewModel.h"
 @interface TJY_InfomationTableViewController ()
-@property (weak, nonatomic) IBOutlet UITextField *phoneTF;
-@property (weak, nonatomic) IBOutlet UITextField *nameTF;
-@property (weak, nonatomic) IBOutlet UISegmentedControl *sexSegment;
-@property (weak, nonatomic) IBOutlet UISegmentedControl *stateSegment;
-@property (weak, nonatomic) IBOutlet UITextField *idCardTF;
-@property (weak, nonatomic) IBOutlet UITextField *interestTF;
-@property (weak, nonatomic) IBOutlet UITextField *addressTF;
-@property (weak, nonatomic) IBOutlet UISegmentedControl *marriageTF;
-@property (weak, nonatomic) IBOutlet UISegmentedControl *workStateSegment;
-@property (weak, nonatomic) IBOutlet UITextField *workPlaceTF;
-@property (weak, nonatomic) IBOutlet UITextField *positionTF;
-@property (weak, nonatomic) IBOutlet UITextField *economicsTF;
-@property (weak, nonatomic) IBOutlet UITextField *clubCardTF;
-@property (weak, nonatomic) IBOutlet UITextField *introduceTF;
-@property (weak, nonatomic) IBOutlet UISegmentedControl *sourceTF;
-@property (weak, nonatomic) IBOutlet UITextField *contactTF;
-@property (weak, nonatomic) IBOutlet UITextField *buyStatusTF;
+
 @end
 
 @implementation TJY_InfomationTableViewController
@@ -38,37 +25,67 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [self  configUI];
 }
-
+-(void)configUI{
+  
+    NSArray *  array = @[self.phoneTF,self.nameTF,self.idCardTF,self.interestTF,self.addressTF,self.workPlaceTF,self.positionTF,self.clubCardTF,self.introduceTF,self.contactTF,self.buyStatusTF];
+    NSArray *  vmArray = @[@"telphone",@"name",@"idCard",@"favourite",@"address",@"company",@"position",@"vipCard",@"introduce",@"conect",@"buyStatus"];
+      @weakify(self);
+    [array  enumerateObjectsUsingBlock:^(UITextField * obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        @strongify(self);
+        [self  textFieldPlaceholderColorWithTextField:obj];
+        [obj.rac_textSignal  subscribeNext:^(NSString * _Nullable x) {
+            [self.viewModel  setValue:x forKey:vmArray[idx] ];
+        }];
+    }];
+    RACChannelTerminal  * segChannel = [self.sexSegment rac_newSelectedSegmentIndexChannelWithNilValue:0];
+    
+    [segChannel  subscribeNext:^(id  _Nullable x) {
+          @strongify(self);
+        self.viewModel.sex = [NSString  stringWithFormat:@"%@",x];
+    }];
+    
+    RACChannelTerminal  *  stateChannel = [self.stateSegment  rac_newSelectedSegmentIndexChannelWithNilValue:0];
+    [stateChannel    subscribeNext:^(id  _Nullable x) {
+        @strongify(self);
+        self.viewModel.status = [NSString  stringWithFormat:@"%ld",[x integerValue] +1];
+    }];
+    
+    RACChannelTerminal  *  marriageChannerl = [self.marriageTF  rac_newSelectedSegmentIndexChannelWithNilValue:0];
+    [marriageChannerl  subscribeNext:^(id  _Nullable x) {
+        @strongify(self);
+        self.viewModel.marryStatus = [NSString  stringWithFormat:@"%ld",[x integerValue] +1];
+    }];
+    
+    RACChannelTerminal  * workChannel = [self.workStateSegment rac_newSelectedSegmentIndexChannelWithNilValue:0];
+    [workChannel  subscribeNext:^(id  _Nullable x) {
+        @strongify(self);
+        self.viewModel.workStatus =[NSString  stringWithFormat:@"%ld",[x integerValue] +1];
+    }];
+    
+    RACChannelTerminal  *  sourceChannel = [self.sourceTF  rac_newSelectedSegmentIndexChannelWithNilValue:0];
+    [sourceChannel  subscribeNext:^(id  _Nullable x) {
+        @strongify(self);
+        self.viewModel.sourceFrom = [NSString  stringWithFormat:@"%ld",[x integerValue] +1];
+    }];
+    
+}
+-(void)textFieldPlaceholderColorWithTextField:(UITextField*)textField{
+    [textField  setValue:ssRGBHex(0x999999) forKeyPath:@"_placeholderLabel.textColor"];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 4;
+
+    return [super  numberOfSectionsInTableView:tableView];
 }
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    switch (section) {
-        case 0:
-                return 4;
-            break;
-        case 1:
-               return 6;
-            break;
-        case 2:
-               return 4;
-            break;
-        default:
-               return 5;
-            break;
-    }
-
+    return  [super  tableView:tableView numberOfRowsInSection:section];
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return  10;
@@ -76,7 +93,23 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     return  0.001;
 }
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView  deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.section==1&&indexPath.row==1) {
+        TJY_DatePickerViewController  *  picker = [[UIStoryboard  storyboardWithName:@"HomePage" bundle:nil] instantiateViewControllerWithIdentifier:@"TJY_DatePickerViewController"];
+        picker.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+        @weakify(self);
+        picker.dateBlock = ^(NSString *dateString) {
+            @strongify(self);
+            self.birthdayLbl.text =  dateString;
+            self.birthdayLbl.textColor =   ssRGBHex(0x222222);
+            self.viewModel.birthday = dateString;
+        };
+        [self.tabBarController presentViewController:picker animated:YES completion:nil];
+    }
+}
 -(void)viewDidLayoutSubviews {
+    [super  viewDidLayoutSubviews];
     if ([self.tableView respondsToSelector:@selector(setSeparatorInset:)]) {
         [self.tableView setSeparatorInset:UIEdgeInsetsMake(0, 15, 0, 15)];
         
@@ -94,16 +127,15 @@
         [cell setSeparatorInset:UIEdgeInsetsMake(0, 15, 0, 15)];
     }
 }
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
     
     // Configure the cell...
     
-    return cell;
+//    return cell;
+    return [super tableView:tableView cellForRowAtIndexPath:indexPath];
 }
-*/
-
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -137,15 +169,32 @@
     return YES;
 }
 */
+#pragma mark -- getter method
+-(TJY_CustomerViewModel *)viewModel{
+    if (!_viewModel) {
+        _viewModel = [[TJY_CustomerViewModel alloc] init];
+    }
+    return  _viewModel;
+}
 
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"TJY_NationViewController"] &&[segue.destinationViewController  isKindOfClass:[TJY_NationViewController class]]) {
+        TJY_NationViewController  *  vc = segue.destinationViewController;
+        @weakify(self);
+        vc.backValueBlock = ^(TJY_Nation *model) {
+            @strongify(self);
+            self.nationLbl.text = model.nation;
+            self.nationLbl.textColor = ssRGBHex(0x222222);
+            self.nationId = model.Id;
+            self.viewModel.nation = model.Id;
+        };
+    }
 }
-*/
+
 
 @end

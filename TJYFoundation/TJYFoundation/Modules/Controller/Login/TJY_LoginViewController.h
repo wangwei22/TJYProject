@@ -9,5 +9,5 @@
 #import "TJY_BaseViewController.h"
 
 @interface TJY_LoginViewController : TJY_BaseViewController
-
+@property(nonatomic,assign)BOOL  pastToken;
 @end

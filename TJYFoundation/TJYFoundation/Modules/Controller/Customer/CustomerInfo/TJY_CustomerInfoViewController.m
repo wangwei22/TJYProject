@@ -8,6 +8,7 @@
 
 #import "TJY_CustomerInfoViewController.h"
 #import "TJY_SearchViewController.h"
+#import "TJY_CustomerViewModel.h"
 @interface TJY_CustomerInfoViewController ()<UISearchBarDelegate,UISearchResultsUpdating,UITableViewDelegate,UITableViewDataSource,UISearchControllerDelegate>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topHeightContrsint;
 
@@ -29,6 +30,18 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self  configUI];
+  
+    [self  initData:[RACTuple  tupleWithObjects:@"1",@"1",@"",@"1", nil]];
+}
+-(void)initData:(RACTuple *)tupe{
+   
+    TJY_CustomerViewModel *   model = [TJY_CustomerViewModel  new];
+
+    [[model.customerListCommand execute:tupe]  subscribeNext:^(id  _Nullable x) {
+        
+    }error:^(NSError * _Nullable error) {
+        GMLog("%@",error);
+    }];
 }
 -(void)configUI{
     self.titleView.titleLabel.text = @"编辑客户";
@@ -64,7 +77,7 @@
             }];
     });
         GMLog("%f----%f",self.moveLine.centerX,sender.centerX);
- 
+    [self  initData:[RACTuple  tupleWithObjects:@"2",@"2",@"",@"2", nil]];
 }
 #pragma   mark --- UITableView  delegate  method
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -123,7 +136,10 @@
 - (void)updateSearchResultsForSearchController:(nonnull UISearchController *)searchController {
 
 }
-
+#pragma mark --  UISearchBar  delegate
+-(void)searchBarTextDidEndEditing:(UISearchBar *)searchBar{
+    GMLog("%@--",searchBar.text);
+}
 #pragma mark - UISearchControllerDelegate代理
 - (void)willPresentSearchController:(UISearchController *)searchController{
     self.topHeightContrsint.constant = 0;

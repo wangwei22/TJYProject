@@ -59,7 +59,11 @@
 
     [sours  subscribeNext:^(id  _Nullable x) {
         [[TJY_UserApplication  shareManager] setLoginUser:x];
-        KPostNotification(KNotificationLoginStateChange, @YES);
+        if (self.pastToken) {
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }else{
+            KPostNotification(KNotificationLoginStateChange, @YES);
+        }
     } error:^(NSError * _Nullable error) {
         [self  showHint: [error.userInfo objectForKey:@"customErrorInfoKey"] ] ;
     }];

@@ -456,7 +456,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rNl-Az-hx6">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <connections>
-                                    <segue destination="lLq-Fr-W0p" kind="embed" id="7Qk-D9-aqo"/>
+                                    <segue destination="lLq-Fr-W0p" kind="embed" identifier="TJY_InfomationTableViewController" id="7Qk-D9-aqo"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -469,6 +469,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="FZb-U5-0Rb"/>
+                    <connections>
+                        <outlet property="contrainerView" destination="rNl-Az-hx6" id="pXa-2E-Aqr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MUL-ZB-fu6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -575,7 +578,7 @@
         <scene sceneID="XqA-CB-HoJ">
             <objects>
                 <tableViewController id="lLq-Fr-W0p" customClass="TJY_InfomationTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="44" estimatedRowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="1" id="UTb-xn-s6n">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" estimatedRowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="1" id="UTb-xn-s6n">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -630,7 +633,7 @@
                                                     <rect key="frame" x="73" y="0.0" width="287" height="43.5"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -658,11 +661,11 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="vTr-CD-z3X">
-                                                    <rect key="frame" x="235" y="8" width="125" height="28.5"/>
+                                                    <rect key="frame" x="235" y="8" width="125" height="29"/>
                                                     <segments>
+                                                        <segment title="保密"/>
                                                         <segment title="男"/>
                                                         <segment title="女"/>
-                                                        <segment title="保密"/>
                                                     </segments>
                                                 </segmentedControl>
                                             </subviews>
@@ -714,11 +717,11 @@
                             </tableViewSection>
                             <tableViewSection id="c5J-TE-FaX">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="xhY-8h-ZJH">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="xhY-8h-ZJH">
                                         <rect key="frame" x="0.0" y="222" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xhY-8h-ZJH" id="29S-Cl-Kv1">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="民族" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P0a-ME-8Ky">
@@ -728,7 +731,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="选填 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wvZ-DN-usN">
-                                                    <rect key="frame" x="327.5" y="0.0" width="32.5" height="43.5"/>
+                                                    <rect key="frame" x="293.5" y="0.0" width="32.5" height="43.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -743,6 +746,9 @@
                                                 <constraint firstAttribute="bottom" secondItem="wvZ-DN-usN" secondAttribute="bottom" id="mDb-Mz-ukA"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="qFd-88-Ykb" kind="push" identifier="TJY_NationViewController" id="3bV-z1-fWj"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="6H1-5F-VpL">
                                         <rect key="frame" x="0.0" y="266" width="375" height="44"/>
@@ -757,8 +763,8 @@
                                                     <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1971.07.27" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6rQ-r3-aH1">
-                                                    <rect key="frame" x="266" y="0.0" width="67" height="43.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请选择出生日期" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6rQ-r3-aH1">
+                                                    <rect key="frame" x="233" y="0.0" width="100" height="43.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -791,7 +797,7 @@
                                                     <rect key="frame" x="101.5" y="0.0" width="258.5" height="43"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -1010,21 +1016,22 @@
                                                     <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="选填" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M2U-oB-9kw">
-                                                    <rect key="frame" x="87.5" y="0.0" width="272.5" height="44"/>
-                                                    <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="WsG-LI-lct">
+                                                    <rect key="frame" x="235" y="8" width="125" height="29"/>
+                                                    <segments>
+                                                        <segment title="良好"/>
+                                                        <segment title="一般"/>
+                                                        <segment title="富裕"/>
+                                                    </segments>
+                                                </segmentedControl>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="M2U-oB-9kw" secondAttribute="trailing" constant="15" id="0jJ-rd-4P8"/>
-                                                <constraint firstItem="M2U-oB-9kw" firstAttribute="leading" secondItem="QQV-yd-X7A" secondAttribute="trailing" constant="15" id="79D-JH-kkz"/>
+                                                <constraint firstAttribute="trailing" secondItem="WsG-LI-lct" secondAttribute="trailing" constant="15" id="JzX-Cb-wbk"/>
                                                 <constraint firstItem="QQV-yd-X7A" firstAttribute="leading" secondItem="FlA-9n-mXx" secondAttribute="leading" constant="15" id="S1L-dj-Kr9"/>
-                                                <constraint firstAttribute="bottom" secondItem="M2U-oB-9kw" secondAttribute="bottom" id="VAH-tP-gm6"/>
-                                                <constraint firstItem="M2U-oB-9kw" firstAttribute="top" secondItem="FlA-9n-mXx" secondAttribute="top" id="W9k-bv-EFG"/>
+                                                <constraint firstItem="WsG-LI-lct" firstAttribute="top" secondItem="FlA-9n-mXx" secondAttribute="top" constant="8" id="VyK-G5-wFm"/>
                                                 <constraint firstAttribute="bottom" secondItem="QQV-yd-X7A" secondAttribute="bottom" id="WqF-gj-yNg"/>
                                                 <constraint firstItem="QQV-yd-X7A" firstAttribute="top" secondItem="FlA-9n-mXx" secondAttribute="top" id="WsX-Jf-tVg"/>
+                                                <constraint firstAttribute="bottom" secondItem="WsG-LI-lct" secondAttribute="bottom" constant="8" id="sLQ-Dg-gSJ"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -1049,7 +1056,7 @@
                                                     <rect key="frame" x="87.5" y="0.0" width="272.5" height="43"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -1197,15 +1204,17 @@
                     </tableView>
                     <connections>
                         <outlet property="addressTF" destination="z4b-tD-lra" id="3L8-CR-b1g"/>
+                        <outlet property="birthdayLbl" destination="6rQ-r3-aH1" id="AmK-67-cdL"/>
                         <outlet property="buyStatusTF" destination="hYV-k0-hZ0" id="ML4-xm-DAz"/>
                         <outlet property="clubCardTF" destination="p7L-BN-JaR" id="ty2-fq-htW"/>
                         <outlet property="contactTF" destination="b4E-Cv-l4q" id="Ku0-2F-7cz"/>
-                        <outlet property="economicsTF" destination="M2U-oB-9kw" id="3ZM-hy-VB9"/>
+                        <outlet property="economicsSegment" destination="WsG-LI-lct" id="cJn-Ws-C3Y"/>
                         <outlet property="idCardTF" destination="ctk-ld-M6T" id="JcZ-lH-Bix"/>
                         <outlet property="interestTF" destination="adC-VN-ecn" id="der-di-AH2"/>
                         <outlet property="introduceTF" destination="9Tk-PL-SJy" id="s9s-Ul-60e"/>
                         <outlet property="marriageTF" destination="UOq-9i-ksn" id="Lnk-Cs-HAD"/>
                         <outlet property="nameTF" destination="gza-XG-lyp" id="m0T-BZ-7Wl"/>
+                        <outlet property="nationLbl" destination="wvZ-DN-usN" id="S6d-k5-xPO"/>
                         <outlet property="phoneTF" destination="XhB-Kb-jff" id="Ueg-H7-wcV"/>
                         <outlet property="positionTF" destination="jTd-TW-LoW" id="cl4-oL-ArY"/>
                         <outlet property="sexSegment" destination="vTr-CD-z3X" id="3LL-Qw-Wuh"/>
@@ -1218,6 +1227,44 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iyg-dn-qe0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1082.4000000000001" y="1656.521739130435"/>
+        </scene>
+        <!--Nation View Controller-->
+        <scene sceneID="g4H-MV-gVg">
+            <objects>
+                <viewController storyboardIdentifier="TJY_NationViewController" id="qFd-88-Ykb" customClass="TJY_NationViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pwg-JY-1Jj"/>
+                        <viewControllerLayoutGuide type="bottom" id="kgK-FG-dc8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Zlj-1K-YOe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fvP-qs-wV0">
+                                <rect key="frame" x="0.0" y="64" width="375" height="539"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="qFd-88-Ykb" id="tAg-Bv-xHc"/>
+                                    <outlet property="delegate" destination="qFd-88-Ykb" id="YHd-Xj-4Sd"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="fvP-qs-wV0" secondAttribute="trailing" id="9oO-CN-6V1"/>
+                            <constraint firstItem="fvP-qs-wV0" firstAttribute="leading" secondItem="Zlj-1K-YOe" secondAttribute="leading" id="V5M-bH-vCa"/>
+                            <constraint firstItem="fvP-qs-wV0" firstAttribute="top" secondItem="pwg-JY-1Jj" secondAttribute="bottom" constant="44" id="azf-Gw-jQN"/>
+                            <constraint firstItem="kgK-FG-dc8" firstAttribute="top" secondItem="fvP-qs-wV0" secondAttribute="bottom" id="hwV-CT-ySR"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="uta-2N-GbS"/>
+                    <connections>
+                        <outlet property="tableView" destination="fvP-qs-wV0" id="RdH-U1-BId"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OzF-ez-UNh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1855.2" y="1684.4077961019491"/>
         </scene>
     </scenes>
     <resources>

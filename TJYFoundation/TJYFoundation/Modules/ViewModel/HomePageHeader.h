@@ -25,6 +25,11 @@
 #define  ATTENDANCE_SIGN_NEWS_URL    @"api/Attendance/signNewList"
 #define  ATTENDANCE_SIGN_LIST_URL    @"api/Attendance/signList"
 #define  CUSTOMER_LIST_URL           @"api/customer/cus_list"
+#define  CUSTOMER_EDIT_URL           @"api/customer/cus_edit"
+#define  CUSTOMER_ADD_URL            @"api/customer/add_cus"
+#define  CUSTOMER_NATION_URL         @"api/public/getN"
+
+
 /*  model */
 #import "TJY_AdInfomation.h"
 #import "TJY_DutyList.h"
@@ -36,4 +41,5 @@
 #import "TJY_MySignInfo.h"
 #import "TJY_VisitInfo.h"
 #import "TJY_MyVisitInfo.h"
+#import "TJY_Nation.h"
 #endif /* HomePageHeader_h */

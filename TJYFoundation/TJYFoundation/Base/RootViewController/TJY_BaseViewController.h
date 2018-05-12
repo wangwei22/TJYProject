@@ -23,4 +23,5 @@
 
 -(NSString *)dateWithTimeIntervalString:(NSString *)string;
 - (int)compareOneDay:(NSDate *)oneDay withAnotherDay:(NSDate *)anotherDay;
+- (NSString *)Charactor:(NSString *)aString getFirstCharactor:(BOOL)isGetFirst;
 @end
